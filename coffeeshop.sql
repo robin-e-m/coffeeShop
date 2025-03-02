@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 02, 2025 at 06:06 PM
+-- Generation Time: Mar 02, 2025 at 09:53 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -20,17 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `coffeeshop`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `category`
---
-
-CREATE TABLE `category` (
-  `categoryID` int(3) NOT NULL,
-  `name` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -64,7 +53,7 @@ CREATE TABLE `menu` (
   `name` varchar(30) NOT NULL,
   `description` varchar(100) NOT NULL,
   `price` decimal(4,0) NOT NULL,
-  `categoryID` int(3) NOT NULL
+  `category` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -84,14 +73,13 @@ CREATE TABLE `order` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `orderitem`
+-- Table structure for table `ordermenu`
 --
 
-CREATE TABLE `orderitem` (
+CREATE TABLE `ordermenu` (
   `orderItemID` int(3) NOT NULL,
   `orderID` int(255) NOT NULL,
-  `itemID` int(3) NOT NULL,
-  `quantity` int(2) NOT NULL
+  `itemID` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -124,12 +112,6 @@ CREATE TABLE `staff` (
 --
 
 --
--- Indexes for table `category`
---
-ALTER TABLE `category`
-  ADD PRIMARY KEY (`categoryID`);
-
---
 -- Indexes for table `customer`
 --
 ALTER TABLE `customer`
@@ -145,13 +127,17 @@ ALTER TABLE `menu`
 -- Indexes for table `order`
 --
 ALTER TABLE `order`
-  ADD PRIMARY KEY (`orderID`);
+  ADD PRIMARY KEY (`orderID`),
+  ADD KEY `order_ibfk_1` (`customerID`),
+  ADD KEY `order_ibfk_2` (`staffID`);
 
 --
--- Indexes for table `orderitem`
+-- Indexes for table `ordermenu`
 --
-ALTER TABLE `orderitem`
-  ADD PRIMARY KEY (`orderItemID`);
+ALTER TABLE `ordermenu`
+  ADD PRIMARY KEY (`orderItemID`),
+  ADD KEY `orderitem_ibfk_1` (`orderID`),
+  ADD KEY `orderitem_ibfk_2` (`itemID`);
 
 --
 -- Indexes for table `staff`
@@ -162,12 +148,6 @@ ALTER TABLE `staff`
 --
 -- AUTO_INCREMENT for dumped tables
 --
-
---
--- AUTO_INCREMENT for table `category`
---
-ALTER TABLE `category`
-  MODIFY `categoryID` int(3) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `customer`
@@ -188,9 +168,9 @@ ALTER TABLE `order`
   MODIFY `orderID` int(255) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `orderitem`
+-- AUTO_INCREMENT for table `ordermenu`
 --
-ALTER TABLE `orderitem`
+ALTER TABLE `ordermenu`
   MODIFY `orderItemID` int(3) NOT NULL AUTO_INCREMENT;
 
 --
@@ -198,6 +178,24 @@ ALTER TABLE `orderitem`
 --
 ALTER TABLE `staff`
   MODIFY `staffID` int(3) NOT NULL AUTO_INCREMENT;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `order`
+--
+ALTER TABLE `order`
+  ADD CONSTRAINT `order_ibfk_1` FOREIGN KEY (`customerID`) REFERENCES `customer` (`customerID`),
+  ADD CONSTRAINT `order_ibfk_2` FOREIGN KEY (`staffID`) REFERENCES `staff` (`staffID`);
+
+--
+-- Constraints for table `ordermenu`
+--
+ALTER TABLE `ordermenu`
+  ADD CONSTRAINT `ordermenu_ibfk_1` FOREIGN KEY (`orderID`) REFERENCES `order` (`orderID`),
+  ADD CONSTRAINT `ordermenu_ibfk_2` FOREIGN KEY (`itemID`) REFERENCES `menu` (`itemID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

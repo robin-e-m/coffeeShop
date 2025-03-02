@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 28, 2025 at 12:18 AM
+-- Generation Time: Mar 02, 2025 at 06:06 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -48,30 +48,9 @@ CREATE TABLE `customer` (
   `answer` varchar(50) NOT NULL,
   `address` varchar(50) NOT NULL,
   `city` varchar(15) NOT NULL,
-  `zip` int(5) NOT NULL,
-  `phone` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `manager`
---
-
-CREATE TABLE `manager` (
-  `managerID` int(3) NOT NULL,
-  `name` varchar(50) NOT NULL,
-  `username` varchar(15) NOT NULL,
-  `password` varchar(20) NOT NULL,
-  `email` varchar(50) NOT NULL,
-  `ownerStatus` tinyint(1) NOT NULL,
-  `question` varchar(50) NOT NULL,
-  `answer` varchar(50) NOT NULL,
-  `address` varchar(50) NOT NULL,
-  `city` varchar(20) NOT NULL,
-  `zip` int(5) NOT NULL,
-  `phone` int(10) NOT NULL,
-  `payRate` int(4) NOT NULL
+  `zip` varchar(5) NOT NULL,
+  `phone` varchar(10) NOT NULL,
+  `state` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -98,7 +77,8 @@ CREATE TABLE `order` (
   `orderID` int(255) NOT NULL,
   `customerID` int(3) NOT NULL,
   `date` date NOT NULL,
-  `time` time(6) NOT NULL
+  `time` time(6) NOT NULL,
+  `staffID` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -108,7 +88,7 @@ CREATE TABLE `order` (
 --
 
 CREATE TABLE `orderitem` (
-  `orderItemID` int(255) NOT NULL,
+  `orderItemID` int(3) NOT NULL,
   `orderID` int(255) NOT NULL,
   `itemID` int(3) NOT NULL,
   `quantity` int(2) NOT NULL
@@ -126,14 +106,17 @@ CREATE TABLE `staff` (
   `username` varchar(15) NOT NULL,
   `password` varchar(20) NOT NULL,
   `email` varchar(50) NOT NULL,
-  `phone` int(10) NOT NULL,
+  `phone` varchar(10) NOT NULL,
   `address` varchar(50) NOT NULL,
   `city` varchar(50) NOT NULL,
-  `zip` int(5) NOT NULL,
+  `zip` varchar(5) NOT NULL,
   `question` varchar(50) NOT NULL,
   `answer` varchar(50) NOT NULL,
-  `payRate` int(5) NOT NULL,
-  `hireDate` date NOT NULL
+  `payRate` decimal(5,2) NOT NULL,
+  `hireDate` date NOT NULL,
+  `manager` tinyint(1) NOT NULL,
+  `owner` tinyint(1) NOT NULL,
+  `state` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -151,12 +134,6 @@ ALTER TABLE `category`
 --
 ALTER TABLE `customer`
   ADD PRIMARY KEY (`customerID`);
-
---
--- Indexes for table `manager`
---
-ALTER TABLE `manager`
-  ADD PRIMARY KEY (`managerID`);
 
 --
 -- Indexes for table `menu`
@@ -199,12 +176,6 @@ ALTER TABLE `customer`
   MODIFY `customerID` int(3) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `manager`
---
-ALTER TABLE `manager`
-  MODIFY `managerID` int(3) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `menu`
 --
 ALTER TABLE `menu`
@@ -220,7 +191,7 @@ ALTER TABLE `order`
 -- AUTO_INCREMENT for table `orderitem`
 --
 ALTER TABLE `orderitem`
-  MODIFY `orderItemID` int(255) NOT NULL AUTO_INCREMENT;
+  MODIFY `orderItemID` int(3) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `staff`

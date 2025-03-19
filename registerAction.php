@@ -27,8 +27,11 @@ $usertype = $_GET["usertype"];
 
 
 $sql = "insert into users values (0, '" . $name. "', '" . $user . "', '" .
+        
     $pswd . "', '" .  $address . "', '" . $city . "', '" . $state . "', '" .
+        
     $zip . "', '" . $phone . "', '" . $email . "', '" . $question . "', '" .
+        
     $answer . "', '" . $pay . "', '" . $hire . "', '" . $usertype . "')";
 
 echo modifyDB($sql) . "<br>Use back button to return";

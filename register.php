@@ -15,12 +15,12 @@
 
                 <div>
                     <label>Full Name</label>
-                    <input type="text" name="name" size="50" required/>
+                    <input type="text" name="name" size="40" required/>
                 </div>
 
                 <div>
                     <label>Username</label>
-                    <input type="text" name="username" size="50" required/>
+                    <input type="text" name="username" size="15" required/>
                 </div>
 
                 <div>
@@ -36,12 +36,12 @@
 
                 <div>
                     <label>Street Address</label>
-                    <input type="text" name="address" size="30" required />
+                    <input type="text" name="address" size="50" required />
                 </div>
 
                 <div>
                     <label>City</label>
-                    <input type="text" name="city" size="20" required />
+                    <input type="text" name="city" size="50" required />
                 </div>
 
                 <div>
@@ -114,17 +114,27 @@
 
                 <div>
                     <label>E-Mail</label>
-                    <input type="email" name="email" size="30" required/>
+                    <input type="email" name="email" size="50" required/>
+                </div>
+
+                <div>
+                    <label>Security Question</label>
+                    <input type="text" name="question" size="50" />
+                </div>
+
+                <div>
+                    <label>Answer</label>
+                    <input type="password" name="answer" size="50" required/>
                 </div>
 
                 <div>
                     <label>Pay Rate</label>
-                    <input type="text" name="pay" size="10" />
+                    <input type="text" name="pay" size="5" />
                 </div>
 
                 <div>
                     <label>Hire Date</label>
-                    <input type="email" name="email" size="10" required/>
+                    <input type="email" name="email" size="8" required/>
                 </div>
 
                 <div>

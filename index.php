@@ -20,6 +20,7 @@
         <p> Temporary links to new pages I have created, for testing purposes only and will be deleted as more content is created.
             <br>
         <a href="manager.php">Managers Page</a>
+        <br>
         <a href="register.php">Click here to add new employees</a>
         
         </p>

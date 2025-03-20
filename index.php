@@ -22,6 +22,8 @@
         <a href="manager.php">Managers Page</a>
         <br>
         <a href="register.php">Click here to add new employees</a>
+        <br>
+        <a href="registerCustomer.php">Customer registration</a>
         
         </p>
 

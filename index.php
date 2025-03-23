@@ -1,16 +1,21 @@
 <!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edit this template
--->
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title></title>
-    </head>
-    <body>
-        <?php
-        // put your code here
-        ?>
-    </body>
+  <head>
+    <title>text</title>
+  <br>
+  <?php include 'header.php' ?>
+</head>
+<body>
+    <div class="boxed">
+        <style> 
+        body  {
+        background-color: lightblue
+        }
+        </style>
+        
+    </div>
+    <h1 style="text-align:center;"> Welcome to the Coffee Shop</h1>
+  <br>
+  <?php include 'footer.php' ?>
+</body>
 </html>

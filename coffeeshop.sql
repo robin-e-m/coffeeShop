@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 19, 2025 at 06:19 PM
+-- Generation Time: Mar 24, 2025 at 04:42 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -38,6 +38,13 @@ CREATE TABLE `customer` (
   `answer` varchar(50) NOT NULL,
   `usertype` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `customer`
+--
+
+INSERT INTO `customer` (`customerID`, `username`, `password`, `name`, `email`, `phone`, `question`, `answer`, `usertype`) VALUES
+(2, 'user1', 'coffee', 'Customer McCustomer', 'coffeestuff@coffee.com', '9785551234', 'beep boop?', 'yes', 3);
 
 -- --------------------------------------------------------
 
@@ -150,7 +157,7 @@ ALTER TABLE `staff`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `customerID` int(3) NOT NULL AUTO_INCREMENT;
+  MODIFY `customerID` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `menu`

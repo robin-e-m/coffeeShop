@@ -5,16 +5,12 @@
     <br>
     <?php include 'header.php' ?>
 </head>
-<body>
-    <div class="boxed">
-        <style>
-            body  {
-                background-color: lightblue
-            }
-        </style>
 
-    </div>
-    <h1 style="text-align:center;"> work in progress :) </h1>
+<body>
+    <h1> work in progress :) </h1>
+    
+    
+    <br>
     <br>
     <?php include 'footer.php' ?>
 </body>

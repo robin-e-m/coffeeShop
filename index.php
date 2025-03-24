@@ -17,7 +17,7 @@
         
         -->
 
-        <p> Temporary links to new pages I have created, for testing purposes only and will be deleted as more content is created.
+        <p> Temporary links to new pages created, for testing purposes only and will be deleted as more content is created.
             <br>
         <a href="manager.php">Managers Page</a>
         <br>
@@ -26,9 +26,6 @@
         <a href="registerCustomer.php">Customer registration</a>
         
         </p>
-
-
-
 
         <br>
         <br>

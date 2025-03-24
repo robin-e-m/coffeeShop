@@ -9,7 +9,7 @@
     <body>
         <h2>Manager Page</h2>
 
-        <a href="signup.php">Click here to add new customers</a>
+        <a href="registerCustomer.php">Click here to add new customers</a>
         <br>
         <a href="register.php">Click here to add new employees</a>
 

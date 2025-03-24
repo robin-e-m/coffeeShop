@@ -1,4 +1,5 @@
 <head>
+
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -31,7 +32,7 @@
       <div class="w3-panel w3-padding-32 w3-red">
       <a href="index.php" class="w3-bar-item w3-button w3-mobile ">Home</a>
       <a href="OnlineStore.php" class="w3-bar-item w3-button w3-mobile">online store</a>
-      <a href="register.php" class="w3-bar-item w3-button w3-mobile ">Register</a>
+      <a href="registerCustomer.php" class="w3-bar-item w3-button w3-mobile ">Register</a>
       <div class="w3-dropdown-hover w3-mobile">
         <button class="w3-button">About <i class="fa fa-caret-down"></i></button>
         <div class="w3-dropdown-content w3-bar-block w3-dark-grey">
@@ -72,4 +73,3 @@
        </div>
     </div>
 </body>
-

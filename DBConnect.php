@@ -2,8 +2,8 @@
 
 //connection string
 $servername = "localhost";
-$username = "mahadev";
-$password = "mahadev";
+$username = "rmorri17";
+$password = "CSC4400!!";
 $dbname = "coffeeshop";
 $conn;
 

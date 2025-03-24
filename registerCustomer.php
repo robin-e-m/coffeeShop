@@ -52,7 +52,7 @@
                     <label>Answer</label>
                     <input type="password" name="answer" size="50" required/>
                 </div>
-                
+
                 <input type="hidden" name="usertype" value="3">
 
                 <div class="item">

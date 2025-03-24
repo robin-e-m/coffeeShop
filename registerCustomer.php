@@ -4,8 +4,10 @@
     <head>
         <meta charset="UTF-8">
         <title>New Customer Registration</title>
-        <?php include 'header.php' ?>
+
+        <?php include "header.php" ?>
     </head>
+    
     <body>
         <h1>New Customer Registration</h1>
         <div>

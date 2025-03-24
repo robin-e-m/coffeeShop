@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-
 <div>   
     &copy;2024 Glenda Franco, Evan Garrity, Robin Morris
     <br>

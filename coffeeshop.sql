@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 03, 2025 at 05:53 PM
+-- Generation Time: Mar 19, 2025 at 06:19 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -33,13 +33,10 @@ CREATE TABLE `customer` (
   `password` varchar(20) NOT NULL,
   `name` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
+  `phone` varchar(10) NOT NULL,
   `question` varchar(100) NOT NULL,
   `answer` varchar(50) NOT NULL,
-  `address` varchar(50) NOT NULL,
-  `city` varchar(15) NOT NULL,
-  `zip` varchar(5) NOT NULL,
-  `phone` varchar(10) NOT NULL,
-  `state` varchar(2) NOT NULL
+  `usertype` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -98,14 +95,13 @@ CREATE TABLE `staff` (
   `phone` varchar(10) NOT NULL,
   `address` varchar(50) NOT NULL,
   `city` varchar(50) NOT NULL,
+  `state` varchar(2) NOT NULL,
   `zip` varchar(5) NOT NULL,
   `question` varchar(50) NOT NULL,
   `answer` varchar(50) NOT NULL,
   `payRate` decimal(5,2) NOT NULL,
   `hireDate` date NOT NULL,
-  `manager` tinyint(1) NOT NULL,
-  `owner` tinyint(1) NOT NULL,
-  `state` varchar(2) NOT NULL
+  `usertype` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --

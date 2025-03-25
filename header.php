@@ -67,6 +67,7 @@
                             <button type="submit" class="btn w3-right w3-black">Login</button>
                         </div>
                     </form>
+                    <a href="resetPassword.php">Forgot password?</a>
                 </div>
             <?php endif; ?>
         </div>

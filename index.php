@@ -9,15 +9,8 @@
     </head>
 
     <body>
-        <div class="boxed">
-            <style>
-                body  {
-                    background-color: lightblue
-                }
-            </style>
 
-        </div>
-        <h1 style="text-align:center;"> Welcome to the Coffee Shop</h1>
+        <h1> Welcome to the Coffee Shop</h1>
         <br>
         <!-- 
         
@@ -29,7 +22,9 @@
             <br>
             <a href="manager.php">Managers Page</a>
             <br>
-            <a href="register.php">Click here to add new employees</a>
+             <a href="staff.php">Staff Page</a>
+            <br>
+            <a href="register.php">Employee Registration</a>
             <br>
             <a href="registerCustomer.php">Customer registration</a>
 

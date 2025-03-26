@@ -20,9 +20,11 @@
 
         <p> Temporary links to new pages created, for testing purposes only and will be deleted as more content is created.
             <br>
-            <a href="manager.php">Managers Page</a>
+            <a href="manager.php">Manager Page</a>
             <br>
              <a href="staff.php">Staff Page</a>
+             <br>
+             <a href="customer.php">Customer Page</a>
             <br>
             <a href="register.php">Employee Registration</a>
             <br>

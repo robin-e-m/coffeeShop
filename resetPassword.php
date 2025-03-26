@@ -6,6 +6,7 @@
         <title>New Customer Registration</title>
         <?php include 'header.php'?>
     </head>
+    
     <body>
         <h1>Password Reset</h1>
         <h2>Please enter your username to proceed</h2>

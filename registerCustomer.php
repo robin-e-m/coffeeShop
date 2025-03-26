@@ -7,11 +7,6 @@
         <?php include 'header.php' ?>
     </head>
     <body>
-        <style>
-                body  {
-                    background-color: lightblue
-                }
-            </style>
         <h1>New Customer Registration</h1>
         <div>
 

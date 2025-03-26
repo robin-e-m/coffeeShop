@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>text</title>
+        <title>Staff</title>
     <br>
     <?php include 'header.php' ?>
 </head>
 
 <body>
-    <h1> work in progress :) </h1>
+    <h1> Staff Page work in progress :) </h1>
     
     
     <br>

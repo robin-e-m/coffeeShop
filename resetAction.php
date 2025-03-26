@@ -7,12 +7,12 @@ $user = isset($_GET["username"]) ? $_GET["username"] : (isset($_POST["username"]
 $result_staff = null; //needs a default value, otherwise throws error if user is customer
 
 //check customer table for username
-$sql_customer = "SELECT question, answer FROM customer WHERE username = '$user'";
+$sql_customer = "SELECT question, answer FROM user WHERE username = '$user'";
 $result_customer = queryDB($sql_customer);
 
 //if username not in customer table, check staff table
 if (mysqli_num_rows($result_customer) == 0) {
-    $sql_staff = "SELECT question, answer FROM staff WHERE username = '$user'";
+    $sql_staff = "SELECT question, answer FROM user WHERE username = '$user'";
     $result_staff = queryDB($sql_staff);
 }
 

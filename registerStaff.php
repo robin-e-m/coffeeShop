@@ -3,12 +3,12 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Register</title>
+        <title>Register Staff</title>
          <?php include "header.php" ?>
         
     </head>
     <body>
-        <h1>Add new employee</h1>
+        <h1>Staff Registration</h1>
 
         <br>
         <div>

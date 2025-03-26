@@ -26,7 +26,7 @@
              <br>
              <a href="customer.php">Customer Page</a>
             <br>
-            <a href="register.php">Employee Registration</a>
+            <a href="registerStaff.php">Employee Registration</a>
             <br>
             <a href="registerCustomer.php">Customer registration</a>
 

@@ -5,7 +5,7 @@ require "DBConnect.php";
 $user = $_POST["user"];
 $pwd = $_POST["pwd"];
 
-$sql = "select customerID, name, usertype from customer where username = ? and password = ?";
+$sql = "select userID, name, usertype from user where username = ? and password = ?";
 $result = loginDB($sql, $user, $pwd);
 
 if (gettype($result) == "object") {

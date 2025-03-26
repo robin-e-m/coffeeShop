@@ -29,7 +29,7 @@
     ?>
     <div class="w3-cell-row boxed">
         <div class="w3-panel w3-padding-32 w3-red">
-            <a href="<?php echo $homepage; ?>" class="w3-bar-item w3-button w3-mobile ">Home</a>
+            <a href="index.php" class="w3-bar-item w3-button w3-mobile ">Home</a>
             <a href="OnlineStore.php" class="w3-bar-item w3-button w3-mobile">Online Store</a>
             <a href="<?php echo $register; ?>" class="w3-bar-item w3-button w3-mobile ">Register</a>
             <div class="w3-dropdown-hover w3-mobile">

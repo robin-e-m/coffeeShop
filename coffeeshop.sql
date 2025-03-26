@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 24, 2025 at 04:42 PM
+-- Generation Time: Mar 26, 2025 at 01:42 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -44,7 +44,7 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`customerID`, `username`, `password`, `name`, `email`, `phone`, `question`, `answer`, `usertype`) VALUES
-(2, 'user1', 'coffee', 'Customer McCustomer', 'coffeestuff@coffee.com', '9785551234', 'beep boop?', 'yes', 3);
+(2, 'user1', 'reset5', 'Customer McCustomer', 'coffeestuff@coffee.com', '9785551234', 'beep boop?', 'yes', 3);
 
 -- --------------------------------------------------------
 

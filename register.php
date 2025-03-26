@@ -136,7 +136,7 @@
 
                 <div>
                     <label>Hire Date</label>
-                    <input type="email" name="email" size="8" required/>
+                    <input type="text" name="hire" size="8" required/>
                 </div>
 
                 <div>

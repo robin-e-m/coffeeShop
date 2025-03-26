@@ -10,9 +10,15 @@
         <h1>Password Reset</h1>
         <h2>Please enter your username to proceed</h2>
         <div>
+              
+            <!-- displays error message if redirected after failed attempt -->
+            <?php
+            if (isset($_GET['error']) && $_GET['error'] == 'username_not_found') {
+                echo "<p>Username not found.</p>";
+            }
+            ?>
 
-            <form name="reset_password" action="securityCheck.php" method="get">
-                
+            <form name="reset_password" action="resetAction.php" method="get">
                 <div>
                     <label>Username</label>
                     <input type="text" name="username" size="15" required/>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 26, 2025 at 01:42 AM
+-- Generation Time: Mar 26, 2025 at 03:06 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -44,7 +44,7 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`customerID`, `username`, `password`, `name`, `email`, `phone`, `question`, `answer`, `usertype`) VALUES
-(2, 'user1', 'reset5', 'Customer McCustomer', 'coffeestuff@coffee.com', '9785551234', 'beep boop?', 'yes', 3);
+(2, 'user1', 'coffee', 'Customer McCustomer', 'coffeestuff@coffee.com', '9785551234', 'beep boop?', 'yes', 3);
 
 -- --------------------------------------------------------
 
@@ -110,6 +110,14 @@ CREATE TABLE `staff` (
   `hireDate` date NOT NULL,
   `usertype` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `staff`
+--
+
+INSERT INTO `staff` (`staffID`, `name`, `username`, `password`, `email`, `phone`, `address`, `city`, `state`, `zip`, `question`, `answer`, `payRate`, `hireDate`, `usertype`) VALUES
+(1, 'Betty Boop', 'bboop1', '987Boop!', '987 Olive Street', 'Pearl', 'ga', '01234', '01', 'bboop', 'What is your favorite color?', 'Orange', 17.00, '0000-00-00', 1),
+(2, 'Joe Johnson', 'JJohnson', '654John', '654 Grove Avenue', 'Ruby', 'md', '74108', '85', 'jjohn', 'How do you like your eggs cooked?', 'Scrambled', 17.00, '0000-00-00', 2);
 
 --
 -- Indexes for dumped tables
@@ -181,7 +189,7 @@ ALTER TABLE `ordermenu`
 -- AUTO_INCREMENT for table `staff`
 --
 ALTER TABLE `staff`
-  MODIFY `staffID` int(3) NOT NULL AUTO_INCREMENT;
+  MODIFY `staffID` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables

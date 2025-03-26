@@ -12,26 +12,26 @@
     session_start();
     if (isset($_SESSION['usertype'])) {
         $usertype = $_SESSION['usertype'];
-        if ($usertype == 1) {
-            $homepage = "admin.php";
-            $register = "register.php";
-        } else if ($usertype == 2) {
+        if ($usertype == 1) { //manager is logged in
+            $homepage = "manager.php";
+            $register = "registerStaff.php";
+        } else if ($usertype == 2) { //staff is logged in
             $homepage = "staff.php";
-            $register = "register.php";
+            $register = "registerStaff.php";
         } else {
-            $homepage = "customer.php";
-            $register = "register.php";
+            $homepage = "customer.php"; //customer is logged in
+            $register = "registerCustomer.php";
         }
-    } else {
+    } else { //failed sign in
         $homepage = "index.php";
-        $register = "signup.php";
+        $register = "registerCustomer.php";
     }
     ?>
     <div class="w3-cell-row boxed">
         <div class="w3-panel w3-padding-32 w3-red">
             <a href="index.php" class="w3-bar-item w3-button w3-mobile ">Home</a>
-            <a href="OnlineStore.php" class="w3-bar-item w3-button w3-mobile">online store</a>
-            <a href="registerCustomer.php" class="w3-bar-item w3-button w3-mobile ">Register</a>
+            <a href="OnlineStore.php" class="w3-bar-item w3-button w3-mobile">Online Store</a>
+            <a href="<?php echo $register; ?>" class="w3-bar-item w3-button w3-mobile ">Register</a>
             <div class="w3-dropdown-hover w3-mobile">
                 <button class="w3-button">About <i class="fa fa-caret-down"></i></button>
                 <div class="w3-dropdown-content w3-bar-block w3-dark-grey">
@@ -67,6 +67,7 @@
                             <button type="submit" class="btn w3-right w3-black">Login</button>
                         </div>
                     </form>
+                    <a href="resetPassword.php">Forgot password?</a>
                 </div>
             <?php endif; ?>
         </div>

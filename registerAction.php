@@ -17,27 +17,31 @@ $answer = $_GET["answer"];
 
 $usertype = $_GET["usertype"];
 
-if ($usertype == "1" || $usertype == "2") { //if manager or staff
-    $address = $_GET["address"];
-    $city = $_GET["city"];
-    $state = $_GET["state"];
-    $zip = $_GET["zip"];
-
-    $pay = $_GET["pay"];
-    $hire = $_GET["hire"];
-}
-
+$address = $_GET["address"];
+$city = $_GET["city"];
+$state = $_GET["state"];
+$zip = $_GET["zip"];
 
 if ($usertype == "3") { //if customer
-    $sql = "insert into customer values (0, '" . $user . "', '" .
-            $pswd . "', '" . $name . "', '" . $email . "', '" . $phone . "', '" . $question . "', '" .
-            $answer . "', '" . $usertype . "')";
-} else {
-    $sql = "insert into staff values (0, '" . $name . "', '" . $user . "', '" .
+    
+    $pay = 0.00;
+    $hire = 0000-00-00;
+     
+    $sql = "insert into user values (0, '" . $name . "', '" . $user . "', '" .
             $pswd . "', '" . $address . "', '" . $city . "', '" . $state . "', '" .
             $zip . "', '" . $phone . "', '" . $email . "', '" . $question . "', '" .
             $answer . "', '" . $pay . "', '" . $hire . "', '" . $usertype . "')";
+} else { //if manager or staff
+    
+    $pay = $_GET["pay"];
+    $hire = $_GET["hire"];
+    
 }
 
+
+$sql = "insert into user values (0, '" . $name . "', '" . $user . "', '" .
+            $pswd . "', '" . $address . "', '" . $city . "', '" . $state . "', '" .
+            $zip . "', '" . $phone . "', '" . $email . "', '" . $question . "', '" .
+            $answer . "', '" . $pay . "', '" . $hire . "', '" . $usertype . "')";
 echo modifyDB($sql) . "<br>Use back button to return";
 ?>

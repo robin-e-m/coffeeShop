@@ -1,14 +1,19 @@
 <!DOCTYPE html>
-
+<?php
+include 'header.php';
+if (!(isset($_SESSION['usertype'])) or $usertype != 1) {
+    header("Location:index.php");
+    exit;
+}
+?>
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Register</title>
-         <?php include "header.php" ?>
-        
+        <title>Register Staff</title>
+
     </head>
     <body>
-        <h1>Add new employee</h1>
+        <h1>Staff Registration</h1>
 
         <br>
         <div>
@@ -136,7 +141,7 @@
 
                 <div>
                     <label>Hire Date</label>
-                    <input type="email" name="email" size="8" required/>
+                    <input type="text" name="hire" size="8" required/>
                 </div>
 
                 <div>

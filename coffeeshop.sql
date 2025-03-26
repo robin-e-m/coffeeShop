@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 24, 2025 at 04:42 PM
+-- Generation Time: Mar 26, 2025 at 02:42 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -20,31 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `coffeeshop`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `customer`
---
-
-CREATE TABLE `customer` (
-  `customerID` int(3) NOT NULL,
-  `username` varchar(15) NOT NULL,
-  `password` varchar(20) NOT NULL,
-  `name` varchar(50) NOT NULL,
-  `email` varchar(50) NOT NULL,
-  `phone` varchar(10) NOT NULL,
-  `question` varchar(100) NOT NULL,
-  `answer` varchar(50) NOT NULL,
-  `usertype` int(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `customer`
---
-
-INSERT INTO `customer` (`customerID`, `username`, `password`, `name`, `email`, `phone`, `question`, `answer`, `usertype`) VALUES
-(2, 'user1', 'coffee', 'Customer McCustomer', 'coffeestuff@coffee.com', '9785551234', 'beep boop?', 'yes', 3);
 
 -- --------------------------------------------------------
 
@@ -90,11 +65,11 @@ CREATE TABLE `ordermenu` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `staff`
+-- Table structure for table `user`
 --
 
-CREATE TABLE `staff` (
-  `staffID` int(3) NOT NULL,
+CREATE TABLE `user` (
+  `userID` int(3) NOT NULL,
   `name` varchar(40) NOT NULL,
   `username` varchar(15) NOT NULL,
   `password` varchar(20) NOT NULL,
@@ -112,14 +87,17 @@ CREATE TABLE `staff` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Indexes for dumped tables
+-- Dumping data for table `user`
 --
 
+INSERT INTO `user` (`userID`, `name`, `username`, `password`, `email`, `phone`, `address`, `city`, `state`, `zip`, `question`, `answer`, `payRate`, `hireDate`, `usertype`) VALUES
+(1, 'Betty Boop', 'bboop1', '987Boop!', '987 Olive Street', 'Pearl', 'ga', '01234', '01', 'bboop', 'What is your favorite color?', 'Orange', 17.00, '0000-00-00', 1),
+(2, 'Joe Johnson', 'JJohnson', '654John', '654 Grove Avenue', 'Ruby', 'md', '74108', '85', 'jjohn', 'How do you like your eggs cooked?', 'Scrambled', 17.00, '0000-00-00', 2),
+(4, 'customer 1', 'user1', 'coffee', '36 Street Address', 'Igloo', 'ak', '98754', '01', 'custo', 'beep boop?', 'yes', 0.00, '0000-00-00', 3);
+
 --
--- Indexes for table `customer`
+-- Indexes for dumped tables
 --
-ALTER TABLE `customer`
-  ADD PRIMARY KEY (`customerID`);
 
 --
 -- Indexes for table `menu`
@@ -144,20 +122,14 @@ ALTER TABLE `ordermenu`
   ADD KEY `orderitem_ibfk_2` (`itemID`);
 
 --
--- Indexes for table `staff`
+-- Indexes for table `user`
 --
-ALTER TABLE `staff`
-  ADD PRIMARY KEY (`staffID`);
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`userID`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
-
---
--- AUTO_INCREMENT for table `customer`
---
-ALTER TABLE `customer`
-  MODIFY `customerID` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `menu`
@@ -178,21 +150,14 @@ ALTER TABLE `ordermenu`
   MODIFY `orderItemID` int(3) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `staff`
+-- AUTO_INCREMENT for table `user`
 --
-ALTER TABLE `staff`
-  MODIFY `staffID` int(3) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `user`
+  MODIFY `userID` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
 --
-
---
--- Constraints for table `order`
---
-ALTER TABLE `order`
-  ADD CONSTRAINT `order_ibfk_1` FOREIGN KEY (`customerID`) REFERENCES `customer` (`customerID`),
-  ADD CONSTRAINT `order_ibfk_2` FOREIGN KEY (`staffID`) REFERENCES `staff` (`staffID`);
 
 --
 -- Constraints for table `ordermenu`

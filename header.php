@@ -20,12 +20,12 @@
         $homepage = "staff.php";
         $register = "register.php";
       } else {
-        $homepage = "customer.php";
-        $register = "register.php";
+        $homepage = "welcome.php";
+        $register = "registerCustomer.php";
       }
     } else {
       $homepage = "index.php";
-      $register = "signup.php";
+      $register = "registerCustomer.php";
     }
     ?>
     <div class="w3-cell-row boxed">
@@ -58,11 +58,11 @@
                 <form class="form-inline" name="login" action="loginAction.php" method="post">
                   <div class="form-group">
                     <label for="user">User:</label>
-                    <input type="text" class="form-control" required placeholder="Enter Username" name="user">
+                    <input type="text" class="form-control" required placeholder="Enter Username" name="username">
                   </div>
                   <div class="form-group">
                     <label for="pwd">Password:</label>
-                    <input type="password" class="form-control" required placeholder="Enter password" name="pwd">
+                    <input type="password" class="form-control" required placeholder="Enter password" name="pass">
                   </div>
                   <div class="form-group">
                     <button type="submit" class="btn w3-right w3-black">Login</button>

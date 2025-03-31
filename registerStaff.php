@@ -37,23 +37,22 @@ if (!(isset($_SESSION['usertype'])) or $usertype != 1) {
 
                 <div>
                     <label>Full Name</label>
-                    <input type="text" name="name" size="40" required/>
+                    <input type="text" name="name" size="40" required />
                 </div>
 
                 <div>
                     <label>Username</label>
-                    <input type="text" name="username" size="15" required/>
+                    <input type="text" name="username" size="15" required />
                 </div>
 
                 <div>
                     <label>Password</label>
-                    <input type="password" name="pass" size="20" required/>
+                    <input type="password" name="pass" size="20" required />
                 </div>
 
                 <div>
                     <label>Confirm Password</label>
-                    <input type="password" name="pass2" size="20" required/>
-
+                    <input type="password" name="pass2" size="20" required />
                 </div>
 
                 <div>
@@ -68,7 +67,7 @@ if (!(isset($_SESSION['usertype'])) or $usertype != 1) {
 
                 <div>
                     <label>State</label>
-                    <select name="state" required>
+                    <select name="state" required >
                         <option disabled selected value>Select your state</option>
                         <option value="al">AL</option>
                         <option value="ak">AK</option>
@@ -126,42 +125,42 @@ if (!(isset($_SESSION['usertype'])) or $usertype != 1) {
 
                 <div>
                     <label>Zip Code</label>
-                    <input type="text" name="zip" size="5" />
+                    <input type="text" name="zip" size="5" required />
                 </div>
 
                 <div>
                     <label>Phone Number</label>
-                    <input type="text" name="phone" size="10" />
+                    <input type="text" name="phone" size="10" required />
                 </div>
 
                 <div>
                     <label>E-Mail</label>
-                    <input type="email" name="email" size="50" required/>
+                    <input type="email" name="email" size="50" required />
                 </div>
 
                 <div>
                     <label>Security Question</label>
-                    <input type="text" name="question" size="50" />
+                    <input type="text" name="question" size="50" required />
                 </div>
 
                 <div>
                     <label>Answer</label>
-                    <input type="password" name="answer" size="50" required/>
+                    <input type="password" name="answer" size="50" required />
                 </div>
 
                 <div>
                     <label>Pay Rate</label>
-                    <input type="text" name="pay" size="5" />
+                    <input type="text" name="pay" size="5" required />
                 </div>
 
                 <div>
                     <label>Hire Date</label>
-                    <input type="date" name="hire" size="8" required/>
+                    <input type="date" name="hire" size="8" required />
                 </div>
 
                 <div>
                     <label>User Type:</label>
-                    <select name="usertype" required>
+                    <select name="usertype" required >
                         <option value="">Select employee type</option>
                         <option value="1">1. Manager</option>
                         <option value="2">2. Staff</option>

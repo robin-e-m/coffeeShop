@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 30, 2025 at 09:17 PM
+-- Generation Time: Mar 31, 2025 at 05:06 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -93,7 +93,9 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`userID`, `name`, `username`, `password`, `email`, `phone`, `address`, `city`, `state`, `zip`, `question`, `answer`, `payRate`, `hireDate`, `usertype`) VALUES
 (6, 'Manager 1', 'manager1', 'manager1', 'manager1@testing.gov', '8520741963', '7411 Practice Street', 'Fitchburg', 'me', '98765', 'what is your favorite food?', 'pizza', 17.00, '2025-03-15', 1),
 (7, 'staff 1', 'staff1', 'staff1', 'staff1@practice.org', '0123456789', '987 Olive Avenue', 'Pearl', 'ky', '96301', 'what is your favorite color?', 'orange', 15.00, '2025-03-19', 2),
-(8, 'customer 1', 'customer1', 'coffee', 'customer1@coffeeshop.com', '7410852963', '123 Gemstone Drive', 'Noting', 'ga', '75342', 'beep boop?', 'yes', 0.00, '0000-00-00', 3);
+(8, 'customer 1', 'customer1', 'coffee', 'customer1@coffeeshop.com', '7410852963', '123 Gemstone Drive', 'Noting', 'ga', '75342', 'beep boop?', 'yes', 0.00, '0000-00-00', 3),
+(9, 'customer 2', 'customer2', 'customer2', 'customer2@coffeeshop.com', '9518479632', '741 Software Circle', 'Milano', 'tn', '32165', 'Favorite place?', 'new york', 0.00, '0000-00-00', 3),
+(10, 'staff 2', 'staff2', '$2y$10$oaB5E3QOaPIPJ', 'staff2@coffeeshop.com', '9630852741', '863 Silver Drive', 'Athens', 'fl', '98745', 'Favorite subject?', 'foreign languages', 15.00, '2025-03-17', 2);
 
 --
 -- Indexes for dumped tables
@@ -153,7 +155,7 @@ ALTER TABLE `ordermenu`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `userID` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `userID` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Constraints for dumped tables

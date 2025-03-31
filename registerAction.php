@@ -61,7 +61,7 @@ if ($usertype == "3") { //if customer
     $hire = 0000 - 00 - 00; //set hiring date to blank
 
     $sql = "insert into user values (0, '" . $name . "', '" . $user . "', '" .
-            $pswd . "', '" . $email . "', '" . $phone . "', '" . $address . "', '" .
+            $hashed_pswd . "', '" . $email . "', '" . $phone . "', '" . $address . "', '" .
             $city . "', '" . $state . "', '" . $zip . "', '" . $question . "', '" .
             $answer . "', '" . $pay . "', '" . $hire . "', '" . $usertype . "')";
 } else { //if manager or staff
@@ -69,7 +69,7 @@ if ($usertype == "3") { //if customer
     $hire = $_GET["hire"];
 
     $sql = "insert into user values (0, '" . $name . "', '" . $user . "', '" .
-            $pswd . "', '" . $email . "', '" . $phone . "', '" . $address . "', '" .
+            $hashed_pswd . "', '" . $email . "', '" . $phone . "', '" . $address . "', '" .
             $city . "', '" . $state . "', '" . $zip . "', '" . $question . "', '" .
             $answer . "', '" . $pay . "', '" . $hire . "', '" . $usertype . "')";
 }

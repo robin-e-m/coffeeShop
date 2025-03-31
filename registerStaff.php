@@ -14,7 +14,22 @@ if (!(isset($_SESSION['usertype'])) or $usertype != 1) {
     </head>
     <body>
         <h1>Staff Registration</h1>
-
+          <!-- error/success messages -->
+            <?php
+            if (isset($_GET['status']) && $_GET['status'] == 'register_success') {
+                echo "<p>Account created successfully!</p>";
+                echo "<a href='index.php'>Return to homepage</a>";
+                exit;
+            }
+            
+            if(isset($_GET['error']) && $_GET['error'] == 'duplicate_username') {
+                echo "<p>Username already taken. Please try again.</p>";
+            }
+            
+            if(isset($_GET['error']) && $_GET['error'] == 'retry_password') {
+                echo "<p>The passwords you entered don't match. Please try again.</p>";
+            }
+            ?>
         <br>
         <div>
 
@@ -141,7 +156,7 @@ if (!(isset($_SESSION['usertype'])) or $usertype != 1) {
 
                 <div>
                     <label>Hire Date</label>
-                    <input type="text" name="hire" size="8" required/>
+                    <input type="date" name="hire" size="8" required/>
                 </div>
 
                 <div>

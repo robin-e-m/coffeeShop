@@ -10,6 +10,22 @@
         <h1>New Customer Registration</h1>
         <div>
 
+              <!-- error/success messages -->
+            <?php
+            if (isset($_GET['status']) && $_GET['status'] == 'register_success') {
+                echo "<p>Account created successfully!</p>";
+                echo "<a href='index.php'>Return to homepage</a>";
+                exit;
+            }
+            
+            if(isset($_GET['error']) && $_GET['error'] == 'duplicate_username') {
+                echo "<p>Username already taken. Please try again.</p>";
+            }
+            
+            if(isset($_GET['error']) && $_GET['error'] == 'retry_password') {
+                echo "<p>The passwords you entered don't match. Please try again.</p>";
+            }
+            ?>
             <form name="customer_register" action="registerAction.php" method="get">
 
                 <div>

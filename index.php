@@ -14,7 +14,7 @@
         <br>
         <!-- 
         
-        Temporary Links to view new pages created
+        Temporary Links
         
         -->
 
@@ -22,13 +22,15 @@
             <br>
             <a href="manager.php">Manager Page</a>
             <br>
-             <a href="staff.php">Staff Page</a>
-             <br>
-             <a href="customer.php">Customer Page</a>
+            <a href="staff.php">Staff Page</a>
             <br>
-            <a href="registerStaff.php">Employee Registration</a>
+            <a href="customer.php">Customer Page</a>
             <br>
-            <a href="registerCustomer.php">Customer registration</a>
+            <a href="registerStaff.php">Staff Registration Page</a>
+            <br>
+            <a href="registerCustomer.php">Customer Registration Page</a>
+          
+            <br>
 
         </p>
 

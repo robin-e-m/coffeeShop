@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 26, 2025 at 02:42 PM
+-- Generation Time: Mar 30, 2025 at 09:17 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -91,9 +91,9 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`userID`, `name`, `username`, `password`, `email`, `phone`, `address`, `city`, `state`, `zip`, `question`, `answer`, `payRate`, `hireDate`, `usertype`) VALUES
-(1, 'Betty Boop', 'bboop1', '987Boop!', '987 Olive Street', 'Pearl', 'ga', '01234', '01', 'bboop', 'What is your favorite color?', 'Orange', 17.00, '0000-00-00', 1),
-(2, 'Joe Johnson', 'JJohnson', '654John', '654 Grove Avenue', 'Ruby', 'md', '74108', '85', 'jjohn', 'How do you like your eggs cooked?', 'Scrambled', 17.00, '0000-00-00', 2),
-(4, 'customer 1', 'user1', 'coffee', '36 Street Address', 'Igloo', 'ak', '98754', '01', 'custo', 'beep boop?', 'yes', 0.00, '0000-00-00', 3);
+(6, 'Manager 1', 'manager1', 'manager1', 'manager1@testing.gov', '8520741963', '7411 Practice Street', 'Fitchburg', 'me', '98765', 'what is your favorite food?', 'pizza', 17.00, '2025-03-15', 1),
+(7, 'staff 1', 'staff1', 'staff1', 'staff1@practice.org', '0123456789', '987 Olive Avenue', 'Pearl', 'ky', '96301', 'what is your favorite color?', 'orange', 15.00, '2025-03-19', 2),
+(8, 'customer 1', 'customer1', 'coffee', 'customer1@coffeeshop.com', '7410852963', '123 Gemstone Drive', 'Noting', 'ga', '75342', 'beep boop?', 'yes', 0.00, '0000-00-00', 3);
 
 --
 -- Indexes for dumped tables
@@ -153,7 +153,7 @@ ALTER TABLE `ordermenu`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `userID` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `userID` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables

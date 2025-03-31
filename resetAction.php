@@ -4,34 +4,21 @@ openDB();
 
 //username needs to be initialized to something, otherwise throws an error -> checks if POST or GET. if neither, set to null
 $user = isset($_GET["username"]) ? $_GET["username"] : (isset($_POST["username"]) ? $_POST["username"] : null);
-$result_staff = null; //needs a default value, otherwise throws error if user is customer
+$result_user = null; //needs a default value, otherwise throws error if user is customer
 
-//check customer table for username
+//check user table for username
 $sql_customer = "SELECT question, answer FROM user WHERE username = '$user'";
-$result_customer = queryDB($sql_customer);
+$result_user = queryDB($sql_user);
 
-//if username not in customer table, check staff table
-if (mysqli_num_rows($result_customer) == 0) {
-    $sql_staff = "SELECT question, answer FROM user WHERE username = '$user'";
-    $result_staff = queryDB($sql_staff);
-}
-
-//if username found in customer table, get question and answer from customer table
-if (mysqli_num_rows($result_customer) == 1) {
-    $row = mysqli_fetch_assoc($result_customer);
+//if username found in user table, get question and answer from customer table
+if (mysqli_num_rows($result_user) == 1) {
+    $row = mysqli_fetch_assoc($result_user);
     $security_question = $row['question'];
     $correct_answer = $row['answer']; 
 }
-
-//if found in staff table, get question and answer from staff table
-if($result_staff != null && mysqli_num_rows($result_staff) == 1){
-    $row = mysqli_fetch_assoc($result_staff);
-    $security_question = $row['question'];
-    $correct_answer = $row['answer'];
-}
-    
+ 
 //if username not found in either table, redirect back to resetPassword.php with error message
-if (mysqli_num_rows($result_customer) == 0 && ($result_staff == null || mysqli_num_rows($result_staff) == 0)){
+if (mysqli_num_rows($result_user) == 0 && ($result_staff == null || mysqli_num_rows($result_user) == 0)){
     header("Location: resetPassword.php?error=username_not_found");
     exit;
 }
@@ -75,13 +62,13 @@ if (mysqli_num_rows($result_customer) == 0 && ($result_staff == null || mysqli_n
         }
     }
     }
- 
+
     
     //if new password entered, update password in database
     if (isset($_POST['new_password'])) {
         $new_password = $_POST['new_password']; 
 
-        $sql_update = "UPDATE customer SET password = '$new_password' WHERE username = '$user'";
+        $sql_update = "UPDATE user SET password = '$new_password' WHERE username = '$user'";
         $result_update = queryDB($sql_update);
         
         if ($result_update) {

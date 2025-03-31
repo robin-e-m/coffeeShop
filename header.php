@@ -17,10 +17,10 @@
             $register = "registerStaff.php";
         } else if ($usertype == 2) { //staff is logged in
             $homepage = "staff.php";
-            $register = "registerStaff.php";
+            $register = "registerCustomer.php";
         } else {
             $homepage = "customer.php"; //customer is logged in
-            $register = "registerCustomer.php";
+            $register = "customer.php";
         }
     } else { //failed sign in
         $homepage = "index.php";

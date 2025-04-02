@@ -7,12 +7,12 @@ $user = isset($_GET["username"]) ? $_GET["username"] : (isset($_POST["username"]
 $result_staff = null; //needs a default value, otherwise throws error if user is customer
 
 //check customer table for username
-$sql_customer = "SELECT question, answer FROM user WHERE username = '$user'";
+$sql_customer = "SELECT question, answer FROM customer WHERE username = '$user'";
 $result_customer = queryDB($sql_customer);
 
 //if username not in customer table, check staff table
 if (mysqli_num_rows($result_customer) == 0) {
-    $sql_staff = "SELECT question, answer FROM user WHERE username = '$user'";
+    $sql_staff = "SELECT question, answer FROM staff WHERE username = '$user'";
     $result_staff = queryDB($sql_staff);
 }
 
@@ -79,9 +79,10 @@ if (mysqli_num_rows($result_customer) == 0 && ($result_staff == null || mysqli_n
     
     //if new password entered, update password in database
     if (isset($_POST['new_password'])) {
-        $new_password = $_POST['new_password']; 
+        $new_password = $_POST['new_password'];
+        $new_hashed = password_hash($new_password, PASSWORD_DEFAULT);
 
-        $sql_update = "UPDATE customer SET password = '$new_password' WHERE username = '$user'";
+        $sql_update = "UPDATE customer SET password = '$new_hashed' WHERE username = '$user'";
         $result_update = queryDB($sql_update);
         
         if ($result_update) {

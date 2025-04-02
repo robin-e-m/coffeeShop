@@ -14,13 +14,13 @@
     if (isset($_SESSION['usertype'])) {
       $usertype = $_SESSION['usertype'];
       if ($usertype == 1) {
-        $homepage = "admin.php";
+        $homepage = "manager.php";
         $register = "register.php";
       } else if ($usertype == 2) {
         $homepage = "staff.php";
         $register = "register.php";
       } else {
-        $homepage = "welcome.php";
+        $homepage = "customer.php";
         $register = "registerCustomer.php";
       }
     } else {
@@ -31,7 +31,7 @@
     <div class="w3-cell-row boxed">
       <div class="w3-panel w3-padding-32 w3-red">
       <a href="index.php" class="w3-bar-item w3-button w3-mobile ">Home</a>
-      <a href="OnlineStore.php" class="w3-bar-item w3-button w3-mobile">online store</a>
+      <a href="OnlinStore.php" class="w3-bar-item w3-button w3-mobile">online store</a>
       <a href="registerCustomer.php" class="w3-bar-item w3-button w3-mobile ">Register</a>
       <div class="w3-dropdown-hover w3-mobile">
         <button class="w3-button">About <i class="fa fa-caret-down"></i></button>

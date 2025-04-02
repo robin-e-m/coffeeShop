@@ -19,7 +19,7 @@ if (!(isset($_SESSION['usertype'])) or $usertype != 1) {
     <body>
         <h2>Manager Page</h2>
 
-        <p>Manager profile will go on this page</p>
+        <p>Manager information/processes will go on this page</p>
         <a href="registerCustomer.php">Click here to add new customers</a>
         <br>
         <a href="registerStaff.php">Click here to add new employees</a>

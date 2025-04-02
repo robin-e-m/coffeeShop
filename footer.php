@@ -1,5 +1,7 @@
 <div>   
-    &copy;2024 Glenda Franco, Evan Garrity, Robin Morris
+    &copy;2025
+    <br>
+    Glenda Franco, Evan Garrity, Robin Morris
     <br>
     All rights reserved
     <br>

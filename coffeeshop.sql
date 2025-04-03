@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 02, 2025 at 05:57 PM
+-- Generation Time: Apr 03, 2025 at 03:41 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -94,10 +94,12 @@ INSERT INTO `user` (`userID`, `name`, `username`, `password`, `email`, `phone`, 
 (6, 'Manager 1', 'manager1', 'manager1', 'manager1@testing.gov', '8520741963', '7411 Practice Street', 'Fitchburg', 'me', '98765', 'what is your favorite food?', 'pizza', 17.00, '2025-03-15', 1),
 (7, 'staff 1', 'staff1', 'staff1', 'staff1@practice.org', '0123456789', '987 Olive Avenue', 'Pearl', 'ky', '96301', 'what is your favorite color?', 'orange', 15.00, '2025-03-19', 2),
 (8, 'customer 1', 'customer1', 'coffee', 'customer1@coffeeshop.com', '7410852963', '123 Gemstone Drive', 'Noting', 'ga', '75342', 'beep boop?', 'yes', 0.00, '0000-00-00', 3),
-(9, 'customer 2', 'customer2', 'customer2', 'customer2@coffeeshop.com', '9518479632', '741 Software Circle', 'Milano', 'tn', '32165', 'Favorite place?', 'new york', 0.00, '0000-00-00', 3),
-(10, 'staff 2', 'staff2', '$2y$10$oaB5E3QOaPIPJ', 'staff2@coffeeshop.com', '9630852741', '863 Silver Drive', 'Athens', 'fl', '98745', 'Favorite subject?', 'foreign languages', 15.00, '2025-03-17', 2),
+(9, 'customer 2', 'customer2', '$2y$10$/ivkcjB0CjPUy', 'customer2@coffeeshop.com', '9518479632', '741 Software Circle', 'Milano', 'tn', '32165', 'Favorite place?', 'new york', 0.00, '0000-00-00', 3),
+(10, 'staff 2', 'staff2', '$2y$10$gazaddaYbswwS', 'staff2@coffeeshop.com', '9630852741', '863 Silver Drive', 'Athens', 'fl', '98745', 'Favorite subject?', 'foreign languages', 15.00, '2025-03-17', 2),
 (11, 'manager 2', 'manager2', '$2y$10$x.iZTlf1eLwqS', 'manager2@testing.gov', '9630852741', '123 School Avenue', 'Lancaster', 'id', '74539', 'Favorite movie?', 'Aliens', 17.00, '2025-02-15', 1),
-(12, 'mahadev', 'mahadev', '$2y$10$ls7srMHgP7QWM', 'mahadev@practice.org', '0123456789', '160 practice rd', 'fitchburg', 'dc', '98745', 'favorite color?', 'blue', 23.00, '2025-04-02', 2);
+(12, 'mahadev', 'mahadev', '$2y$10$ls7srMHgP7QWM', 'mahadev@practice.org', '0123456789', '160 practice rd', 'fitchburg', 'dc', '98745', 'favorite color?', 'blue', 23.00, '2025-04-02', 2),
+(13, 'Customer', 'Customer123', '$2y$10$vmPFPJLl2mw.v', 'customer123@testing.com', '0123456789', '741 Nowhere Street', 'Allover', 'il', '01234', 'favorite color?', 'yellow', 0.00, '0000-00-00', 3),
+(14, 'Staff', 'staff123', '$2y$10$cWxsOYN/omj2B', 'staff123@practice.gov', '9874563210', '963 Apple Road', 'Temple', 'la', '65412', 'favorite food?', 'lasagna', 19.00, '2025-02-27', 2);
 
 --
 -- Indexes for dumped tables
@@ -157,7 +159,7 @@ ALTER TABLE `ordermenu`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `userID` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `userID` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- Constraints for dumped tables

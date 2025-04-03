@@ -1,7 +1,8 @@
-
+<!DOCTYPE html>
 <?php
 
 require "DBConnect.php";
+include 'header.php';
 
 // collect form data
 
@@ -75,5 +76,23 @@ if ($usertype == "3") { //if customer
 }
 
 
-echo modifyDB($sql) . "<br>Use back button to return";
+echo modifyDB($sql);
 ?>
+
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Registration Complete</title>
+    </head>
+    
+    <body>
+                <div>
+                    <a href="index.php">Return to Home Page</a>
+                        </div>
+        
+        <br>
+        <br>
+        <?php include 'footer.php' ?>
+    </body>
+</html>

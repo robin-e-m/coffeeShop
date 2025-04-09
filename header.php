@@ -18,9 +18,13 @@
         } else if ($usertype == 2) { //staff is logged in
             $homepage = "staff.php";
             $register = "registerCustomer.php";
-        } else {
+        } if ($usertype == 3) {
             $homepage = "index.php"; //customer is logged in
             $register = "customer.php";
+        }
+        if ($usertype == 4) {
+            $homepage = "index.php"; //owner is logged in
+            $register = "owner.php";
         }
     } else { //failed sign in
         $homepage = "index.php";
@@ -34,7 +38,7 @@
           <a href="manager.php" class="w3-bar-item w3-button w3-mobile">Manager</a>
             <a href="staff.php" class="w3-bar-item w3-button w3-mobile">Staff</a>
             <a href="customer.php" class="w3-bar-item w3-button w3-mobile">Customer</a>
-            <a href="OnlineStore.php" class="w3-bar-item w3-button w3-mobile">Online Store</a>
+            <a href="#" class="w3-bar-item w3-button w3-mobile">Online Store</a>
             <a href="<?php echo $register; ?>" class="w3-bar-item w3-button w3-mobile ">Register</a>
             <div class="w3-dropdown-hover w3-mobile">
                 <button class="w3-button">About <i class="fa fa-caret-down"></i></button>

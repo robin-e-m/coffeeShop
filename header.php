@@ -19,7 +19,7 @@
             $homepage = "staff.php";
             $register = "registerCustomer.php";
         } else {
-            $homepage = "customer.php"; //customer is logged in
+            $homepage = "index.php"; //customer is logged in
             $register = "customer.php";
         }
     } else { //failed sign in
@@ -30,6 +30,9 @@
     <div class="w3-cell-row boxed">
         <div class="w3-panel w3-padding-32 w3-red">
             <a href="index.php" class="w3-bar-item w3-button w3-mobile ">Home</a>
+          <a href="manager.php" class="w3-bar-item w3-button w3-mobile">Manager Page</a>
+            <a href="staff.php" class="w3-bar-item w3-button w3-mobile">Staff Page</a>
+            <a href="customer.php" class="w3-bar-item w3-button w3-mobile">Customer Page</a>
             <a href="OnlineStore.php" class="w3-bar-item w3-button w3-mobile">Online Store</a>
             <a href="<?php echo $register; ?>" class="w3-bar-item w3-button w3-mobile ">Register</a>
             <div class="w3-dropdown-hover w3-mobile">

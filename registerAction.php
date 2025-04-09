@@ -1,7 +1,8 @@
-
+<!DOCTYPE html>
 <?php
 
 require "DBConnect.php";
+include 'header.php';
 
 // collect form data
 
@@ -20,8 +21,12 @@ $question = $_GET["question"];
 $answer = $_GET["answer"];
 
 $usertype = $_GET["usertype"];
+$address = $_GET["address"];
+$city = $_GET["city"];
+$state = $_GET["state"];
+$zip = $_GET["zip"];
 
-if ($usertype == "1" || $usertype == "2") { //if manager or staff
+if ($usertype == "1" || $usertype == "2") { //if owner or staff
     $address = $_GET["address"];
     $city = $_GET["city"];
     $state = $_GET["state"];
@@ -31,46 +36,60 @@ if ($usertype == "1" || $usertype == "2") { //if manager or staff
     $hire = $_GET["hire"];
 }
 
-if ($usertype == "3") { //if customer, check customer table for duplicate username
-    $unique_user_check = "SELECT EXISTS(SELECT 1 FROM customer WHERE username = '$user') AS duplicate";
+//check for duplicates in user table
+if ($usertype == "1" || $usertype == "2" || $usertype == '3') {
+    $unique_user_check = "SELECT EXISTS(SELECT 1 FROM user WHERE username = '$user') AS duplicate";
     $unique_user_result = queryDB($unique_user_check);
     $row = mysqli_fetch_assoc($unique_user_result);
-        
-    if($row['duplicate']){
-        header("Location: registerCustomer.php?error=duplicate_username");
-        exit;
-            }
-    }
 
-if ($usertype == "1" || $usertype == "2"){ //otherwise, same process but check staff table instead
-        $unique_user_check = "SELECT EXISTS(SELECT 1 FROM staff WHERE username = '$user') AS duplicate";
-    $unique_user_result = queryDB($unique_user_check);
-    $row = mysqli_fetch_assoc($unique_user_result);
-        
-    if($row['duplicate']){
-        header("Location: registerCustomer.php?error=duplicate_username");
+    if ($row['duplicate']) {
+        header("Location: registerStaff.php?error=duplicate_username");
         exit;
-            }
     }
-    
-if($pswd != $pswd2){
-    header("Location: registerCustomer.php?error=retry_password");
-    exit;
 }
 
-
-
+//check for matching password re-type
+if ($pswd != $pswd2) {
+    header("Location: registerStaff.php?error=retry_password");
+    exit;
+}
+//Entering data into users table
 if ($usertype == "3") { //if customer
-    $sql = "insert into customer values (0, '" . $user . "', '" .
-            $hashed_pswd . "', '" . $name . "', '" . $email . "', '" . $phone . "', '" . $question . "', '" .
-            $answer . "', '" . $usertype . "')";
-} else {
-    $sql = "insert into staff values (0, '" . $name . "', '" . $user . "', '" .
-            $hashed_pswd . "', '" . $address . "', '" . $city . "', '" . $state . "', '" .
-            $zip . "', '" . $phone . "', '" . $email . "', '" . $question . "', '" .
+    $pay = 0.00; //set pay to 0.00
+    $hire = 0000 - 00 - 00; //set hiring date to blank
+
+    $sql = "insert into user values (0, '" . $name . "', '" . $user . "', '" .
+            $hashed_pswd . "', '" . $email . "', '" . $phone . "', '" . $address . "', '" .
+            $city . "', '" . $state . "', '" . $zip . "', '" . $question . "', '" .
+            $answer . "', '" . $pay . "', '" . $hire . "', '" . $usertype . "')";
+} else { //if owner or staff
+    $pay = $_GET["pay"];
+    $hire = $_GET["hire"];
+
+    $sql = "insert into user values (0, '" . $name . "', '" . $user . "', '" .
+            $hashed_pswd . "', '" . $email . "', '" . $phone . "', '" . $address . "', '" .
+            $city . "', '" . $state . "', '" . $zip . "', '" . $question . "', '" .
             $answer . "', '" . $pay . "', '" . $hire . "', '" . $usertype . "')";
 }
 
 echo modifyDB($sql);
 header("Location: registerCustomer.php?status=register_success");
 ?>
+
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Registration Complete</title>
+    </head>
+    
+    <body>
+                <div>
+                    <a href="index.php">Return to Home Page</a>
+                        </div>
+        
+        <br>
+        <br>
+        <?php include 'footer.php' ?>
+    </body>
+</html>

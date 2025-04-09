@@ -12,26 +12,29 @@
     session_start();
     if (isset($_SESSION['usertype'])) {
         $usertype = $_SESSION['usertype'];
-        if ($usertype == 1) {
-            $homepage = "admin.php";
-            $register = "register.php";
-        } else if ($usertype == 2) {
+        if ($usertype == 1) { //owner is logged in
+            $homepage = "owner.php";
+            $register = "registerStaff.php";
+        } else if ($usertype == 2) { //staff is logged in
             $homepage = "staff.php";
-            $register = "register.php";
+            $register = "registerCustomer.php";
         } else {
-            $homepage = "customer.php";
-            $register = "register.php";
+            $homepage = "index.php"; //customer is logged in
+            $register = "customer.php";
         }
-    } else {
+    } else { //failed sign in
         $homepage = "index.php";
-        $register = "signup.php";
+        $register = "registerCustomer.php";
     }
     ?>
     <div class="w3-cell-row boxed">
         <div class="w3-panel w3-padding-32 w3-red">
             <a href="index.php" class="w3-bar-item w3-button w3-mobile ">Home</a>
-            <a href="OnlineStore.php" class="w3-bar-item w3-button w3-mobile">online store</a>
-            <a href="registerCustomer.php" class="w3-bar-item w3-button w3-mobile ">Register</a>
+          <a href="owner.php" class="w3-bar-item w3-button w3-mobile">Owner</a>
+            <a href="staff.php" class="w3-bar-item w3-button w3-mobile">Staff</a>
+            <a href="customer.php" class="w3-bar-item w3-button w3-mobile">Customer Page</a>
+            <a href="OnlineStore.php" class="w3-bar-item w3-button w3-mobile">Online Store</a>
+            <a href="<?php echo $register; ?>" class="w3-bar-item w3-button w3-mobile ">Register</a>
             <div class="w3-dropdown-hover w3-mobile">
                 <button class="w3-button">About <i class="fa fa-caret-down"></i></button>
                 <div class="w3-dropdown-content w3-bar-block w3-dark-grey">

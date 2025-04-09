@@ -12,8 +12,8 @@
     session_start();
     if (isset($_SESSION['usertype'])) {
         $usertype = $_SESSION['usertype'];
-        if ($usertype == 1) { //owner is logged in
-            $homepage = "owner.php";
+        if ($usertype == 1) { //manager is logged in
+            $homepage = "manager.php";
             $register = "registerStaff.php";
         } else if ($usertype == 2) { //staff is logged in
             $homepage = "staff.php";
@@ -31,8 +31,9 @@
         <div class="w3-panel w3-padding-32 w3-red">
             <a href="index.php" class="w3-bar-item w3-button w3-mobile ">Home</a>
           <a href="owner.php" class="w3-bar-item w3-button w3-mobile">Owner</a>
+          <a href="manager.php" class="w3-bar-item w3-button w3-mobile">Manager</a>
             <a href="staff.php" class="w3-bar-item w3-button w3-mobile">Staff</a>
-            <a href="customer.php" class="w3-bar-item w3-button w3-mobile">Customer Page</a>
+            <a href="customer.php" class="w3-bar-item w3-button w3-mobile">Customer</a>
             <a href="OnlineStore.php" class="w3-bar-item w3-button w3-mobile">Online Store</a>
             <a href="<?php echo $register; ?>" class="w3-bar-item w3-button w3-mobile ">Register</a>
             <div class="w3-dropdown-hover w3-mobile">

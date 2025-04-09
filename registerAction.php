@@ -27,7 +27,7 @@ $city = $_GET["city"];
 $state = $_GET["state"];
 $zip = $_GET["zip"];
 
-if ($usertype == "1" || $usertype == "2") { //if owner or staff
+if ($usertype == "1" || $usertype == "2") { //if owner/manager or staff
     $address = $_GET["address"];
     $city = $_GET["city"];
     $state = $_GET["state"];

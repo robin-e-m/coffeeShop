@@ -162,8 +162,10 @@ if (!(isset($_SESSION['usertype'])) or $usertype != 1) {
                     <label>User Type:</label>
                     <select name="usertype" required >
                         <option value="">Select employee type</option>
-                        <option value="1">1. Manager</option>
-                        <option value="2">2. Staff</option>
+                        <option value="4">Owner</option>
+                        <option value="1">Manager</option>
+                        <option value="2">Staff</option>
+                        
                     </select>
 
                 </div>

@@ -22,7 +22,7 @@ $result = loginDB($sql, $user, $pwd);
             $_SESSION['usertype'] = $usertype;
 
             if ($usertype == 1)
-                header("location:owner.php");
+                header("location:manager.php");
             else if ($usertype == 2)
                 header("location:staff.php");
             else

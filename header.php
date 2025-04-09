@@ -26,6 +26,20 @@
     } else {
       $homepage = "index.php";
       $register = "registerCustomer.php";
+        $usertype = $_SESSION['usertype'];
+        if ($usertype == 1) { //owner is logged in
+            $homepage = "owner.php";
+            $register = "registerStaff.php";
+        } else if ($usertype == 2) { //staff is logged in
+            $homepage = "staff.php";
+            $register = "registerCustomer.php";
+        } else {
+            $homepage = "index.php"; //customer is logged in
+            $register = "customer.php";
+        }
+    } else { //failed sign in
+        $homepage = "index.php";
+        $register = "registerCustomer.php";
     }
     ?>
     <div class="w3-cell-row boxed">
@@ -41,7 +55,7 @@
           <a href="#" class="w3-bar-item w3-button w3-mobile">Contact Us</a>
         </div>
       </div>
-      <!-- <div class=" w3-bar-item "> -->
+            <!-- <div class=" w3-bar-item "> -->
             <?php
             if (isset($_SESSION['name'])):
               echo "<h2>Welcome</h2>" . $_SESSION['name'];

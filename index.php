@@ -13,19 +13,17 @@
         <br>
         <!-- 
         
-        Temporary Links to view new pages created
+        Temporary Links
         
         -->
 
-        <p> Temporary links to new pages created, for testing purposes only and will be deleted as more content is created.
-            <br>
-            <a href="manager.php">Managers Page</a>
-            <br>
-             <a href="staff.php">Staff Page</a>
-            <br>
-            <a href="register.php">Employee Registration</a>
-            <br>
-            <a href="registerCustomer.php">Customer registration</a>
+        <p>
+            Welcome to Perk & Pour – Your Cozy Neighborhood Coffee Spot
+
+            At Perk & Pour, we believe that great coffee brings people together. Nestled in the heart of Nowhere, we serve up freshly brewed coffee, handcrafted espresso drinks, and delicious pastries in a warm, inviting atmosphere. Whether you're stopping by for your morning pick-me-up, settling in for a productive work session, or catching up with friends over a latte, our café is your home away from home.
+
+            Come in, take a sip, and experience the perfect blend of comfort and community. We can’t wait to welcome you!
+
 
         </p>
 

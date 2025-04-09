@@ -29,4 +29,3 @@ if (gettype($result) == "object") {
 } else
   header("location:index.php?msg=". $result);
 ?>
-

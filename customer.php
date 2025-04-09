@@ -14,7 +14,7 @@ if (!(isset($_SESSION['usertype'])) or $usertype != 3) {
     </head>
     <body>
         <h2>Customer Page</h2>
-        <p> Customer profile will go on this page</p>
+        <p>WORK IN PROGRESS</p>
 
 
         <br>

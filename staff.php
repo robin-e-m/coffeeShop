@@ -16,7 +16,7 @@ if (!(isset($_SESSION['usertype'])) or $usertype != 2) {
 <body>
     <h1> Staff Page</h1>
 
-    <p>Staff profile goes on this page</p>
+    <p>WORK IN PROGRESS</p>
     <br>
     <br>
     <?php include 'footer.php' ?>

@@ -12,14 +12,14 @@ if (!(isset($_SESSION['usertype'])) or $usertype != 1) {
     <head>
         <meta charset="UTF-8">
 
-        <title>Managers</title>
+        <title>Owner</title>
 
 
     </head>
     <body>
-        <h2>Manager Page</h2>
+        <h2>Owner Page</h2>
 
-        <p>Manager information/processes will go on this page</p>
+        <p>WORK IN PROGRESS</p>
         
 
         <br>

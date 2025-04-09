@@ -27,7 +27,7 @@ $city = $_GET["city"];
 $state = $_GET["state"];
 $zip = $_GET["zip"];
 
-if ($usertype == "1" || $usertype == "2") { //if manager or staff
+if ($usertype == "1" || $usertype == "2") { //if owner or staff
     $address = $_GET["address"];
     $city = $_GET["city"];
     $state = $_GET["state"];
@@ -65,7 +65,7 @@ if ($usertype == "3") { //if customer
             $hashed_pswd . "', '" . $email . "', '" . $phone . "', '" . $address . "', '" .
             $city . "', '" . $state . "', '" . $zip . "', '" . $question . "', '" .
             $answer . "', '" . $pay . "', '" . $hire . "', '" . $usertype . "')";
-} else { //if manager or staff
+} else { //if owner or staff
     $pay = $_GET["pay"];
     $hire = $_GET["hire"];
 

@@ -34,17 +34,23 @@ if (mysqli_num_rows($result_user) == 0){
         <head>
             <meta charset="UTF-8">
             <title>Reset Password</title>
+            
         </head>
         <body>';
-    
+
 //form for security answer
     echo "
-    <form action='resetAction.php' method='POST'>
-        <label for='security_answer'>$security_question</label>
-        <input type='text' id='security_answer' name='security_answer' required>
+    <br>
+    <form action='resetAction.php' method='POST' class='password-card'>
+        <label for='security_answer' class='security-question'>$security_question</label>
+        <br>
+        <br>
+        <input class='reset-input' type='text' id='security_answer' name='security_answer' required>
         <input type='hidden' id='username' name='username' value='$user'>
         <input type='hidden' id='correct_answer' name='correct_answer' value='$correct_answer'>
-        <button type='submit'>Submit Answer</button>
+        <br>
+        <br>
+        <button class='form-button' type='submit'>Submit Answer</button>
     </form>";
 
     //check if form was submitted
@@ -54,17 +60,22 @@ if (mysqli_num_rows($result_user) == 0){
                 === ($_POST['correct_answer'])) {
             //If matching, show option to reset password
         echo "
-        <form action='resetAction.php' method='POST'>
-            <label for='new_password'>Enter new password:</label>
-            <input type='password' id='new_password' name='new_password' required>
+        <br>
+        <br>
+        <form action='resetAction.php' method='POST' class='password-card'>
+            <label for='new_password' class='security-question'>Enter new password:</label>
+            <br>
+            <input class='reset-input' type='password' id='new_password' name='new_password' required>
             <input type='hidden' id='username' name='username' value='$user'>
-            <button type='submit'>Reset Password</button>
+            <br>
+            <br>
+            <button class='form-button'type='submit'>Reset Password</button>
         </form>";
             
         }
         else{
             if(!isset($_POST['new_password'])){
-                echo "Incorrect security answer."; 
+                echo "<br><p class='security-question'>Incorrect answer, please try again.</p>";
         }
     }
     }
@@ -79,10 +90,10 @@ if (mysqli_num_rows($result_user) == 0){
         $result_update = queryDB($sql_update);
         
         if ($result_update) {
-            echo "Password changed successfully";
+            echo "<br><p class='security-question'>Password changed successfully</p>";
         }
         else {
-            echo "Error, password not changd";
+            echo "<br><p class='security-question'>Error, your password was not changed. Please try again.</p>";
         }
     }
 
@@ -91,11 +102,12 @@ if (mysqli_num_rows($result_user) == 0){
 </head>
 
 <body>
+    <div class="home-main-content">
 
     
     <br>
     <br>
     <?php include 'footer.php' ?>
-
+    </div>
 </body>
 </html>

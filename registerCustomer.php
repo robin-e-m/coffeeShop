@@ -7,7 +7,8 @@
         <?php include 'header.php' ?>
     </head>
     <body>
-        <h1>New Customer Registration</h1>
+        <div class="input-form">
+        <h1 style="font-family:inherit">New Customer Registration</h1>
         <div>
             
             <!-- error/success messages -->
@@ -43,50 +44,59 @@
                 echo "<p>The passwords you entered don't match. Please try again.</p>";
             }
             ?>
+              <div class="form-card">
             <form name="customer_register" action="registerAction.php" method="get">
 
-                <div>
+                <div class="register-option">
                     <label>Full Name</label>
-                    <input type="text" name="name" size="30" required/>
+                    <br>
+                    <input type="text" name="name" size="90" required/>
                 </div>
 
-                <div>
+                <div class="register-option">
                     <label>Username</label>
-                    <input type="text" name="username" size="30" required/>
+                    <br>
+                    <input type="text" name="username" size="90" required/>
                 </div>
 
-                <div>
+                <div class="register-option">
                     <label>Password</label>
-                    <input type="password" name="pass" size="30" required/>
+                    <br>
+                    <input type="password" name="pass" size="90" required/>
                 </div>
 
-                <div>
+                <div class="register-option">
                     <label>Confirm Password</label>
-                    <input type="password" name="pass2" size="30" required/>
-
+                    <input type="password" name="pass2" size="90" required/>
                 </div>
 
-                <div>
+                <div class="register-option">
                     <label>Phone Number</label>
-                    <input type="text" name="phone" size="30" />
+                    <br>
+                    <input type="text" name="phone" size="90" />
                 </div>
 
-                <div>
+                <div class="register-option">
                     <label>E-Mail</label>
-                    <input type="email" name="email" size="30" required/>
+                    <br>
+                    <input type="email" name="email" size="90" required/>
                 </div>
-<div>
+
+                <div class="register-option">
                     <label>Street Address</label>
-                    <input type="text" name="address" size="50" required />
+                    <br>
+                    <input type="text" name="address" size="90" required />
                 </div>
 
-                <div>
+                <div class="register-option">
                     <label>City</label>
-                    <input type="text" name="city" size="50" required />
+                    <br>
+                    <input type="text" name="city" size="90" required />
                 </div>
-
-                <div>
+                
+                <div class="register-option">
                     <label>State</label>
+                    <br>
                     <select name="state" required>
                         <option disabled selected value>Select your state</option>
                         <option value="al">AL</option>
@@ -143,34 +153,38 @@
                     </select>
                 </div>
 
-                <div>
+                <div class="register-option">
                     <label>Zip Code</label>
-                    <input type="text" name="zip" size="5" />
+                    <br>
+                    <input type="text" name="zip" size="8" />
                 </div>
 
-                <div>
+                <div class="register-option">
                     <label>Security Question</label>
-                    <input type="text" name="question" size="30" />
+                    <br>
+                    <input type="text" name="question" size="90" />
                 </div>
 
-                <div>
+                <div class="register-option">
                     <label>Answer</label>
-                    <input type="password" name="answer" size="30" required/>
+                    <br>
+                    <input type="password" name="answer" size="90" required/>
                 </div>
 
                 <input type="hidden" name="usertype" value="3">
+                <br>
 
-                <div class="item">
-                    <input type="submit" value="Submit" />
-                    <input type="reset" value="Reset" />
+                <div>
+                    <input class="form-button" style="margin-left:280px" type="submit" value="Submit" />
+                    <input class="form-button" style="margin-left:20px"type="reset" value="Reset" />
                 </div>
             </form>
+              </div>
         </div>
-
         <br>
         <br>
-
         <?php include 'footer.php' ?>
+        </div>
     </body>
 </html>
 

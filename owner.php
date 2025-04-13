@@ -2,7 +2,7 @@
 <?php
 require 'DBConnect.php';
 include 'header.php';
-if (!(isset($_SESSION['usertype'])) or $usertype != 1) {
+if (!(isset($_SESSION['usertype'])) or $usertype != 4) {
     header("Location:index.php");
     exit;
 }

@@ -21,13 +21,12 @@ $question = $_GET["question"];
 $answer = $_GET["answer"];
 
 $usertype = $_GET["usertype"];
-
 $address = $_GET["address"];
 $city = $_GET["city"];
 $state = $_GET["state"];
 $zip = $_GET["zip"];
 
-if ($usertype == "1" || $usertype == "2") { //if owner/manager or staff
+if ($usertype == "1" || $usertype == "2") { //if owner or staff
     $address = $_GET["address"];
     $city = $_GET["city"];
     $state = $_GET["state"];
@@ -38,7 +37,7 @@ if ($usertype == "1" || $usertype == "2") { //if owner/manager or staff
 }
 
 //check for duplicates in user table
-if ($usertype == "1" || $usertype == "2" || $usertype == '3' || $usertype =='4') {
+if ($usertype == "1" || $usertype == "2" || $usertype == '3') {
     $unique_user_check = "SELECT EXISTS(SELECT 1 FROM user WHERE username = '$user') AS duplicate";
     $unique_user_result = queryDB($unique_user_check);
     $row = mysqli_fetch_assoc($unique_user_result);
@@ -54,8 +53,6 @@ if ($pswd != $pswd2) {
     header("Location: registerStaff.php?error=retry_password");
     exit;
 }
-
-
 //Entering data into users table
 if ($usertype == "3") { //if customer
     $pay = 0.00; //set pay to 0.00
@@ -75,8 +72,8 @@ if ($usertype == "3") { //if customer
             $answer . "', '" . $pay . "', '" . $hire . "', '" . $usertype . "')";
 }
 
-
 echo modifyDB($sql);
+header("Location: registerCustomer.php?status=register_success");
 ?>
 
 

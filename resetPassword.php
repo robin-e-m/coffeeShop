@@ -3,13 +3,14 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>New Customer Registration</title>
+        <title>Forgot Password</title>
         <?php include 'header.php'?>
     </head>
     <body>
-        <h1>Password Reset</h1>
-        <h2>Please enter your username to proceed</h2>
-        <div>
+        <div class="input-form">
+        <h1 style="font-family:inherit">Password Reset</h1>
+        <h2 style="font-family:inherit">Please enter your username to proceed</h2>
+        <div class="form-card">
               
             <!-- displays error message if redirected after failed attempt -->
             <?php
@@ -19,13 +20,13 @@
             ?>
 
             <form name="reset_password" action="resetAction.php" method="get">
-                <div>
-                    <label>Username</label>
-                    <input type="text" name="username" size="15" required/>
+                <div class="register-option">
+                    <label style="font-size: 20px">Username</label>
+                    <input type="text" name="username" size="90" required/>
                 </div>
-                
-                <div class="item">
-                    <input type="submit" value="Submit" />
+                <br>
+                <div>
+                    <input class="form-button" style="margin-left:350px" type="submit" value="Submit" />
                 </div>
             </form>
         </div>
@@ -34,6 +35,6 @@
         <br>
 
         <?php include 'footer.php' ?>
+        </div>
     </body>
 </html>
-

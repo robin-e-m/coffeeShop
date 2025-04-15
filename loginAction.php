@@ -21,14 +21,14 @@ $result = loginDB($sql, $user, $pwd);
             $_SESSION['name'] = $name;
             $_SESSION['usertype'] = $usertype;
 
-            if ($usertype == 1) //manager logged in
+            if ($usertype == 1)
                 header("location:manager.php");
-            else if ($usertype == 2) //staff logged in
+            else if ($usertype == 2)
                 header("location:staff.php");
-            else if ($usertype == 3) //customer logged in
-                header("location:customer.php");
-            else //ownner logged in
+             else if ($usertype == 4)
                 header("location:owner.php");
+            else
+                header("location:customer.php");
             exit;
         } else
             header("location:index.php?msg=Login Failed");

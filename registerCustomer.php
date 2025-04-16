@@ -7,7 +7,7 @@
         <?php include 'header.php' ?>
     </head>
     <body>
-        <div class="input-form">
+        <div class="input-form" style="margin-left:275px">
         <h1 style="font-family:inherit">New Customer Registration</h1>
         <div>
             

@@ -54,7 +54,7 @@
           <a href="manager.php" class="w3-bar-item w3-button w3-mobile" style="font-size:20px">Manager</a>
             <a href="staff.php" class="w3-bar-item w3-button w3-mobile" style="font-size:20px">Staff</a>
             <a href="customer.php" class="w3-bar-item w3-button w3-mobile" style="font-size:20px">Customer</a>
-            <a href="OnlineStore.php" class="w3-bar-item w3-button w3-mobile" style="font-size:20px">Online Store</a>
+            <a href="#" class="w3-bar-item w3-button w3-mobile" style="font-size:20px">Online Store</a>
             <a href="<?php echo $register; ?>" class="w3-bar-item w3-button w3-mobile" style="font-size:20px">Register</a>
             <div class="w3-dropdown-hover w3-mobile">
                 <button class="w3-button" style="font-size:20px">About <i class="fa fa-caret-down"></i></button>

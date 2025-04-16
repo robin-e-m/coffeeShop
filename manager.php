@@ -14,7 +14,7 @@ openDB();
 //-> checks if POST or GET. if neither, set to null
 $user = isset($_GET["username"]) ? $_GET["username"] : (isset($_POST["username"]) ? $_POST["username"] : null);
 $result_user = null; //needs a default value, otherwise throws error
-//check user table for username
+//check user table for username+
 $sql_user = "SELECT * FROM user WHERE username = '$user'";
 $result_user = queryDB($sql_user);
 
@@ -86,7 +86,6 @@ if (mysqli_num_rows($result_user) == 1) {
                 <br>
                 <a href="#">Update your profile</a>
             </p>
-            <br>
             
             <br>
             <br>

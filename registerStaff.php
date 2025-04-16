@@ -18,7 +18,7 @@ if (!(isset($_SESSION['usertype'])))
 
     </head>
     <body>
-        <div class="input-form">
+        <div class="input-form" style="margin-left:290px">
         <h1 style="font-family:inherit">Staff Registration</h1>
         
           <!-- error/success messages -->

@@ -2,36 +2,36 @@
 require 'DBConnect.php';
 include 'header.php';
 if (!(isset($_SESSION['userID']))) {
-  header("Location:index.php");
-  exit;
-} else {
-  $userID = $_SESSION['userID'];
-  global $username, $password, $name, $address, $city, $state, $zip, 
-          $email, $phone, $question, $answer;
-  $sql = "select username, password, name, address, city, state, zip," .
-    "email, phone, question, answer from user where userID = " .
-    $userID;
-  $result = queryDB($sql);
-  if (gettype($result) == "object") {
-    if ($result->num_rows > 0) {
-      $row = $result->fetch_assoc();
-      $username = $row['username'];
-      $password = $row['password'];
-      $name = $row['name'];
-      $address = $row['address'];
-      $city = $row['city'];
-      $state = $row['state'];
-      $zip = $row['zip'];
-      $email = $row['email'];
-      $phone = $row['phone'];
-      $question = $row['question'];
-      $answer = $row['answer'];
-    }
-    echo "";
-  } else {
-    header("Location:index.php?msg=" . $result);
+    header("Location:index.php");
     exit;
-  }
+} else {
+    $userID = $_SESSION['userID'];
+    global $username, $password, $name, $address, $city, $state, $zip,
+    $email, $phone, $question, $answer;
+    $sql = "select username, password, name, address, city, state, zip," .
+            "email, phone, question, answer from user where userID = " .
+            $userID;
+    $result = queryDB($sql);
+    if (gettype($result) == "object") {
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            $username = $row['username'];
+            $password = $row['password'];
+            $name = $row['name'];
+            $address = $row['address'];
+            $city = $row['city'];
+            $state = $row['state'];
+            $zip = $row['zip'];
+            $email = $row['email'];
+            $phone = $row['phone'];
+            $question = $row['question'];
+            $answer = $row['answer'];
+        }
+        echo "";
+    } else {
+        header("Location:index.php?msg=" . $result);
+        exit;
+    }
 }
 ?>
 <!DOCTYPE html>
@@ -42,7 +42,7 @@ if (!(isset($_SESSION['userID']))) {
         <title>Manager</title>
 
     </head>
-    <body>
+    
     <body>
         <div class="home-top-section"></div>
         <div class="home-top-text">
@@ -88,9 +88,9 @@ if (!(isset($_SESSION['userID']))) {
                 <br>
                 <a href="#">Update your profile</a>
             </p>
-            
+
             <br>
             <br>
             <?php include 'footer.php' ?>
-            </body>
-            </html>
+    </body>
+</html>

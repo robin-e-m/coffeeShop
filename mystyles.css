@@ -116,11 +116,3 @@ h1, h2 {
     text-align: center;
 }
 
-ul {
-  padding: 5px 20px 15px 20px;
-  border: 1px solid lightgrey;
-  border-radius: 3px;
-  margin-left: 370px;
-  width: 800px;
-  text-align: center;
-}

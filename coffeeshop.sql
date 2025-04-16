@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 16, 2025 at 05:24 PM
+-- Generation Time: Apr 16, 2025 at 08:37 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -96,7 +96,8 @@ INSERT INTO `user` (`userID`, `name`, `username`, `password`, `email`, `phone`, 
 (8, 'customer 1', 'customer1', 'coffee', 'customer1@coffeeshop.com', '7410852963', '123 Gemstone Drive', 'Noting', 'ga', '75342', 'beep boop?', 'yes', 0.00, '0000-00-00', 3),
 (9, 'customer 2', 'customer2', '$2y$10$3IZGu12kUQFgc', 'customer2@coffeeshop.com', '9518479632', '741 Software Circle', 'Milano', 'tn', '32165', 'Favorite place?', 'new york', 0.00, '0000-00-00', 3),
 (10, 'staff 2', 'staff2', '$2y$10$oaB5E3QOaPIPJ', 'staff2@coffeeshop.com', '9630852741', '863 Silver Drive', 'Athens', 'fl', '98745', 'Favorite subject?', 'foreign languages', 15.00, '2025-03-17', 2),
-(11, 'manager 2', 'manager2', '$2y$10$x.iZTlf1eLwqS', 'manager2@testing.gov', '9630852741', '123 School Avenue', 'Lancaster', 'id', '74539', 'Favorite movie?', 'Aliens', 17.00, '2025-02-15', 1);
+(11, 'manager 2', 'manager2', '$2y$10$x.iZTlf1eLwqS', 'manager2@testing.gov', '9630852741', '123 School Avenue', 'Lancaster', 'id', '74539', 'Favorite movie?', 'Aliens', 17.00, '2025-02-15', 1),
+(13, 'mahadev', 'mahadev', '$2y$10$6LXrtzn9E2XzA', 'mahadev@practice.com', '9785201258', '160 practice rd', 'fitchburg', 'al', '05742', 'favorite color?', 'green', 18.00, '2025-03-20', 1);
 
 --
 -- Indexes for dumped tables
@@ -156,7 +157,7 @@ ALTER TABLE `ordermenu`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `userID` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `userID` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- Constraints for dumped tables

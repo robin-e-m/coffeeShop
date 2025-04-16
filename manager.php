@@ -1,39 +1,39 @@
-
 <?php
 require 'DBConnect.php';
 include 'header.php';
-
-//session control
-if (!(isset($_SESSION['usertype'])) or $usertype != 1) {
-    header("Location:index.php");
+if (!(isset($_SESSION['userID']))) {
+  header("Location:index.php");
+  exit;
+} else {
+  $userID = $_SESSION['userID'];
+  global $username, $password, $name, $address, $city, $state, $zip, 
+          $email, $phone, $question, $answer;
+  $sql = "select username, password, name, address, city, state, zip," .
+    "email, phone, question, answer from user where userID = " .
+    $userID;
+  $result = queryDB($sql);
+  if (gettype($result) == "object") {
+    if ($result->num_rows > 0) {
+      $row = $result->fetch_assoc();
+      $username = $row['username'];
+      $password = $row['password'];
+      $name = $row['name'];
+      $address = $row['address'];
+      $city = $row['city'];
+      $state = $row['state'];
+      $zip = $row['zip'];
+      $email = $row['email'];
+      $phone = $row['phone'];
+      $question = $row['question'];
+      $answer = $row['answer'];
+    }
+    echo "";
+  } else {
+    header("Location:index.php?msg=" . $result);
     exit;
+  }
 }
-openDB();
-
-//username needs to be initialized to something, otherwise throws an error
-//-> checks if POST or GET. if neither, set to null
-$user = isset($_GET["username"]) ? $_GET["username"] : (isset($_POST["username"]) ? $_POST["username"] : null);
-$result_user = null; //needs a default value, otherwise throws error
-//check user table for username+
-$sql_user = "SELECT * FROM user WHERE username = '$user'";
-$result_user = queryDB($sql_user);
-
-//if username found, get question and answer from user table
-if (mysqli_num_rows($result_user) == 1) {
-    $row = mysqli_fetch_assoc($result_user);
-
-    $name = $row['name'];
-    $username = $row['username'];
-    $address = $row['address'];
-    $city = $row['city'];
-    $state = $row['state'];
-    $zip = $row['zip'];
-    $phone = $row['phone'];
-    $email = $row['email'];
-    $question = $row['question'];
-    $answer = $row['answer'];
-}
-?> 
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -67,6 +67,8 @@ if (mysqli_num_rows($result_user) == 1) {
                 Full Name: <?php echo $name; ?>
                 <br>
                 Username: <?php echo $username; ?>
+                <br>
+                Password: <?php echo $password; ?>
                 <br>
                 Address: <?php echo $address; ?>
                 <br>

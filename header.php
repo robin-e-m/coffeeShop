@@ -24,19 +24,11 @@
             $homepage = "staff.php";
             $register = "registerCustomer.php";
         }
-        
-        else if ($usertype == 4) { //owner is logged in
-            $homepage = "owner.php";
-            $register = "registerStaff.php";
-        }
-        
+
         else {
-            $homepage = "index.php"; //customer is logged in
-            $register = "customer.php";
+            $homepage = "customer.php"; //customer is logged in
+            $register = "index.php";
         }
-        
-  
-    
     }
     
        else { //failed sign in
@@ -50,10 +42,7 @@
     <div class="w3-cell-row boxed">
         <div class="w3-panel">
             <a href="index.php" class="w3-bar-item w3-button w3-mobile" style="font-size:20px">Home</a>
-          <a href="owner.php" class="w3-bar-item w3-button w3-mobile" style="font-size:20px">Owner</a>
-          <a href="manager.php" class="w3-bar-item w3-button w3-mobile" style="font-size:20px">Manager</a>
-            <a href="staff.php" class="w3-bar-item w3-button w3-mobile" style="font-size:20px">Staff</a>
-            <a href="customer.php" class="w3-bar-item w3-button w3-mobile" style="font-size:20px">Customer</a>
+            <a href="<?php echo $homepage; ?>" class="w3-bar-item w3-button w3-mobile" style="font-size:20px">Welcome</a>
             <a href="#" class="w3-bar-item w3-button w3-mobile" style="font-size:20px">Online Store</a>
             <a href="<?php echo $register; ?>" class="w3-bar-item w3-button w3-mobile" style="font-size:20px">Register</a>
             <div class="w3-dropdown-hover w3-mobile">

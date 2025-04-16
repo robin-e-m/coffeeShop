@@ -25,8 +25,6 @@ $result = loginDB($sql, $user, $pwd);
                 header("location:manager.php");
             else if ($usertype == 2)
                 header("location:staff.php");
-             else if ($usertype == 4)
-                header("location:owner.php");
             else
                 header("location:customer.php");
             exit;

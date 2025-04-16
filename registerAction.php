@@ -62,7 +62,7 @@ if ($usertype == "3") { //if customer
             $hashed_pswd . "', '" . $email . "', '" . $phone . "', '" . $address . "', '" .
             $city . "', '" . $state . "', '" . $zip . "', '" . $question . "', '" .
             $answer . "', '" . $pay . "', '" . $hire . "', '" . $usertype . "')";
-} else { //if owner or staff
+} else { //if manager or staff
     $pay = $_GET["pay"];
     $hire = $_GET["hire"];
 

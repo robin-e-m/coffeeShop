@@ -14,12 +14,7 @@ if (!(isset($_SESSION['usertype'])) or $usertype != 2) {
 </head>
 
 <body>
-    <style> 
-   body  {
-  background-color: lightblue
-        }
-        </style>
-  <div class="w3-container">
+  <div class="w3-container w3-center">
     <h1>New Item for menu </h1>
     <form name="register" action="menuregisterAction.php" method="get">
       <div class="item">
@@ -28,7 +23,6 @@ if (!(isset($_SESSION['usertype'])) or $usertype != 2) {
       </div>
         <label>desrciption of item </label>
         <input type="text" name="description" size="40" />
-      </div>
       <div class="item">
         <label>price of item </label>
         <input type="text" name="price" size="40" />

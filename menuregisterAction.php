@@ -1,6 +1,6 @@
 <?php
 
-require "DBConnect2.php";
+require "DBConnect.php";
 
 $name = $_GET['name'];
 $description = $_GET['description'];

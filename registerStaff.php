@@ -38,26 +38,31 @@ if (!(isset($_SESSION['usertype'])) or $usertype != 1) {
 
                 <div class="register-option">
                     <label>Full Name</label>
+                    <br>
                     <input type="text" name="name" size="90" required />
                 </div>
 
                 <div class="register-option">
                     <label>Username</label>
+                    <br>
                     <input type="text" name="username" size="90" required />
                 </div>
 
                 <div class="register-option">
                     <label>Password</label>
+                    <br>
                     <input type="password" name="pass" size="90" required />
                 </div>
 
                 <div class="register-option">
                     <label>Confirm Password</label>
+                    <br>
                     <input type="password" name="pass2" size="90" required />
                 </div>
 
                 <div class="register-option">
                     <label>Street Address</label>
+                    <br>
                     <input type="text" name="address" size="90" required />
                 </div>
 
@@ -134,16 +139,19 @@ if (!(isset($_SESSION['usertype'])) or $usertype != 1) {
 
                 <div class="register-option">
                     <label>Phone Number</label>
+                    <br>
                     <input type="text" name="phone" size="90" required />
                 </div>
 
                 <div class="register-option">
                     <label>E-Mail</label>
+                    <br>
                     <input type="email" name="email" size="90" required />
                 </div>
 
                 <div class="register-option">
                     <label>Security Question</label>
+                    <br>
                     <input type="text" name="question" size="90" required />
                 </div>
 
@@ -173,9 +181,9 @@ if (!(isset($_SESSION['usertype'])) or $usertype != 1) {
 
                 </div>
 
-                <div>
-                    <input class="form-button" style="margin-left:280px" type="submit" value="Submit" />
-                    <input class="form-button" style="margin-left:20px" type="reset" value="Reset" />
+                <div class="button-center">
+                    <input class="form-button" type="submit" value="Submit" />
+                    <input class="form-button" type="reset" value="Reset" />
                 </div>
             </form>
         </div>

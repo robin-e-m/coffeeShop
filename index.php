@@ -7,6 +7,7 @@
         <?php include 'header.php' ?>
 
     </head>
+    <link rel="stylesheet" href="mystyles.css">
 
     <body>
         <div class="home-top-section"></div>

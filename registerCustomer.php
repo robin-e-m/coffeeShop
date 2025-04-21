@@ -7,7 +7,7 @@
         <?php include 'header.php' ?>
     </head>
     <body>
-        <div class="input-form" style="margin-left:275px">
+        <div class="input-form">
         <h1 style="font-family:inherit">New Customer Registration</h1>
         <div>
             
@@ -67,6 +67,7 @@
 
                 <div class="register-option">
                     <label>Confirm Password</label>
+                    <br>
                     <input type="password" name="pass2" size="90" required/>
                 </div>
 
@@ -174,9 +175,9 @@
                 <input type="hidden" name="usertype" value="3">
                 <br>
 
-                <div>
-                    <input class="form-button" style="margin-left:280px" type="submit" value="Submit" />
-                    <input class="form-button" style="margin-left:20px"type="reset" value="Reset" />
+                <div class="button-center">
+                    <input class="form-button" type="submit" value="Submit" />
+                    <input class="form-button" type="reset" value="Reset" />
                 </div>
             </form>
               </div>

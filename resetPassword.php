@@ -25,8 +25,8 @@
                     <input type="text" name="username" size="90" required/>
                 </div>
                 <br>
-                <div>
-                    <input class="form-button" style="margin-left:350px" type="submit" value="Submit" />
+                <div class="button-center">
+                    <input class="form-button" type="submit" value="Submit" />
                 </div>
             </form>
         </div>

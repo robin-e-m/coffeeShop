@@ -25,24 +25,12 @@ $phone = $_GET["phone"];
 $question = $_GET["question"];
 $answer = $_GET["answer"];
 
-
-//check for duplicates in user table
-if ($usertype == "1" || $usertype == "2" || $usertype == '3') {
-    $unique_user_check = "SELECT EXISTS(SELECT 1 FROM user WHERE username = '$user') AS duplicate";
-    $unique_user_result = queryDB($unique_user_check);
-    $row = mysqli_fetch_assoc($unique_user_result);
-
-    if ($row['duplicate']) {
-        header("Location: profileUpdate.php?error=duplicate_username");
-        exit;
-    }
-}
-
 //check for matching password re-type
 if ($pswd != $pswd2) {
     header("Location: profileUpdate.php?error=retry_password");
     exit;
 }
+else {
 
 //Updating data in user table
 $sql = "update user set Password = '" . $hashed_pswd . "', Name ='" .
@@ -52,7 +40,10 @@ $sql = "update user set Password = '" . $hashed_pswd . "', Name ='" .
   $answer . "' where userID = ".$userID;
 
 echo modifyDB($sql) . "<br>Use back button to return";
-header("Location: updateProfile.php?status=register_success");
+
+header("Location: profileUpdate.php?status=update_success");
+}
+
 ?>
 
 <html>
@@ -64,7 +55,7 @@ header("Location: updateProfile.php?status=register_success");
     <body>
                 <div>
                     <a href="index.php">Return to Home Page</a>
-                        </div>
+                </div>
         
         <br>
         <br>

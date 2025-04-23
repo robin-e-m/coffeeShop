@@ -40,14 +40,10 @@ if (!(isset($_SESSION['userID']))) {
         <div>
               <!-- error/success messages -->
             <?php
-            if (isset($_GET['status']) && $_GET['status'] == 'register_success') {
+            if (isset($_GET['status']) && $_GET['status'] == 'update_success') {
                 echo "<p>Account updated successfully!</p>";
                 echo "<a href='index.php'>Return to homepage</a>";
                 exit;
-            }
-            
-            if(isset($_GET['error']) && $_GET['error'] == 'duplicate_username') {
-                echo "<p>Username already taken. Please try again.</p>";
             }
             
             if(isset($_GET['error']) && $_GET['error'] == 'retry_password') {
@@ -66,7 +62,7 @@ if (!(isset($_SESSION['userID']))) {
                 <div class="register-option">
                     <label>Username</label>
                     <br>
-                    <input type="text" name="username" size="90" value ="<?php echo $username ?>" required/>
+                    <input type="text" name="username" size="90" value ="<?php echo $username ?>" disabled/>
                 </div>
 
                 <div class="register-option">

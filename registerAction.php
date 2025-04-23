@@ -73,7 +73,7 @@ if ($usertype == "3") { //if customer
 }
 
 echo modifyDB($sql);
-header("Location: registerCustomer.php?status=register_success");
+header("Location: registerStaff.php?status=register_success");
 ?>
 
 

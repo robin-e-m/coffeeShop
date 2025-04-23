@@ -86,7 +86,7 @@ if (!(isset($_SESSION['userID']))) {
                 <br>
                 Security Answer: <?php echo $answer; ?>
                 <br>
-                <a href="#">Update your profile</a>
+                <a href="profileUpdate.php">Update your profile</a>
             </p>
 
             <br>

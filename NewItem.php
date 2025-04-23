@@ -2,9 +2,9 @@
 <?php
 require 'DBConnect.php';
 include 'header.php';
-if (!(isset($_SESSION['usertype'])) {
+if (!(isset($_SESSION['usertype']))) {
     if ($usertype != 1 OR $usertype != 2)
-    header("Location:index.php");
+        header("Location:index.php");
     exit;
 }
 ?>
@@ -34,20 +34,20 @@ if (!(isset($_SESSION['usertype'])) {
         <label>Name of item</label>
         <input type="text" name="name" size="40" required/>
       </div>
-        <label>Desrciption of item </label>
+        <label>Description:</label>
         <input type="text" name="description" size="40" />
       <div class="item">
-        <label>Price of item </label>
+        <label>Price:</label>
         <input type="text" name="price" size="40" />
       </div>
       <div class="item">
-        <label>What Category does your new item fall into?</label>
+        <label>Category:</label>
         <select name="category" required>
           <option disabled selected value>Select category</option>
-          <option value="hot drink">hot drink</option>
-          <option value="cold drink">cold drink</option>
-          <option value="bakery">bakery</option>
-          <option value="seasonal">seasonal</option>
+          <option value="hot drink">Hot drink</option>
+          <option value="cold drink">Cold drink</option>
+          <option value="bakery">Bakery</option>
+          <option value="seasonal">Seasonal</option>
         </select>
       </div>
       <div class="item">

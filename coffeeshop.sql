@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 23, 2025 at 05:35 PM
+-- Generation Time: Apr 23, 2025 at 06:23 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -40,9 +40,7 @@ CREATE TABLE `menu` (
 --
 
 INSERT INTO `menu` (`itemID`, `name`, `description`, `price`, `category`) VALUES
-(1, 'Decaf Coffee', '24 ounces hot coffee with no caffeine', 7, 'hot'),
-(2, 'Decaf Coffee', '24 ounces hot coffee with no caffeine', 7, 'hot'),
-(3, 'Decaf Coffee', '24 ounces hot coffee with no caffeine', 7, 'hot');
+(1, 'Decaf Coffee', '24 ounces hot coffee with no caffeine', 7, 'hot');
 
 -- --------------------------------------------------------
 
@@ -101,8 +99,8 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`userID`, `name`, `username`, `password`, `email`, `phone`, `address`, `city`, `state`, `zip`, `question`, `answer`, `payRate`, `hireDate`, `usertype`) VALUES
 (8, 'Customer Single', 'customer1', '$2y$10$o98fGhihQt9RH', 'customer1@coffeeshop.com', '7410852963', '123 Gemstone Drive', 'Noting', 'la', '75342', 'beep boop?', 'yes', 0.00, '0000-00-00', 3),
-(18, 'Staff Member', 'staff1', '$2y$10$o1wGaV4Nq40YV', 'staff1@coffeeshop.com', '7410258963', '456 Tester Avenue', 'Lunenburg', 'ma', '85201', 'Favorite Color?', 'Blue', 15.00, '2025-03-09', 2),
-(19, 'Manager Member', 'Manager1', '$2y$10$gTk.b5ozyOt/F', 'manager@coffeeshop.com', '4561237890', '963 Practice Road', 'Lunenburg', 'ma', '78541', 'Favorite Food?', 'lasagna', 25.00, '2025-02-09', 1);
+(18, 'Staff Member', 'staff1', 'Staff1', 'staff1@coffeeshop.com', '7410258963', '456 Tester Avenue', 'Lunenburg', 'ma', '85201', 'Favorite Color?', 'Blue', 15.00, '2025-03-09', 2),
+(19, 'Manager Member', 'Manager1', 'Manager1', 'manager@coffeeshop.com', '4561237890', '963 Practice Road', 'Lunenburg', 'ma', '78541', 'Favorite Food?', 'lasagna', 25.00, '2025-02-09', 1);
 
 --
 -- Indexes for dumped tables

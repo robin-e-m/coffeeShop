@@ -1,6 +1,4 @@
-
-  <!DOCTYPE html>
-
+<!DOCTYPE html>
 <?php
 
 require "DBConnect.php";
@@ -23,7 +21,6 @@ $question = $_GET["question"];
 $answer = $_GET["answer"];
 
 $usertype = $_GET["usertype"];
-
 $address = $_GET["address"];
 $city = $_GET["city"];
 $state = $_GET["state"];
@@ -56,8 +53,6 @@ if ($pswd != $pswd2) {
     header("Location: registerStaff.php?error=retry_password");
     exit;
 }
-
-
 //Entering data into users table
 if ($usertype == "3") { //if customer
     $pay = 0.00; //set pay to 0.00
@@ -77,9 +72,10 @@ if ($usertype == "3") { //if customer
             $answer . "', '" . $pay . "', '" . $hire . "', '" . $usertype . "')";
 }
 
-
-echo modifyDB($sql) . "<br>Use back button to return";
+echo modifyDB($sql);
+header("Location: registerCustomer.php?status=register_success");
 ?>
+
 
 <html>
     <head>
@@ -97,4 +93,3 @@ echo modifyDB($sql) . "<br>Use back button to return";
         <?php include 'footer.php' ?>
     </body>
 </html>
-

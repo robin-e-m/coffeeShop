@@ -13,7 +13,8 @@ if (!(isset($_SESSION['usertype'])) or $usertype != 1) {
 
     </head>
     <body>
-        <h1>Staff Registration</h1>
+        <div class="input-form">
+        <h1 style="font-family:inherit">Staff Registration</h1>
           <!-- error/success messages -->
             <?php
             if (isset($_GET['status']) && $_GET['status'] == 'register_success') {
@@ -31,42 +32,49 @@ if (!(isset($_SESSION['usertype'])) or $usertype != 1) {
             }
             ?>
         <br>
-        <div>
+        <div class="form-card">
 
             <form name="register" action="registerAction.php" method="get">
 
-                <div>
+                <div class="register-option">
                     <label>Full Name</label>
-                    <input type="text" name="name" size="40" required />
+                    <br>
+                    <input type="text" name="name" size="90" required />
                 </div>
 
-                <div>
+                <div class="register-option">
                     <label>Username</label>
-                    <input type="text" name="username" size="15" required />
+                    <br>
+                    <input type="text" name="username" size="90" required />
                 </div>
 
-                <div>
+                <div class="register-option">
                     <label>Password</label>
-                    <input type="password" name="pass" size="20" required />
+                    <br>
+                    <input type="password" name="pass" size="90" required />
                 </div>
 
-                <div>
+                <div class="register-option">
                     <label>Confirm Password</label>
-                    <input type="password" name="pass2" size="20" required />
+                    <br>
+                    <input type="password" name="pass2" size="90" required />
                 </div>
 
-                <div>
+                <div class="register-option">
                     <label>Street Address</label>
-                    <input type="text" name="address" size="50" required />
+                    <br>
+                    <input type="text" name="address" size="90" required />
                 </div>
 
-                <div>
+                <div class="register-option">
                     <label>City</label>
-                    <input type="text" name="city" size="50" required />
+                    <br>
+                    <input type="text" name="city" size="90" required />
                 </div>
 
-                <div>
+                <div class="register-option">
                     <label>State</label>
+                    <br>
                     <select name="state" required >
                         <option disabled selected value>Select your state</option>
                         <option value="al">AL</option>
@@ -123,42 +131,47 @@ if (!(isset($_SESSION['usertype'])) or $usertype != 1) {
                     </select>
                 </div>
 
-                <div>
+                <div class="register-option">
                     <label>Zip Code</label>
-                    <input type="text" name="zip" size="5" required />
+                    <br>
+                    <input type="text" name="zip" size="10" required />
                 </div>
 
-                <div>
+                <div class="register-option">
                     <label>Phone Number</label>
-                    <input type="text" name="phone" size="10" required />
+                    <br>
+                    <input type="text" name="phone" size="90" required />
                 </div>
 
-                <div>
+                <div class="register-option">
                     <label>E-Mail</label>
-                    <input type="email" name="email" size="50" required />
+                    <br>
+                    <input type="email" name="email" size="90" required />
                 </div>
 
-                <div>
+                <div class="register-option">
                     <label>Security Question</label>
-                    <input type="text" name="question" size="50" required />
+                    <br>
+                    <input type="text" name="question" size="90" required />
                 </div>
 
-                <div>
+                <div class="register-option">
                     <label>Answer</label>
-                    <input type="password" name="answer" size="50" required />
+                    <br>
+                    <input type="password" name="answer" size="90" required />
                 </div>
 
-                <div>
+                <div class="register-option">
                     <label>Pay Rate</label>
                     <input type="text" name="pay" size="5" required />
                 </div>
 
-                <div>
+                <div class="register-option">
                     <label>Hire Date</label>
                     <input type="date" name="hire" size="8" required />
                 </div>
 
-                <div>
+                <div class="register-option">
                     <label>User Type:</label>
                     <select name="usertype" required >
                         <option value="">Select employee type</option>
@@ -168,9 +181,9 @@ if (!(isset($_SESSION['usertype'])) or $usertype != 1) {
 
                 </div>
 
-                <div class="item">
-                    <input type="submit" value="Submit" />
-                    <input type="reset" value="Reset" />
+                <div class="button-center">
+                    <input class="form-button" type="submit" value="Submit" />
+                    <input class="form-button" type="reset" value="Reset" />
                 </div>
             </form>
         </div>
@@ -179,5 +192,6 @@ if (!(isset($_SESSION['usertype'])) or $usertype != 1) {
         <br>
 
         <?php include 'footer.php' ?>
+        </div>
     </body>
 </html>

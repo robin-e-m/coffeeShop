@@ -56,7 +56,7 @@ if (!(isset($_SESSION['userID']))) {
             <ul style="font-size:20px; text-align:left";>
                 <li><a href="registerStaff.php">Add new staff member</a></li>
                 <li><a href="registerCustomer.php">Add new customer</a></li>
-                <li><a href="#">Add new menu item</a></li>
+                <li><a href="NewItem.php">Add new menu item</a></li>
                 <li><a href="#">Modify menu item</a></li>
             </ul>
             <br>
@@ -92,5 +92,3 @@ if (!(isset($_SESSION['userID']))) {
             <br>
             <br>
             <?php include 'footer.php' ?>
-    </body>
-</html>

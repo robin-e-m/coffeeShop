@@ -54,12 +54,12 @@ function queryDB($sql) { // returns an object or a string
 }
 
 // API for login with prepared statement
-function loginDB($sql, $user, $pwd) {
+function loginDB($sql, $user, $pswd) {
   global $conn;
   $message = openDB();
   if ($message == "Connected") {
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ss", $user, $pwd);
+    $stmt->bind_param("ss", $user, $pswd);
     $stmt->execute();
     $result = $stmt->get_result();
     if (gettype($result) == "object")

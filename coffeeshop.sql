@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 26, 2025 at 02:42 PM
+-- Generation Time: Apr 23, 2025 at 06:23 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -34,6 +34,13 @@ CREATE TABLE `menu` (
   `price` decimal(4,0) NOT NULL,
   `category` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `menu`
+--
+
+INSERT INTO `menu` (`itemID`, `name`, `description`, `price`, `category`) VALUES
+(1, 'Decaf Coffee', '24 ounces hot coffee with no caffeine', 7, 'hot');
 
 -- --------------------------------------------------------
 
@@ -91,9 +98,9 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`userID`, `name`, `username`, `password`, `email`, `phone`, `address`, `city`, `state`, `zip`, `question`, `answer`, `payRate`, `hireDate`, `usertype`) VALUES
-(1, 'Betty Boop', 'bboop1', '987Boop!', '987 Olive Street', 'Pearl', 'ga', '01234', '01', 'bboop', 'What is your favorite color?', 'Orange', 17.00, '0000-00-00', 1),
-(2, 'Joe Johnson', 'JJohnson', '654John', '654 Grove Avenue', 'Ruby', 'md', '74108', '85', 'jjohn', 'How do you like your eggs cooked?', 'Scrambled', 17.00, '0000-00-00', 2),
-(4, 'customer 1', 'user1', 'coffee', '36 Street Address', 'Igloo', 'ak', '98754', '01', 'custo', 'beep boop?', 'yes', 0.00, '0000-00-00', 3);
+(8, 'Customer Single', 'customer1', '$2y$10$o98fGhihQt9RH', 'customer1@coffeeshop.com', '7410852963', '123 Gemstone Drive', 'Noting', 'la', '75342', 'beep boop?', 'yes', 0.00, '0000-00-00', 3),
+(18, 'Staff Member', 'staff1', 'Staff1', 'staff1@coffeeshop.com', '7410258963', '456 Tester Avenue', 'Lunenburg', 'ma', '85201', 'Favorite Color?', 'Blue', 15.00, '2025-03-09', 2),
+(19, 'Manager Member', 'Manager1', 'Manager1', 'manager@coffeeshop.com', '4561237890', '963 Practice Road', 'Lunenburg', 'ma', '78541', 'Favorite Food?', 'lasagna', 25.00, '2025-02-09', 1);
 
 --
 -- Indexes for dumped tables
@@ -135,7 +142,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `menu`
 --
 ALTER TABLE `menu`
-  MODIFY `itemID` int(4) NOT NULL AUTO_INCREMENT;
+  MODIFY `itemID` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `order`
@@ -153,7 +160,7 @@ ALTER TABLE `ordermenu`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `userID` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `userID` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- Constraints for dumped tables

@@ -7,28 +7,25 @@
         <?php include 'header.php' ?>
 
     </head>
+    <link rel="stylesheet" href="mystyles.css">
 
     <body>
+        <div class="home-top-section"></div>
+        <div class="home-top-text">
+            <h1 style="font-size:100px; font-family:inherit;">Perk & Pour</h1>
+            <p style="font-size:35px">Coffee and Pastries</p>
+        </div>
 
-        <h1> Welcome to the Coffee Shop</h1>
         <br>
-        <!-- 
+        <div class="home-main-content">
         
-        Temporary Links to view new pages created
-        
-        -->
+            <h3 style="font-size:40px;color:#60b9bf;font-family:inherit"> Welcome to Perk & Pour – Your Cozy Neighborhood Coffee Spot </h3>
+            <br>
 
-        <p> Temporary links to new pages created, for testing purposes only and will be deleted as more content is created.
-            <br>
-            <a href="manager.php">Manager Page</a>
-            <br>
-             <a href="staff.php">Staff Page</a>
-             <br>
-             <a href="customer.php">Customer Page</a>
-            <br>
-            <a href="registerStaff.php">Employee Registration</a>
-            <br>
-            <a href="registerCustomer.php">Customer registration</a>
+           <p style="font-size:20px;margin-left:40px"> At Perk & Pour, we believe that great coffee brings people together. Nestled in the heart of Nowhere, we serve up freshly brewed coffee, handcrafted espresso drinks, and delicious pastries in a warm, inviting atmosphere. Whether you're stopping by for your morning pick-me-up, settling in for a productive work session, or catching up with friends over a latte, our café is your home away from home.
+
+            Come in, take a sip, and experience the perfect blend of comfort and community. We can’t wait to welcome you!
+
 
         </p>
 
@@ -36,6 +33,7 @@
         <br>
 
         <?php include 'footer.php' ?>
+        </div>
     </body>
 
 </html>

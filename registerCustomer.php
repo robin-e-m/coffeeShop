@@ -4,30 +4,12 @@
     <head>
         <meta charset="UTF-8">
         <title>New Customer Registration</title>
+        <?php include 'header.php' ?>
     </head>
-    
     <body>
         <div class="input-form">
         <h1 style="font-family:inherit">New Customer Registration</h1>
         <div>
-            
-            <!-- error/success messages -->
-            <?php
-            if (isset($_GET['status']) && $_GET['status'] == 'register_success') {
-                echo "<p>Account created successfully!</p>";
-                echo "<a href='index.php'>Return to homepage</a>";
-                exit;
-            }
-            
-            if(isset($_GET['error']) && $_GET['error'] == 'duplicate_username') {
-                echo "<p>Username already taken. Please try again.</p>";
-            }
-            
-            if(isset($_GET['error']) && $_GET['error'] == 'retry_password') {
-                echo "<p>The passwords you entered don't match. Please try again.</p>";
-            }
-            ?>
-
               <!-- error/success messages -->
             <?php
             if (isset($_GET['status']) && $_GET['status'] == 'register_success') {
@@ -188,5 +170,3 @@
         </div>
     </body>
 </html>
-
-

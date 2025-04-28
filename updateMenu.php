@@ -16,10 +16,10 @@ if (!(isset($_SESSION['usertype']))) {
 
     </head>
     <body>
-<div class="input-form">
+        <div class="input-form">
             <h1 style="font-family:inherit">Update Menu Item</h1>
 
-    <div class="form-card">
+            <div class="form-card">
 
                 <!-- displays error message if redirected after failed attempt -->
                 <?php
@@ -50,15 +50,16 @@ if (!(isset($_SESSION['usertype']))) {
                         <label style="font-size: 20px">Item Price:</label>
                         <input type="text" name="price" size="100" required/>
                     </div>
-                    
+
                     <div class="register-option">
-                    <label style="font-size: 20px">Select Category:</label>
-                    <select name="category" required >
-                        <option value="hot">Hot Drinks</option>
-                        <option value="cold">Cold Drinks</option>
-                        <option value="bakery">Bakery</option>
-                        <option value="limited">Seasonal</option>
-                    </select>
+                        <label style="font-size: 20px">Item Category</label>
+                        <select name="category" required >
+                            <option disabled selected value>Select a category</option>
+                            <option value="hot">Hot Drinks</option>
+                            <option value="cold">Cold Drinks</option>
+                            <option value="bakery">Bakery</option>
+                            <option value="limited">Seasonal</option>
+                        </select>
                     </div>
                     <br>
 
@@ -66,12 +67,12 @@ if (!(isset($_SESSION['usertype']))) {
                         <input class="form-button" type="submit" value="Submit" />
                     </div>
                 </form>
-    </div>
+            </div>
 
             <br>
             <br>
-   
+
             <?php include 'footer.php' ?>
-</div>     
+        </div>     
     </body>
 </html>

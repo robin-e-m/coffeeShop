@@ -1,23 +1,19 @@
 <!DOCTYPE html>
 <?php
+
 require "DBConnect.php";
 include 'header.php';
-
 openDB();
 
-$item = isset($_GET["name"]) ? $_GET["name"] : (isset($_POST["name"]) ? $_POST["name"] : null);
-$result_item = null; //needs a default value, otherwise throws error
+//check user table for username
+$sql = "SELECT description, price, category FROM menu WHERE name = '$user'";
+$result_item = queryDB($sql);
 
-//check menu table for item name
-$sql_item = "SELECT name, desciption, price, category FROM menu WHERE name = '$name'";
-$result_item = queryDB($sql_item);
-
-//if item name found, get item data from menu table
+//if username found, get question and answer from user table
 if (mysqli_num_rows($result_item) == 1) {
     $row = mysqli_fetch_assoc($result_item);
-    $name = $row['name'];
-    $desciption = $row['description'];
-    $price = $row['price'];
+    $description = $row['description'];
+    $price = $row['price']; 
     $category = $row['category'];
 }
 
@@ -27,13 +23,7 @@ if (mysqli_num_rows($result_item) == 0) {
     exit;
 } else {
 
-    // Retrieve input values
-    $name = $_GET['name'];
-    $description = $_GET['description'];
-    $price = $_GET['price'];
-    $category = $_GET['category'];
-
-    //Updating data in user table
+    //Updating data in menu table
     $sql = "UPDATE menu SET description = '" . $description . "', price = '" . 
             $price . "', category = '" . $category . "' where itemID = " . $itemID;
 

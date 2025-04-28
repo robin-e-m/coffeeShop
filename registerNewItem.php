@@ -16,7 +16,7 @@ if (!(isset($_SESSION['usertype']))) {
 
 <body>
   <div class="w3-container w3-center">
-    <h1>New Item for menu </h1>
+    <h3>Register New Item</h3>
     
     <?php
             if (isset($_GET['status']) && $_GET['status'] == 'register_success') {

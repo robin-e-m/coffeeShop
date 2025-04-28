@@ -86,7 +86,7 @@ if (mysqli_num_rows($result_user) == 0){
         $new_password = $_POST['new_password'];
         $new_hashed = password_hash($new_password, PASSWORD_DEFAULT);
 
-        $sql_update = "UPDATE user SET password = '$new_hashed' WHERE username = '$user'";
+        $sql_update = "UPDATE user SET password = '$new_password' WHERE username = '$user'";
         $result_update = queryDB($sql_update);
         
         if ($result_update) {

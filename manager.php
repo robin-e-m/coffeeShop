@@ -56,8 +56,8 @@ if (!(isset($_SESSION['userID']))) {
             <ul style="font-size:20px; text-align:left";>
                 <li><a href="registerStaff.php">Add new staff member</a></li>
                 <li><a href="registerCustomer.php">Add new customer</a></li>
-                <li><a href="NewItem.php">Add new menu item</a></li>
-                <li><a href="#">Modify menu item</a></li>
+                <li><a href="registerNewItem.php">Register new menu item</a></li>
+                <li><a href="updateMenu.php">Modify menu item</a></li>
             </ul>
             <br>
             <h3 style="font-size:40px;color:#60b9bf;font-family:inherit; text-align:left;">Profile Details:</h3>

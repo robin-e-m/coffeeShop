@@ -68,13 +68,13 @@ if (!(isset($_SESSION['userID']))) {
                 <div class="register-option">
                     <label>Password</label>
                     <br>
-                    <input type="password" name="pass" size="90" value ="<?php echo $password ?>" required/>
+                    <input type="password" name="password" size="90" value ="<?php echo $password ?>" required/>
                 </div>
 
                 <div class="register-option">
                     <label>Confirm Password</label>
                     <br>
-                    <input type="password" name="pass2" size="90" value ="<?php echo $password2 ?>" required/>
+                    <input type="password" name="password2" size="90" value ="<?php echo $password2 ?>" required/>
                 </div>
 
                 <div class="register-option">

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 23, 2025 at 06:23 PM
+-- Generation Time: Apr 28, 2025 at 04:46 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -40,7 +40,9 @@ CREATE TABLE `menu` (
 --
 
 INSERT INTO `menu` (`itemID`, `name`, `description`, `price`, `category`) VALUES
-(1, 'Decaf Coffee', '24 ounces hot coffee with no caffeine', 7, 'hot');
+(1, 'Decaf Coffee', '24 ounces hot coffee with no caffeine', 7, 'hot'),
+(2, 'Decaf Coffee', '24 ounces hot coffee with no caffeine', 7, 'hot'),
+(3, 'Decaf Coffee', '24 ounces hot coffee with no caffeine', 7, 'hot');
 
 -- --------------------------------------------------------
 
@@ -98,9 +100,13 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`userID`, `name`, `username`, `password`, `email`, `phone`, `address`, `city`, `state`, `zip`, `question`, `answer`, `payRate`, `hireDate`, `usertype`) VALUES
-(8, 'Customer Single', 'customer1', '$2y$10$o98fGhihQt9RH', 'customer1@coffeeshop.com', '7410852963', '123 Gemstone Drive', 'Noting', 'la', '75342', 'beep boop?', 'yes', 0.00, '0000-00-00', 3),
-(18, 'Staff Member', 'staff1', 'Staff1', 'staff1@coffeeshop.com', '7410258963', '456 Tester Avenue', 'Lunenburg', 'ma', '85201', 'Favorite Color?', 'Blue', 15.00, '2025-03-09', 2),
-(19, 'Manager Member', 'Manager1', 'Manager1', 'manager@coffeeshop.com', '4561237890', '963 Practice Road', 'Lunenburg', 'ma', '78541', 'Favorite Food?', 'lasagna', 25.00, '2025-02-09', 1);
+(6, 'Manager Main', 'manager1', 'Coffee', 'manager1@testing.gov', '8520741963', '7411 Practice Street', 'DarkRoast', 'in', '98745', 'what is your favorite food?', 'Lasagna', 17.00, '2025-03-15', 1),
+(7, 'Staff Member', 'staff1', 'coffeeshop', 'staff1@practice.org', '0123456789', '987 Olive Avenue', 'Harvard', 'ma', '96301', 'what is your favorite color?', 'green', 15.00, '2025-03-19', 2),
+(8, 'Main Customer', 'customer1', 'coffee', 'customer1@coffeeshop.com', '7410852963', '123 Gemstone Drive', 'Nothing', 'co', '75342', 'beep boop?', 'yes', 0.00, '0000-00-00', 3),
+(9, 'customer 2', 'customer2', '$2y$10$O.n7wD9./tAet', 'customer2@coffeeshop.com', '9518479632', '741 Software Circle', 'Milano', 'tn', '32165', 'Favorite place?', 'new york', 0.00, '0000-00-00', 3),
+(10, 'staff 2', 'staff2', '$2y$10$oaB5E3QOaPIPJ', 'staff2@coffeeshop.com', '9630852741', '863 Silver Drive', 'Athens', 'fl', '98745', 'Favorite subject?', 'foreign languages', 15.00, '2025-03-17', 2),
+(11, 'manager 2', 'manager2', '$2y$10$x.iZTlf1eLwqS', 'manager2@testing.gov', '9630852741', '123 School Avenue', 'Lancaster', 'id', '74539', 'Favorite movie?', 'Aliens', 17.00, '2025-02-15', 1),
+(13, 'Mahadev', 'mahadev', 'mahadev', 'mahadev@practice.com', '9786650000', '160 practice rd', 'fitchburg', 'ma', '05742', 'favorite color?', 'orange', 18.00, '2025-03-20', 1);
 
 --
 -- Indexes for dumped tables
@@ -160,7 +166,7 @@ ALTER TABLE `ordermenu`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `userID` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `userID` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- Constraints for dumped tables

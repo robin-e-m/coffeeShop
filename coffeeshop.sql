@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 28, 2025 at 04:46 PM
+-- Generation Time: Apr 28, 2025 at 06:17 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -31,7 +31,7 @@ CREATE TABLE `menu` (
   `itemID` int(4) NOT NULL,
   `name` varchar(30) NOT NULL,
   `description` varchar(100) NOT NULL,
-  `price` decimal(4,0) NOT NULL,
+  `price` decimal(4,2) NOT NULL,
   `category` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -40,9 +40,9 @@ CREATE TABLE `menu` (
 --
 
 INSERT INTO `menu` (`itemID`, `name`, `description`, `price`, `category`) VALUES
-(1, 'Decaf Coffee', '24 ounces hot coffee with no caffeine', 7, 'hot'),
-(2, 'Decaf Coffee', '24 ounces hot coffee with no caffeine', 7, 'hot'),
-(3, 'Decaf Coffee', '24 ounces hot coffee with no caffeine', 7, 'hot');
+(4, 'Decaf Coffee (Large)', '24 ounces of hot coffee with no caffeine', 6.99, 'al'),
+(5, 'Decaf Coffee (Medium)', '16 ounces of hot coffee with no caffeine', 4.99, 'al'),
+(6, 'Decaf Coffee (Small)', '8 ounces of hot coffee with no caffeine', 2.99, 'al');
 
 -- --------------------------------------------------------
 
@@ -106,7 +106,7 @@ INSERT INTO `user` (`userID`, `name`, `username`, `password`, `email`, `phone`, 
 (9, 'customer 2', 'customer2', '$2y$10$O.n7wD9./tAet', 'customer2@coffeeshop.com', '9518479632', '741 Software Circle', 'Milano', 'tn', '32165', 'Favorite place?', 'new york', 0.00, '0000-00-00', 3),
 (10, 'staff 2', 'staff2', '$2y$10$oaB5E3QOaPIPJ', 'staff2@coffeeshop.com', '9630852741', '863 Silver Drive', 'Athens', 'fl', '98745', 'Favorite subject?', 'foreign languages', 15.00, '2025-03-17', 2),
 (11, 'manager 2', 'manager2', '$2y$10$x.iZTlf1eLwqS', 'manager2@testing.gov', '9630852741', '123 School Avenue', 'Lancaster', 'id', '74539', 'Favorite movie?', 'Aliens', 17.00, '2025-02-15', 1),
-(13, 'Mahadev', 'mahadev', 'mahadev', 'mahadev@practice.com', '9786650000', '160 practice rd', 'fitchburg', 'ma', '05742', 'favorite color?', 'orange', 18.00, '2025-03-20', 1);
+(13, 'Decaf Coffee (Large)', 'mahadev', '', '', '', '', '', '', '', '', '', 18.00, '2025-03-20', 1);
 
 --
 -- Indexes for dumped tables
@@ -148,7 +148,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `menu`
 --
 ALTER TABLE `menu`
-  MODIFY `itemID` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `itemID` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `order`

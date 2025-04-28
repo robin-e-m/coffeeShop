@@ -1,6 +1,10 @@
+<!DOCTYPE html>
 <?php
 
-require "DBConnect.php";
+require 'DBConnect.php';
+include 'header.php';
+session_start();
+$userID = $_SESSION['userID'];
 
 // Retrieve input values
 $name = $_GET['name'];
@@ -14,15 +18,30 @@ $unique_name_result = queryDB($unique_name_check);
 $row = mysqli_fetch_assoc($unique_name_result);
 
 if ($row['duplicate']) {
-    header("Location: NewItem.php?error=duplicate_name");
+    header("Location: regsiterMenu.php?error=duplicate_name");
     exit;
 }
 
 // Insert the new menu item
 $sql = "insert into menu values (0, '" . $name . "', '" . 
-  $description . "', '" . $price . "', '" . 
-  $category .  "')";
-echo modifyDB($sql) . "<br>Use back button to return";
+  $description . "', '" . $price . "', '" .  $category .  "')";
+echo modifyDB($sql);
 
 ?>
 
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Registration Complete</title>
+    </head>
+    
+    <body>
+                <div>
+                    <a href="index.php">Return to Home Page</a>
+                </div>
+        
+        <br>
+        <br>
+        <?php include 'footer.php' ?>
+    </body>
+</html>

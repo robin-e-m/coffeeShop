@@ -2,6 +2,7 @@
 <?php
 require 'DBConnect.php';
 include 'header.php';
+
 if (!(isset($_SESSION['usertype']))) {
     if ($usertype != 1 OR $usertype != 2)
         header("Location:index.php");
@@ -18,6 +19,7 @@ if (!(isset($_SESSION['usertype']))) {
 <body>
     <div class="input-form">
         <h1 style="font-family:inherit">Register Menu Item</h1>
+        <div>
         <!-- error/success messages -->
         <?php
         if (isset($_GET['status']) && $_GET['status'] == 'register_success') {
@@ -50,6 +52,7 @@ if (!(isset($_SESSION['usertype']))) {
                         <br>
                         <input type="text" name="price" size="90" required />
                     </div>
+                    
                     <div class="register-option">
                         <label>Category</label>
                         <br>
@@ -61,13 +64,16 @@ if (!(isset($_SESSION['usertype']))) {
                             <option value="limited">Seasonal</option>
                         </select>
                     </div>
-                    <div class="item">
-                        <input type="submit" value="Submit" />
-                        <input type="reset" value="Reset" />
+                    
+                   <div class="button-center">
+                    <input class="form-button" type="submit" value="Submit" />
+                    <input class="form-button" type="reset" value="Reset" />
                     </div>
+                     </form>
                 </div>
-            </form>
+           
         </div>
+        <br>
         <br>
         <?php include 'footer.php' ?>
         </body>

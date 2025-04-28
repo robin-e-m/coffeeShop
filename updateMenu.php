@@ -2,6 +2,7 @@
 <?php
 require 'DBConnect.php';
 include 'header.php';
+
 if (!(isset($_SESSION['usertype']))) {
     if ($usertype != 1 OR $usertype != 2)
         header("Location:index.php");
@@ -12,37 +13,65 @@ if (!(isset($_SESSION['usertype']))) {
     <head>
         <meta charset="UTF-8">
         <title>Update Menu Item</title>
-   
+
     </head>
     <body>
-        <div class="input-form">
-        <h1 style="font-family:inherit">Update Menu Item</h1>
-        <h2 style="font-family:inherit">Please enter the item's name to proceed</h2>
-        <div class="form-card">
-              
-            <!-- displays error message if redirected after failed attempt -->
-            <?php
-            if (isset($_GET['error']) && $_GET['error'] == 'item_not_found') {
-                echo "<p>Item not found.</p>";
-            }
-            ?>
+<div class="input-form">
+            <h1 style="font-family:inherit">Update Menu Item</h1>
 
-            <form name="update_Item" action="updateMenuAction.php" method="get">
-                <div class="register-option">
-                    <label style="font-size: 20px">Item Name:</label>
-                    <input type="text" name="name" size="90" required/>
-                </div>
-                <br>
-                <div class="button-center">
-                    <input class="form-button" type="submit" value="Submit" />
-                </div>
-            </form>
-        </div>
+    <div class="form-card">
 
-        <br>
-        <br>
+                <!-- displays error message if redirected after failed attempt -->
+                <?php
+                if (isset($_GET['error']) && $_GET['error'] == 'item_not_found') {
+                    echo "<p>Item not found.</p>";
+                }
 
-        <?php include 'footer.php' ?>
-        </div>
+                if (isset($_GET['status']) && $_GET['status'] == 'update_success') {
+                    echo "<p>Item updated successfully!</p>";
+                    echo "<a href='index.php'>Return to homepage</a>";
+                    exit;
+                }
+                ?>
+
+                <form name="update_Item" action="updateMenuAction.php" method="get">
+                    <div class="register-option">
+                        <label style="font-size: 20px">Item Name:</label>
+                        <input type="text" name="name" size="100" required/>
+                    </div>
+
+                    <div class="register-option">
+                        <label style="font-size: 20px">Description:</label>
+                        <input type="text" name="description" size="100" required/>
+                    </div>
+
+
+                    <div class="register-option">
+                        <label style="font-size: 20px">Item Price:</label>
+                        <input type="text" name="price" size="100" required/>
+                    </div>
+                    
+                    <div class="register-option">
+                    <label style="font-size: 20px">Select Category:</label>
+                    <select name="category" required >
+                        <option value="hot">Hot Drinks</option>
+                        <option value="cold">Cold Drinks</option>
+                        <option value="bakery">Bakery</option>
+                        <option value="limited">Seasonal</option>
+                    </select>
+                    </div>
+                    <br>
+
+                    <div class="button-center">
+                        <input class="form-button" type="submit" value="Submit" />
+                    </div>
+                </form>
+    </div>
+
+            <br>
+            <br>
+   
+            <?php include 'footer.php' ?>
+</div>     
     </body>
 </html>

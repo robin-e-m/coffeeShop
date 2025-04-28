@@ -105,8 +105,8 @@ if (!(isset($_SESSION['userID']))) {
                 <div class="register-option">
                     <label>State</label>
                     <br>
-                    <select name="state"  value ="<?php echo $state ?>" required>
-                        <option disabled selected value>Select your state</option>
+                    <select name="state" required>Select your State:
+                        <option disabled value selection><?php echo $state ?></option>
                         <option value="al">AL</option>
                         <option value="ak">AK</option>
                         <option value="az">AZ</option>

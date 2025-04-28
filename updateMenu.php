@@ -12,7 +12,7 @@ if (!(isset($_SESSION['usertype'])) or $usertype != 1) {
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Register Staff</title>
+        <title>Update Menu Item</title>
 
     </head>
     <body>

@@ -29,7 +29,7 @@ if (!(isset($_SESSION['usertype']))) {
                 echo "<p>Item already registered. Please try again.</p>";
             }
             ?>
-    <form name="register" action="menuRegisterAction.php" method="get">
+    <form name="register" action="registerMenuAction.php" method="get">
       <div class="item">
         <label>Name of item</label>
         <input type="text" name="name" size="40" required/>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 28, 2025 at 09:41 PM
+-- Generation Time: Apr 28, 2025 at 11:12 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -42,7 +42,18 @@ CREATE TABLE `menu` (
 INSERT INTO `menu` (`itemID`, `name`, `description`, `price`, `category`) VALUES
 (4, 'Decaf Coffee (Large)', '24 ounces of hot coffee with no caffeine', 6.99, 'al'),
 (5, 'Decaf Coffee (Medium)', '16 ounces of hot coffee with no caffeine', 4.99, 'al'),
-(6, 'Decaf Coffee (Small)', '8 ounces of hot coffee with no caffeine', 2.99, 'al');
+(6, 'Decaf Coffee (Small)', '8 ounces of hot coffee with no caffeine', 2.99, 'al'),
+(7, 'Regular Coffee (Large)', '24 ounces of hot coffee (caffeinated)', 6.99, 'hot'),
+(8, 'Regular Coffee (Medium)', '16 ounces of hot coffee (caffeinated)', 4.99, 'hot'),
+(9, 'Regular Coffee (Small)', '8 ounces of hot coffee (caffeinated)', 2.99, 'hot'),
+(10, 'Iced Regular Coffee (Large)', '24 ounces of cold-brewed coffee (caffeinated)', 6.99, 'cold'),
+(11, 'Iced Regular Coffee (Medium)', '16 ounces of cold-brewed coffee (caffeinated)', 4.99, 'cold'),
+(12, 'Iced Regular Coffee (Small)', '8 ounces of cold-brewed coffee (caffeinated)', 2.99, 'cold'),
+(13, 'Espresso Fudge Brownie', 'Espresso-infused dark chocolate brownie, sprinkled with sea salt', 5.49, 'bake'),
+(14, 'Cinnamon Roll', 'Soft roll layered with cinnamon sugar and topped with a vanilla glaze', 5.25, 'bake'),
+(15, 'Lavender Lemon Bar', 'Lemon shortbread bar with a lavender glaze', 5.25, 'bake'),
+(16, 'Cherry Blossom Latte', 'Espresso with steamed milk and cherry blossom syrup, topped with pink sugar', 7.50, 'limited'),
+(17, 'Honey Carrot Cake Muffin', 'Spiced carrot cake sweetened with natural honey and topped with a cream cheese glaze', 5.50, 'limited');
 
 -- --------------------------------------------------------
 
@@ -105,7 +116,8 @@ INSERT INTO `user` (`userID`, `name`, `username`, `password`, `email`, `phone`, 
 (8, 'Main Customer', 'customer1', 'coffee', 'customer1@coffeeshop.com', '7410852963', '123 Gemstone Drive', 'Nothing', 'co', '75342', 'beep boop?', 'yes', 0.00, '0000-00-00', 3),
 (9, 'customer 2', 'customer2', '$2y$10$O.n7wD9./tAet', 'customer2@coffeeshop.com', '9518479632', '741 Software Circle', 'Milano', 'tn', '32165', 'Favorite place?', 'new york', 0.00, '0000-00-00', 3),
 (10, 'staff 2', 'staff2', '$2y$10$oaB5E3QOaPIPJ', 'staff2@coffeeshop.com', '9630852741', '863 Silver Drive', 'Athens', 'fl', '98745', 'Favorite subject?', 'foreign languages', 15.00, '2025-03-17', 2),
-(11, 'Practice Manager', 'manager2', '$2y$10$DV/vyFaGgo7Ui', 'manager2@testing.gov', '9630852741', '123 School Avenue', 'Lancaster', 'wi', '74539', 'Favorite movie?', 'Aliens', 17.00, '2025-02-15', 1);
+(11, 'manager 2', 'manager2', '$2y$10$x.iZTlf1eLwqS', 'manager2@testing.gov', '9630852741', '123 School Avenue', 'Lancaster', 'id', '74539', 'Favorite movie?', 'Aliens', 17.00, '2025-02-15', 1),
+(13, 'Decaf Coffee (Large)', 'mahadev', '', '', '', '', '', '', '', '', '', 18.00, '2025-03-20', 1);
 
 --
 -- Indexes for dumped tables
@@ -147,7 +159,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `menu`
 --
 ALTER TABLE `menu`
-  MODIFY `itemID` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `itemID` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `order`

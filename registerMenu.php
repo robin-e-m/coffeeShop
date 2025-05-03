@@ -33,7 +33,7 @@ if (!(isset($_SESSION['usertype']))) {
         }
         ?>
         <div class="form-card">
-            <form name="register" action="registerMenuAction.php" method="get">
+            <form name="register" action="registerMenuAction.php" method="post" enctype="multipart/form-data">
                 <div>
                     <div class="register-option">
                         <label>Item Name</label>
@@ -64,6 +64,11 @@ if (!(isset($_SESSION['usertype']))) {
                             <option value="limited">Seasonal</option>
                         </select>
                     </div>
+                    
+                     <div class="form-group">
+                        <label>Item photo:</label>
+                        <input type="file" class="form-control" placeholder="Add Picture" name="photo">
+                     </div>
                     
                    <div class="button-center">
                     <input class="form-button" type="submit" value="Submit" />

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 29, 2025 at 09:42 PM
+-- Generation Time: May 03, 2025 at 05:49 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -32,28 +32,34 @@ CREATE TABLE `menu` (
   `name` varchar(30) NOT NULL,
   `description` varchar(100) NOT NULL,
   `price` decimal(4,2) NOT NULL,
-  `category` varchar(30) NOT NULL
+  `category` varchar(30) NOT NULL,
+  `image_url` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `menu`
 --
 
-INSERT INTO `menu` (`itemID`, `name`, `description`, `price`, `category`) VALUES
-(4, 'Decaf Coffee (Large)', '24 oz hot coffee with no caffeine', 6.99, 'hot'),
-(5, 'Decaf Coffee (Medium)', '16 oz hot coffee with no caffeine', 4.99, 'hot'),
-(6, 'Decaf Coffee (Small)', '8 oz hot coffee with no caffeine', 2.99, 'hot'),
-(7, 'Regular Coffee (Large)', '24 ounces of hot coffee (caffeinated)', 6.99, 'hot'),
-(8, 'Regular Coffee (Medium)', '16 ounces of hot coffee (caffeinated)', 4.99, 'hot'),
-(9, 'Regular Coffee (Small)', '8 ounces of hot coffee (caffeinated)', 2.99, 'hot'),
-(10, 'Iced Regular Coffee (Large)', '24 ounces of cold-brewed coffee (caffeinated)', 6.99, 'cold'),
-(11, 'Iced Regular Coffee (Medium)', '16 ounces of cold-brewed coffee (caffeinated)', 4.99, 'cold'),
-(12, 'Iced Regular Coffee (Small)', '8 ounces of cold-brewed coffee (caffeinated)', 2.99, 'cold'),
-(13, 'Espresso Fudge Brownie', 'Espresso-infused dark chocolate brownie, sprinkled with sea salt', 5.49, 'bake'),
-(14, 'Cinnamon Roll', 'Soft roll layered with cinnamon sugar and topped with a vanilla glaze', 5.25, 'bake'),
-(15, 'Lavender Lemon Bar', 'Lemon shortbread bar with a lavender glaze', 5.25, 'bake'),
-(16, 'Cherry Blossom Latte', 'Espresso with steamed milk and cherry blossom syrup, topped with pink sugar', 7.50, 'limited'),
-(17, 'Honey Carrot Cake Muffin', 'Spiced carrot cake sweetened with natural honey and topped with a cream cheese glaze', 5.50, 'limited');
+INSERT INTO `menu` (`itemID`, `name`, `description`, `price`, `category`, `image_url`) VALUES
+(28, 'Regular Coffee (Large)', '24 oz of hot coffee', 6.99, 'hot', 'uploads/681543a99ffb8_large_hot_reg_2.jpg'),
+(29, 'Regular Coffee (Medium)', '16 oz of hot coffee', 4.99, 'hot', 'uploads/681543c67eebf_med_hot_reg.jpg'),
+(30, 'Regular Coffee (Small)', '8 oz of hot coffee', 2.99, 'hot', 'uploads/681543de24c1e_small_hot_reg.jpg'),
+(31, 'Chai Latte', 'A blend of black tea, cinnamon, cardamom, ginger, and cloves, mixed with steamed milk.', 4.99, 'hot', 'uploads/681544a1c8453_hot_chai.jpg'),
+(33, 'Hot Chocolate', 'Rich cocoa blended with steamed milk and a touch of sugar. Topped with whipped cream.', 4.50, 'hot', 'uploads/681545e9a1f13_hot_choc2.jpg'),
+(35, 'Iced Regular Coffee (Large)', '24 oz of cold-brewed coffee', 6.99, 'cold', 'uploads/68154bbd97e3c_large_iced_reg.jpg'),
+(36, 'Iced Regular Coffee (Medium)', '16 oz of cold-brewed coffee', 4.99, 'cold', 'uploads/68154c836cf2f_med_iced_reg.jpg'),
+(37, 'Iced Regular Coffee (Small)', '8 oz of cold-brewed coffee', 2.99, 'cold', 'uploads/68154e0e6f7f1_small_iced_reg.jpg'),
+(38, 'Iced Matcha Latte', 'Matcha green tea blended with milk and served over ice.', 4.99, 'cold', 'uploads/68162aee1644e_iced-matcha-latte.jpg'),
+(39, 'Iced Strawberry Green Tea', 'Green tea with sweetened with strawberry, served over ice.', 4.50, 'cold', 'uploads/68162b96a3b30_strawb_tea.jpg'),
+(40, 'Espresso Fudge Brownie', 'Espresso-infused dark chocolate brownie, sprinkled with sea salt.', 2.50, 'bake', 'uploads/68162c2921d92_espresso_brownie.jpg'),
+(41, 'Lavender Lemon Bar', 'Buttery almond shortbread bar topped with lavender lemon cream.', 2.75, 'bake', 'uploads/68162d0de4822_lemon_bar.jpg'),
+(42, 'Cinnamon Roll', 'Soft roll layered with cinnamon sugar, topped with vanilla frosting.', 3.00, 'bake', 'uploads/68162d9527a6a_cinnamon_roll.jpg'),
+(43, 'Blueberry Muffin', 'Muffin with locally-grown blueberries and a lemon streusel topping.', 3.50, 'bake', 'uploads/68162e892d099_bloob_muffin.jpg'),
+(44, 'Chocolate Chip Cookie', 'Soft baked cookie with semi-sweet chocolate chips', 1.99, 'bake', 'uploads/68162fa9e3769_choc_chip.jpg'),
+(45, 'Cherry Blossom Latte', 'Espresso with steamed milk and cherry blossom syrup', 5.00, 'limited', 'uploads/681630c77eae2_cherry_blossom.jpg'),
+(47, 'Honey Carrot Cake Muffin', 'Spiced carrot cake with natural honey and cream cheese glaze', 4.50, 'limited', 'uploads/681631b6a0a1f_carrot-muffins-4.jpg'),
+(48, 'Lavender Latte', 'Espresso with steamed milk and lavender syrup', 4.50, 'limited', 'uploads/68163248c8635_lavender_coffee.jpg'),
+(49, 'Easter Egg Cupcakes', 'White cake with blue buttercream and mini chocolate eggs', 3.75, 'limited', 'uploads/68163325be52a_Robins-Egg-Easter-Cupcakes.jpg');
 
 -- --------------------------------------------------------
 
@@ -158,7 +164,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `menu`
 --
 ALTER TABLE `menu`
-  MODIFY `itemID` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `itemID` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- AUTO_INCREMENT for table `order`

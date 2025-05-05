@@ -127,7 +127,7 @@ if ($result4->num_rows > 0) {
         echo "<p class='menu-item-price'><strong>$" . htmlspecialchars($row["price"]) . "</strong></p>";
                 echo "<button style='padding: 5px 10px; background-color: #444; color: white; border: none; border-radius: 5px; cursor: pointer;' 
                 onmouseover=\"this.style.backgroundColor = 'teal'; this.style.transform = 'scale(1.1)';\" 
-                onmouseout=\"this.style.backgroundColor = '#444'; this.style.transform = 'scale(1)';\"; class='add-to-cart'>Add to Cart</button>";
+                onmouseout=\"this.style.backgroundColor = '#444'; this.style.transform = 'scale(1)';\"; class='btn btn-primary'>Add to Cart</button>";
         echo "<div style='display:none; align-items: center; gap: 10px; margin-top: 10px;'>";
         echo "</div>";
         echo "</div>";

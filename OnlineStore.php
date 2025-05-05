@@ -4,32 +4,11 @@
         <meta charset="UTF-8">
         <title>Home</title>
         <?php include 'header.php' ?>
-        <link rel="stylesheet" href="mystyles.css">
-        <script>
-            function calculateTotal() {
-                const rows = document.querySelectorAll('.menu-item');
-                let total = 0;
 
-                rows.forEach(row => {
-                    const price = parseFloat(row.querySelector('.price').innerText);
-                    const quantity = parseInt(row.querySelector('.quantity').value) || 0;
-                    const itemTotal = price * quantity;
-                    row.querySelector('.item-total').innerText = itemTotal.toFixed(2);
-                    total += itemTotal;
-                });
 
-                document.getElementById('order-total').innerText = total.toFixed(2);
-                document.getElementById('hidden-order-total').value = total.toFixed(2); // Update hidden input value
-            }
-        </script>
     </head>
 
-    <body>
-        <div class="home-top-section"></div>
-        <div class="home-top-text">
-            <h1 style="font-size:100px; font-family:inherit;">Online Store</h1>
-            <p style="font-size:35px">Coffee Pastries and Much More</p>
-        </div>
+
         <div class="input-form">
             <h1 style="font-family:inherit">Menu</h1>
             <form name="register" action="OnlineStoreAction.php" method="POST">

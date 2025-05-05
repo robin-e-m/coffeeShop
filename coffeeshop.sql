@@ -120,9 +120,10 @@ INSERT INTO `user` (`userID`, `name`, `username`, `password`, `email`, `phone`, 
 (6, 'Manager Main', 'manager1', 'Coffee', 'manager1@testing.gov', '8520741963', '7411 Practice Street', 'DarkRoast', 'in', '98745', 'what is your favorite food?', 'Lasagna', 17.00, '2025-03-15', 1),
 (7, 'Staff Member', 'staff1', 'coffeeshop', 'staff1@practice.org', '0123456789', '987 Olive Avenue', 'Harvard', 'ma', '96301', 'what is your favorite color?', 'green', 15.00, '2025-03-19', 2),
 (8, 'Main Customer', 'customer1', 'coffee', 'customer1@coffeeshop.com', '7410852963', '123 Gemstone Drive', 'Nothing', 'co', '75342', 'beep boop?', 'yes', 0.00, '0000-00-00', 3),
-(9, 'Tester Customer', 'customer2', '$2y$10$mvd3NbFlXhb.2', 'customer2@coffeeshop.com', '9518479632', '741 Software Circle', 'Milano', 'al', '32165', 'Favorite place?', 'new york', 0.00, '0000-00-00', 3),
-(10, 'Tester Staff', 'staff2', '$2y$10$0ZTe1vtc.Shf6', 'staff2@coffeeshop.com', '9630852741', '863 Silver Drive', 'Athens', 'al', '98745', 'Favorite subject?', 'foreign languages', 15.00, '2025-03-17', 2),
-(11, 'Tester Manager', 'manager2', '$2y$10$pXI/OKN.fgqFj', 'manager2@testing.gov', '9630852741', '123 School Avenue', 'Lancaster', 'al', '74539', 'Favorite movie?', 'Aliens', 17.00, '2025-02-15', 1);
+(9, 'customer 2', 'customer2', '$2y$10$O.n7wD9./tAet', 'customer2@coffeeshop.com', '9518479632', '741 Software Circle', 'Milano', 'tn', '32165', 'Favorite place?', 'new york', 0.00, '0000-00-00', 3),
+(10, 'staff 2', 'staff2', '$2y$10$oaB5E3QOaPIPJ', 'staff2@coffeeshop.com', '9630852741', '863 Silver Drive', 'Athens', 'fl', '98745', 'Favorite subject?', 'foreign languages', 15.00, '2025-03-17', 2),
+(11, 'manager 2', 'manager2', '$2y$10$x.iZTlf1eLwqS', 'manager2@testing.gov', '9630852741', '123 School Avenue', 'Lancaster', 'id', '74539', 'Favorite movie?', 'Aliens', 17.00, '2025-02-15', 1),
+(13, 'Decaf Coffee (Large)', 'mahadev', '', '', '', '', '', '', '', '', '', 18.00, '2025-03-20', 1);
 
 --
 -- Indexes for dumped tables

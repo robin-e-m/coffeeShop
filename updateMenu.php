@@ -45,7 +45,6 @@ if (!(isset($_SESSION['usertype']))) {
                         <input type="text" name="description" size="100" required/>
                     </div>
 
-
                     <div class="register-option">
                         <label style="font-size: 20px">Item Price:</label>
                         <input type="text" name="price" size="100" required/>
@@ -61,6 +60,12 @@ if (!(isset($_SESSION['usertype']))) {
                             <option value="limited">Seasonal</option>
                         </select>
                     </div>
+
+                    <div class="form-group">
+                        <label>Item photo:</label>
+                        <input type="file" class="form-control" placeholder="Add Picture" name="photo">
+                    </div>
+
                     <br>
 
                     <div class="button-center">

@@ -43,7 +43,7 @@
         <div class="w3-panel">
             <a href="index.php" class="w3-bar-item w3-button w3-mobile" style="font-size:20px">Home</a>
             <a href="<?php echo $homepage; ?>" class="w3-bar-item w3-button w3-mobile" style="font-size:20px">Welcome</a>
-            <a href="menu.php" class="w3-bar-item w3-button w3-mobile" style="font-size:20px">Online Store</a>
+            <a href="menu.php" class="w3-bar-item w3-button w3-mobile" style="font-size:20px">Menu</a>
             <a href="<?php echo $register; ?>" class="w3-bar-item w3-button w3-mobile" style="font-size:20px">Register</a>
             <div class="w3-dropdown-hover w3-mobile">
                 <button class="w3-button" style="font-size:20px">About <i class="fa fa-caret-down"></i></button>

@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/Evan
 <?php
 require 'DBConnect.php';
 include 'header.php';
@@ -56,7 +60,11 @@ if (!(isset($_SESSION['userID']))) {
             <ul style="font-size:20px; text-align:left";>
                 <li><a href="registerStaff.php">Add new staff member</a></li>
                 <li><a href="registerCustomer.php">Add new customer</a></li>
+<<<<<<< HEAD
                 <li><a href="registerMenu.php">Add new menu item</a></li>
+=======
+                <li><a href="registerMenu.php">Register new menu item</a></li>
+>>>>>>> origin/Evan
                 <li><a href="updateMenu.php">Modify menu item</a></li>
                 <li><a href="profileUpdate.php">Update your profile</a></li>
             </ul>

@@ -12,7 +12,7 @@
             <h1 style="font-size:100px; font-family:inherit;">Perk & Pour</h1>
             <p style="font-size:35px;">Contact Page</p>
         </div>
-       
+
         <div class="home-main-content">
             <p>We’d love to hear from you! Whether you have a question, feedback,
                 or just want to say hi—drop us a message or stop by for a cup of coffee. </p>
@@ -24,12 +24,19 @@
                 <a href="https://instagram.com/perkandpour" target="_blank">Instagram</a> |
                 <a href="https://facebook.com/perkandpour" target="_blank">Facebook</a>
             </p>
-            
+
             <h2 style="font-family:inherit">Send us a message:</h2>
             <div class="input-form">
-
+                <?php
+                if (isset($_GET['status']) && $_GET['status'] == 'success') {
+                    echo "<p>Message submitted successfully!</p>";
+                    echo "<a href='index.php'>Return to homepage</a>";
+                    exit;
+                }
+                ?>
                 <div class="form-card">
-                    <form name="contact_Form" action="#" method="get">
+                    <form name="contact" action="contactAction.php" method="get">
+                        
                         <div class="register-option">
                             <label style="font-size: 20px">Name:</label>
                             <input type="text" name="name" size="100" required/>
@@ -47,7 +54,7 @@
 
                         <div class="register-option">
                             <label style="font-size: 20px">Message:</label>
-                            <input type="text" name="message" rows="6" size="100" required/>
+                            <input type="text" name="message" size="100" required/>
                         </div>
 
                         <div class="button-center">

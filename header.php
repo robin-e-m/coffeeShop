@@ -27,7 +27,7 @@
 
         else {
             $homepage = "customer.php"; //customer is logged in
-            $register = "index.php";
+            $register = "welcome.php";
         }
     }
     
@@ -44,6 +44,7 @@
             <a href="index.php" class="w3-bar-item w3-button w3-mobile" style="font-size:20px">Home</a>
             <a href="<?php echo $homepage; ?>" class="w3-bar-item w3-button w3-mobile" style="font-size:20px">Welcome</a>
             <a href="menu.php" class="w3-bar-item w3-button w3-mobile" style="font-size:20px">Menu</a>
+            <a href="cart.php" class="w3-bar-item w3-button w3-mobile" style="font-size:20px">Cart</a>
             <a href="<?php echo $register; ?>" class="w3-bar-item w3-button w3-mobile" style="font-size:20px">Register</a>
             <div class="w3-dropdown-hover w3-mobile">
                 <button class="w3-button" style="font-size:20px">About <i class="fa fa-caret-down"></i></button>
@@ -53,7 +54,7 @@
                     <a href="contact.php" class="w3-bar-item w3-button w3-mobile">Contact Us</a>
                 </div>
             </div>
-            <!-- <div class=" w3-bar-item "> -->
+          
             <?php
             if (isset($_SESSION['name'])):
                 echo "<h2>Welcome</h2>" . $_SESSION['name'];

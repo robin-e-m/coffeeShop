@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 03, 2025 at 05:49 PM
+-- Generation Time: May 05, 2025 at 09:41 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -20,6 +20,27 @@ SET time_zone = "+00:00";
 --
 -- Database: `coffeeshop`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `feedback`
+--
+
+CREATE TABLE `feedback` (
+  `revID` int(3) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `subject` varchar(100) NOT NULL,
+  `message` varchar(1000) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `feedback`
+--
+
+INSERT INTO `feedback` (`revID`, `name`, `email`, `subject`, `message`) VALUES
+(1, 'Customer Main', 'customer1@practice.com', 'allergen warnings', 'Please add allergen warnings to the menu');
 
 -- --------------------------------------------------------
 
@@ -59,7 +80,8 @@ INSERT INTO `menu` (`itemID`, `name`, `description`, `price`, `category`, `image
 (45, 'Cherry Blossom Latte', 'Espresso with steamed milk and cherry blossom syrup', 5.00, 'limited', 'uploads/681630c77eae2_cherry_blossom.jpg'),
 (47, 'Honey Carrot Cake Muffin', 'Spiced carrot cake with natural honey and cream cheese glaze', 4.50, 'limited', 'uploads/681631b6a0a1f_carrot-muffins-4.jpg'),
 (48, 'Lavender Latte', 'Espresso with steamed milk and lavender syrup', 4.50, 'limited', 'uploads/68163248c8635_lavender_coffee.jpg'),
-(49, 'Easter Egg Cupcakes', 'White cake with blue buttercream and mini chocolate eggs', 3.75, 'limited', 'uploads/68163325be52a_Robins-Egg-Easter-Cupcakes.jpg');
+(49, 'Easter Egg Cupcakes', 'White cake with blue buttercream and mini chocolate eggs', 3.75, 'limited', 'uploads/68163325be52a_Robins-Egg-Easter-Cupcakes.jpg'),
+(50, 'Strawberry Lemon Cupcake', 'Vanilla cupcake with lemon flavor, topped with strawberry frosting and a strawberry slice', 3.99, 'limited', 'uploads/68190a77133ef_strawberry-lemon-cupcakes.jpg');
 
 -- --------------------------------------------------------
 
@@ -130,6 +152,12 @@ INSERT INTO `user` (`userID`, `name`, `username`, `password`, `email`, `phone`, 
 --
 
 --
+-- Indexes for table `feedback`
+--
+ALTER TABLE `feedback`
+  ADD PRIMARY KEY (`revID`);
+
+--
 -- Indexes for table `menu`
 --
 ALTER TABLE `menu`
@@ -162,10 +190,16 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT for table `feedback`
+--
+ALTER TABLE `feedback`
+  MODIFY `revID` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `menu`
 --
 ALTER TABLE `menu`
-  MODIFY `itemID` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `itemID` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT for table `order`

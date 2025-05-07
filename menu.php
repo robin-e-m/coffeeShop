@@ -155,6 +155,10 @@ if ($result4->num_rows > 0) {
     echo "</div>";
     echo "<br>";
     }
+    
+    if ($result->num_rows === 0 && $result2->num_rows === 0 && $result3->num_rows === 0 && $result4->num_rows === 0) {
+    echo "<h1 class='home-main-content'; style='font-family:inherit'>No items found</h1>";
+}
 
     ?>
         </div>

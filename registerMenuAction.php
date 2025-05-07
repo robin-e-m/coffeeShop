@@ -52,6 +52,7 @@ if ($row['duplicate']) {
 $sql = "insert into menu values (0, '" . $name . "', '" . 
   $description . "', '" . $price . "', '" .  $category .  "', '" . $image_url . "')";
 echo modifyDB($sql);
+header("Location: registerMenu.php?status=register_success");
 
 ?>
 

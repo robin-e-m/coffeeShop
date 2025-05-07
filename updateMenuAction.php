@@ -44,6 +44,7 @@ $row = mysqli_fetch_assoc($unique_name_result);
 if (mysqli_num_rows($result_item) == 0) {
     header("Location: updateMenu.php?error=item_not_found");
     exit;
+    
 } else {
     //Updating data in menu table
     $sql = "UPDATE menu SET description = '" . $new_description . "', price = '" .
@@ -52,10 +53,6 @@ if (mysqli_num_rows($result_item) == 0) {
 
     $result = modifyDB($sql);
 
-    if ($result) {
-        header("Location: updateMenu.php?status=update_success");
-    }
-
     header("Location: updateMenu.php?status=update_success");
 }
 ?>
@@ -63,8 +60,7 @@ if (mysqli_num_rows($result_item) == 0) {
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Update Complete</title>
-       
+        <title>Menu Update Complete</title>
     </head>
 
     <body>

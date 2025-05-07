@@ -56,11 +56,12 @@ if (!(isset($_SESSION['userID']))) {
             <ul style="font-size:20px; text-align:left";>
                 <li><a href="registerStaff.php">Add new staff member</a></li>
                 <li><a href="registerCustomer.php">Add new customer</a></li>
+                <li><a href="deleteUser.php">Delete user account</a></li>
                 <li><a href="registerMenu.php">Add new menu item</a></li>
                 <li><a href="updateMenu.php">Modify menu item</a></li>
-                <li><a href="profileUpdate.php">Update your profile</a></li>
-                <li><a href="orderHistoryAction.php">View order history</a></li>
                 <li><a href="contactSummary.php">View customer feedback</a></li>
+                <li><a href="orderHistoryAction.php">View order history</a></li>
+                
             </ul>
             <br>
             <h3 style="font-size:40px;color:#60b9bf;font-family:inherit; text-align:left;">Profile Details:</h3>
@@ -89,8 +90,12 @@ if (!(isset($_SESSION['userID']))) {
                 <br>
                 Security Answer: <?php echo $answer; ?>
                 <br>
+                <a href="profileUpdate.php">Update Profile</a>
+              
             </p>
 
             <br>
             <br>
             <?php include 'footer.php' ?>
+    </body>
+</html>

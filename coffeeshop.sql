@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 05, 2025 at 09:41 PM
+-- Generation Time: May 07, 2025 at 04:43 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -40,7 +40,8 @@ CREATE TABLE `feedback` (
 --
 
 INSERT INTO `feedback` (`revID`, `name`, `email`, `subject`, `message`) VALUES
-(1, 'Customer Main', 'customer1@practice.com', 'allergen warnings', 'Please add allergen warnings to the menu');
+(1, 'Customer 1', 'customer1@practice.test', 'Nut allergens', 'Please add any potential nut allergens on the menu'),
+(2, 'Customer 2', 'customer2@practice.test', 'Gluten sensitivity', 'Are there gluten free options?');
 
 -- --------------------------------------------------------
 
@@ -80,8 +81,7 @@ INSERT INTO `menu` (`itemID`, `name`, `description`, `price`, `category`, `image
 (45, 'Cherry Blossom Latte', 'Espresso with steamed milk and cherry blossom syrup', 5.00, 'limited', 'uploads/681630c77eae2_cherry_blossom.jpg'),
 (47, 'Honey Carrot Cake Muffin', 'Spiced carrot cake with natural honey and cream cheese glaze', 4.50, 'limited', 'uploads/681631b6a0a1f_carrot-muffins-4.jpg'),
 (48, 'Lavender Latte', 'Espresso with steamed milk and lavender syrup', 4.50, 'limited', 'uploads/68163248c8635_lavender_coffee.jpg'),
-(49, 'Easter Egg Cupcakes', 'White cake with blue buttercream and mini chocolate eggs', 3.75, 'limited', 'uploads/68163325be52a_Robins-Egg-Easter-Cupcakes.jpg'),
-(50, 'Strawberry Lemon Cupcake', 'Vanilla cupcake with lemon flavor, topped with strawberry frosting and a strawberry slice', 3.99, 'limited', 'uploads/68190a77133ef_strawberry-lemon-cupcakes.jpg');
+(49, 'Easter Egg Cupcakes', 'White cake with blue buttercream and mini chocolate eggs', 3.75, 'limited', 'uploads/68163325be52a_Robins-Egg-Easter-Cupcakes.jpg');
 
 -- --------------------------------------------------------
 
@@ -142,10 +142,9 @@ INSERT INTO `user` (`userID`, `name`, `username`, `password`, `email`, `phone`, 
 (6, 'Manager Main', 'manager1', 'Coffee', 'manager1@testing.gov', '8520741963', '7411 Practice Street', 'DarkRoast', 'in', '98745', 'what is your favorite food?', 'Lasagna', 17.00, '2025-03-15', 1),
 (7, 'Staff Member', 'staff1', 'coffeeshop', 'staff1@practice.org', '0123456789', '987 Olive Avenue', 'Harvard', 'ma', '96301', 'what is your favorite color?', 'green', 15.00, '2025-03-19', 2),
 (8, 'Main Customer', 'customer1', 'coffee', 'customer1@coffeeshop.com', '7410852963', '123 Gemstone Drive', 'Nothing', 'co', '75342', 'beep boop?', 'yes', 0.00, '0000-00-00', 3),
-(9, 'customer 2', 'customer2', '$2y$10$O.n7wD9./tAet', 'customer2@coffeeshop.com', '9518479632', '741 Software Circle', 'Milano', 'tn', '32165', 'Favorite place?', 'new york', 0.00, '0000-00-00', 3),
-(10, 'staff 2', 'staff2', '$2y$10$oaB5E3QOaPIPJ', 'staff2@coffeeshop.com', '9630852741', '863 Silver Drive', 'Athens', 'fl', '98745', 'Favorite subject?', 'foreign languages', 15.00, '2025-03-17', 2),
-(11, 'manager 2', 'manager2', '$2y$10$x.iZTlf1eLwqS', 'manager2@testing.gov', '9630852741', '123 School Avenue', 'Lancaster', 'id', '74539', 'Favorite movie?', 'Aliens', 17.00, '2025-02-15', 1),
-(13, 'Decaf Coffee (Large)', 'mahadev', '', '', '', '', '', '', '', '', '', 18.00, '2025-03-20', 1);
+(9, 'customer 2', 'customer2', 'CoffeeShop', 'customer2@coffeeshop.com', '9518479632', '741 Software Circle', 'Milano', 'tn', '32165', 'Favorite place?', 'new york', 0.00, '0000-00-00', 3),
+(10, 'staff 2', 'staff2', 'CoffeeShop', 'staff2@coffeeshop.com', '9630852741', '863 Silver Drive', 'Athens', 'fl', '98745', 'Favorite subject?', 'foreign languages', 15.00, '2025-03-17', 2),
+(11, 'manager 2', 'manager2', 'CoffeeShop', 'manager2@testing.gov', '9630852741', '123 School Avenue', 'Lancaster', 'id', '74539', 'Favorite movie?', 'Aliens', 17.00, '2025-02-15', 1);
 
 --
 -- Indexes for dumped tables
@@ -193,7 +192,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `feedback`
 --
 ALTER TABLE `feedback`
-  MODIFY `revID` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `revID` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `menu`

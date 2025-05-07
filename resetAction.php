@@ -5,7 +5,6 @@
     include 'header.php';
     openDB();
     
-    
 //username needs to be initialized to something, otherwise throws an error
 //-> checks if POST or GET. if neither, set to null
 $user = isset($_GET["username"]) ? $_GET["username"] : (isset($_POST["username"]) ? $_POST["username"] : null);
@@ -86,7 +85,7 @@ if (mysqli_num_rows($result_user) == 0){
         $new_password = $_POST['new_password'];
         $new_hashed = password_hash($new_password, PASSWORD_DEFAULT);
 
-        $sql_update = "UPDATE user SET password = '$new_hashed' WHERE username = '$user'";
+        $sql_update = "UPDATE user SET password = '$new_password' WHERE username = '$user'";
         $result_update = queryDB($sql_update);
         
         if ($result_update) {

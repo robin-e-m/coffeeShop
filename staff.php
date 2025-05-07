@@ -60,6 +60,8 @@ if (!(isset($_SESSION['userID']))) {
                 <li><a href="updateMenu.php">Modify menu item</a></li>
                 <li><a href="profileUpdate.php">Update your profile</a></li>
                 <li><a href="orderHistoryAction.php">View order history</a></li>
+                <li><a href="maintenance.php">report a problem</a></li>
+                <li><a href="maintenanceSummary.php">review problem</a></li>
             </ul>
             <br>
             <h3 style="font-size:40px;color:#60b9bf;font-family:inherit; text-align:left;">Profile Details:</h3>

@@ -1,58 +1,98 @@
-<!DOCTYPE html>
 <?php
 require 'DBConnect.php';
 include 'header.php';
 
-if (!(isset($_SESSION['usertype']))) {
-    if ($usertype != 1 OR $usertype != 2 OR usertype != 3)
-        header("Location:index.php");
-    exit;
+// Ensure session is only started once
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
+// Initialize cart if not set
+if (!isset($_SESSION['cart'])) {
+    $_SESSION['cart'] = [];
+}
+
+// Handle adding items to cart
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['name'], $_POST['price'], $_POST['quantity'])) {
+    $item = [
+        'name' => $_POST['name'],
+        'price' => floatval($_POST['price']),
+        'quantity' => intval($_POST['quantity'])
+    ];
+
+    // Check if the item already exists in the cart and update quantity
+    $exists = false;
+    foreach ($_SESSION['cart'] as &$cartItem) {
+        if ($cartItem['name'] == $item['name']) {
+            $cartItem['quantity'] += $item['quantity'];
+            $exists = true;
+            break;
+        }
+    }
+
+    if (!$exists) {
+        $_SESSION['cart'][] = $item;
+    }
+}
+
+// Handle item removal
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['remove'])) {
+    $_SESSION['cart'] = array_filter($_SESSION['cart'], fn($item) => $item['name'] !== $_POST['remove']);
+}
+
+// Calculate total price
+$total = array_reduce($_SESSION['cart'], fn($sum, $item) => $sum + ($item['price'] * $item['quantity']), 0);
+
+// Handle order submission & reset cart
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit_order'])) {
+    // Logic to process the order (e.g., save to database)
+    $_SESSION['cart'] = []; // Reset cart after submission
 }
 ?>
+
+<!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Ordering Cart</title>
-    <br>
-<!--
-    <script>
-        function calculateTotal() {
-            const rows = document.querySelectorAll('.menu-item');
-            let total = 0;
-
-            rows.forEach(row => {
-                const price = parseFloat(row.querySelector('.price').innerText);
-                const quantity = parseInt(row.querySelector('.quantity').value) || 0;
-                const itemTotal = price * quantity;
-                row.querySelector('.item-total').innerText = itemTotal.toFixed(2);
-                total += itemTotal;
-            });
-
-            document.getElementById('order-total').innerText = total.toFixed(2);
-            document.getElementById('hidden-order-total').value = total.toFixed(2); // Update hidden input value
-        }
-    </script>
-
-
--->
+<head>
+    <meta charset="UTF-8">
+    <title>Ordering Cart</title>
+    <style>
+        .cart-container { text-align: center; max-width: 600px; margin: auto; background-color: #222; padding: 20px; border-radius: 10px; }
+    .cart-item { margin-bottom: 10px; color: white; }
+    .cart-total { font-size: 20px; font-weight: bold; color: white; }
+    .form-button { padding: 10px 15px; background-color: teal; color: white; border: none; cursor: pointer; }
+    .form-button:hover { background-color: darkslategray; }
+        
+    </style>
 </head>      
-
 <body>
-    <div class="home-top-section"></div>
-    <div class="home-top-text">
-        <h1 style="font-size:100px; font-family:inherit;">Ordering Cart</h1>
-    </div>
+    <div class="cart-container">
+        <h1 style="font-size:50px; color: white; ">Ordering Cart</h1>
 
-    <?php
-    $name = $_GET['name'];
-    $price = $_GET['price'];
-    $quantity = $_GET['quantity'];
+        <?php if (!empty($_SESSION['cart'])): ?>
+            <h2>Your Cart Items</h2>
+            <ul>
+                <?php foreach ($_SESSION['cart'] as $item): ?>
+                    <li class="cart-item">
+                        <?= htmlspecialchars($item['quantity']) ?> x <?= htmlspecialchars($item['name']) ?> - 
+                        <strong>$<?= number_format($item['price'] * $item['quantity'], 2) ?></strong>
+                        <form action="cart.php" method="POST" style="display:inline;">
+                            <input type="hidden" name="remove" value="<?= htmlspecialchars($item['name']) ?>">
+                            <button type="submit" class="form-button">Remove</button>
+                        </form>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
 
-    echo '<h2>You ordered ' . $quantity . 'of ' . $name . ', and the price was $' . $price;
-    ?>
-    <div class="button-center">
-        <input class="form-button" type="submit" value="Submit" />
+            <h3 class="cart-total">Total Price: $<?= number_format($total, 2) ?></h3>
+            
+            <form action="cart.php" method="POST">
+                <button type="submit" name="submit_order" class="form-button">Submit Order</button>
+            </form>
+        <?php else: ?>
+            <p>Your cart is empty.</p>
+        <?php endif; ?>
     </div>
 </body>
 </html>
+
 

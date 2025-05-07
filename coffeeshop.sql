@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 07, 2025 at 06:23 PM
+-- Generation Time: May 07, 2025 at 09:54 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -85,15 +85,17 @@ INSERT INTO `menu` (`itemID`, `name`, `description`, `price`, `category`, `image
 -- --------------------------------------------------------
 
 --
--- Table structure for table `order`
+-- Table structure for table `orderhistory`
 --
 
-CREATE TABLE `order` (
+CREATE TABLE `orderhistory` (
   `orderID` int(255) NOT NULL,
-  `customerID` int(3) NOT NULL,
+  `userID` int(3) NOT NULL,
+  `itemName` varchar(100) NOT NULL,
+  `price` decimal(4,0) NOT NULL,
+  `quantity` int(3) NOT NULL,
   `date` date NOT NULL,
-  `time` time(6) NOT NULL,
-  `staffID` int(3) NOT NULL
+  `time` time(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -161,12 +163,11 @@ ALTER TABLE `menu`
   ADD PRIMARY KEY (`itemID`);
 
 --
--- Indexes for table `order`
+-- Indexes for table `orderhistory`
 --
-ALTER TABLE `order`
+ALTER TABLE `orderhistory`
   ADD PRIMARY KEY (`orderID`),
-  ADD KEY `order_ibfk_1` (`customerID`),
-  ADD KEY `order_ibfk_2` (`staffID`);
+  ADD KEY `order_ibfk_1` (`userID`);
 
 --
 -- Indexes for table `ordermenu`
@@ -199,9 +200,9 @@ ALTER TABLE `menu`
   MODIFY `itemID` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
--- AUTO_INCREMENT for table `order`
+-- AUTO_INCREMENT for table `orderhistory`
 --
-ALTER TABLE `order`
+ALTER TABLE `orderhistory`
   MODIFY `orderID` int(255) NOT NULL AUTO_INCREMENT;
 
 --
@@ -224,7 +225,7 @@ ALTER TABLE `user`
 -- Constraints for table `ordermenu`
 --
 ALTER TABLE `ordermenu`
-  ADD CONSTRAINT `ordermenu_ibfk_1` FOREIGN KEY (`orderID`) REFERENCES `order` (`orderID`),
+  ADD CONSTRAINT `ordermenu_ibfk_1` FOREIGN KEY (`orderID`) REFERENCES `orderhistory` (`orderID`),
   ADD CONSTRAINT `ordermenu_ibfk_2` FOREIGN KEY (`itemID`) REFERENCES `menu` (`itemID`);
 COMMIT;
 

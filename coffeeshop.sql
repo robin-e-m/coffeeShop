@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 07, 2025 at 05:52 PM
+-- Generation Time: May 07, 2025 at 06:23 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -80,9 +80,7 @@ INSERT INTO `menu` (`itemID`, `name`, `description`, `price`, `category`, `image
 (44, 'Chocolate Chip Cookie', 'Soft baked cookie with semi-sweet chocolate chips', 1.99, 'bake', 'uploads/68162fa9e3769_choc_chip.jpg'),
 (45, 'Cherry Blossom Latte', 'Espresso with steamed milk and cherry blossom syrup', 5.00, 'limited', 'uploads/681630c77eae2_cherry_blossom.jpg'),
 (47, 'Honey Carrot Cake Muffin', 'Spiced carrot cake with natural honey and cream cheese glaze', 4.50, 'limited', 'uploads/681631b6a0a1f_carrot-muffins-4.jpg'),
-(48, 'Lavender Latte', 'Espresso with steamed milk and lavender syrup', 4.50, 'limited', 'uploads/68163248c8635_lavender_coffee.jpg'),
-(49, 'Easter Egg Cupcakes', 'White cake with blue buttercream and mini chocolate eggs', 3.75, 'limited', 'uploads/68163325be52a_Robins-Egg-Easter-Cupcakes.jpg'),
-(51, 'Lemon Strawberry Cupcake', 'Lemon flavored vanilla cupcake with strawberry frosting, topped with strawberry slice', 3.99, 'limited', 'uploads/681b80b3d85ae_Strawberry-Lemon-Cupcake.jpg');
+(49, 'Easter Egg Cupcakes', 'White cake with blue buttercream and mini chocolate eggs', 3.75, 'limited', 'uploads/68163325be52a_Robins-Egg-Easter-Cupcakes.jpg');
 
 -- --------------------------------------------------------
 

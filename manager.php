@@ -54,11 +54,15 @@ if (!(isset($_SESSION['userID']))) {
 
             <p >
             <ul style="font-size:20px; text-align:left";>
+                <!-- Account Actions -->
                 <li><a href="registerStaff.php">Add new staff member</a></li>
                 <li><a href="registerCustomer.php">Add new customer</a></li>
                 <li><a href="deleteUser.php">Delete user account</a></li>
+                <br><!-- Menu Actions -->
                 <li><a href="registerMenu.php">Add new menu item</a></li>
                 <li><a href="updateMenu.php">Modify menu item</a></li>
+                <li><a href="deleteMenu.php">Delete menu item</a></li>
+                <br>
                 <li><a href="contactSummary.php">View customer feedback</a></li>
                 <li><a href="orderHistoryAction.php">View order history</a></li>
                 

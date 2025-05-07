@@ -12,15 +12,29 @@
         <h4 style="font-family:inherit; text-align: center;">Explore our hand-crafted drinks and pastries. Crafted with care, from scratch daily.</h4> 
         <hr>
         
+    <form method="get" action="menu.php" style="display: flex; gap: 5px; align-items: center;">
+    <input type="text" name="search" placeholder="Search menu..." style="padding: 5px; font-size: 14px;">
+    <button class="form-button" type="submit" style="padding: 5px 10px; font-size: 14px; cursor: pointer;">Search</button>
+    <button class="form-button" type="submit" name="search" value="" style="padding: 5px 10px; font-size: 14px; cursor: pointer;">Clear Search</button>
+    </form>
+        
         <?php
 require 'DBConnect.php';
 
+$search = isset($_GET['search']) ? $_GET['search'] : '';
+$search = trim($search); // just in case user types extra spaces
+
 $sql = "SELECT name, description, price, image_url FROM menu WHERE category='hot'";
+
+if (!empty($search)) {
+    $safeSearch = htmlspecialchars($search); // just extra safety
+    $sql .= " AND name LIKE '%$safeSearch%'";
+}
+
 $result = queryDB($sql);
 
-echo "<h1 class='menu-section-title' style='font-family:inherit; text-align: center;'>Hot Drinks</h1>";
-
 if ($result->num_rows > 0) {
+    echo "<h1 class='menu-section-title' style='font-family:inherit; text-align: center;'>Hot Drinks</h1>";
     echo "<div class='menu-items-grid'>";
     while($row = $result->fetch_assoc()) {
         echo "<div class='menu-item'>";
@@ -42,16 +56,18 @@ if ($result->num_rows > 0) {
     echo "</div>";
     echo "<br>";
 }
-else {
-    echo "No items available";
-}
 
 $sql2 = "SELECT name, description, price, image_url FROM menu WHERE category='cold'";
+
+if (!empty($search)) {
+    $safeSearch = htmlspecialchars($search); // just extra safety
+    $sql2 .= " AND name LIKE '%$safeSearch%'";
+}
+
 $result2 = queryDB($sql2);
 
-echo "<h1 class='menu-section-title' style='font-family:inherit; text-align: center;'>Cold Drinks</h2>";
-
 if ($result2->num_rows > 0) {
+    echo "<h1 class='menu-section-title' style='font-family:inherit; text-align: center;'>Cold Drinks</h2>";
     echo "<div class='menu-items-grid'>";
     while($row = $result2->fetch_assoc()) {
         echo "<div class='menu-item'>";
@@ -73,17 +89,18 @@ if ($result2->num_rows > 0) {
     echo "</div>";
     echo "<br>";
 }
-    
-else {
-    echo "No items available";
-}
 
 $sql3 = "SELECT name, description, price, image_url FROM menu WHERE category='bake'";
+
+if (!empty($search)) {
+    $safeSearch = htmlspecialchars($search); // just extra safety
+    $sql3 .= " AND name LIKE '%$safeSearch%'";
+}
+
 $result3 = queryDB($sql3);
 
-echo "<h2 style='font-family:inherit; text-align: center;'>Bakery</h2>";
-
 if ($result3->num_rows > 0) {
+    echo "<h2 style='font-family:inherit; text-align: center;'>Bakery</h2>";
     echo "<div class='menu-items-grid'>";
     while($row = $result3->fetch_assoc()) {
         echo "<div class='menu-item'>";
@@ -105,17 +122,18 @@ if ($result3->num_rows > 0) {
     echo "</div>";
     echo "<br>";
     }
-    
-else {
-    echo "No items available";
-}
 
 $sql4 = "SELECT name, description, price, image_url FROM menu WHERE category='limited'";
+
+if (!empty($search)) {
+    $safeSearch = htmlspecialchars($search); // just extra safety
+    $sql4 .= " AND name LIKE '%$safeSearch%'";
+}
+
 $result4 = queryDB($sql4);
 
-echo "<h2 style='font-family:inherit; text-align: center;'>Seasonal</h2>";
-
 if ($result4->num_rows > 0) {
+    echo "<h2 style='font-family:inherit; text-align: center;'>Seasonal</h2>";
     echo "<div class='menu-items-grid'>";
     while($row = $result4->fetch_assoc()) {
         echo "<div class='menu-item'>";
@@ -137,10 +155,6 @@ if ($result4->num_rows > 0) {
     echo "</div>";
     echo "<br>";
     }
-    
-else {
-    echo "No items available";
-}
 
     ?>
         </div>

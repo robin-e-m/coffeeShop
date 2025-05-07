@@ -58,7 +58,7 @@ if (!(isset($_SESSION['userID']))) {
             <ul style="font-size:20px; text-align:left";>
                 <li><a href="profileUpdate.php">Update your profile</a></li>
                 <li><a href="menu.php">Start a new order</a></li>
-                <li><a href="orderHistory.php">View order history</a></li>
+                <li><a href="viewPastOrders.php">View order history</a></li>
             </ul>
             <br>
             <h3 style="font-size:40px;color:#60b9bf;font-family:inherit; text-align:left;">Profile Details:</h3>

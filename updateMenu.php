@@ -37,21 +37,25 @@ if (!(isset($_SESSION['usertype']))) {
                 <form name="update_Item" action="updateMenuAction.php" method="get">
                     <div class="register-option">
                         <label style="font-size: 20px">Item Name:</label>
+                        <br>
                         <input type="text" name="name" size="100" required/>
                     </div>
 
                     <div class="register-option">
                         <label style="font-size: 20px">Description:</label>
+                        <br>
                         <input type="text" name="description" size="100" required/>
                     </div>
 
                     <div class="register-option">
                         <label style="font-size: 20px">Item Price:</label>
+                        <br>
                         <input type="text" name="price" size="100" required/>
                     </div>
 
                     <div class="register-option">
                         <label style="font-size: 20px">Item Category</label>
+                        <br>
                         <select name="category" required >
                             <option disabled selected value>Select a category</option>
                             <option value="hot">Hot Drinks</option>
@@ -63,6 +67,7 @@ if (!(isset($_SESSION['usertype']))) {
 
                     <div class="form-group">
                         <label>Item photo:</label>
+                        <br>
                         <input type="file" class="form-control" placeholder="Add Picture" name="photo">
                     </div>
 

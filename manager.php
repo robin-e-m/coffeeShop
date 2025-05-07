@@ -42,7 +42,7 @@ if (!(isset($_SESSION['userID']))) {
         <title>Manager</title>
 
     </head>
-    
+
     <body>
         <div class="home-top-section"></div>
         <div class="home-top-text">
@@ -54,12 +54,20 @@ if (!(isset($_SESSION['userID']))) {
 
             <p >
             <ul style="font-size:20px; text-align:left";>
+                <!--Account actions-->
                 <li><a href="registerStaff.php">Add new staff member</a></li>
                 <li><a href="registerCustomer.php">Add new customer</a></li>
+                <li><a href="deleteUser.php">Delete users</a></li>
+                <br> <!--Menu Actions-->
                 <li><a href="registerMenu.php">Add new menu item</a></li>
                 <li><a href="updateMenu.php">Modify menu item</a></li>
-                <li><a href="profileUpdate.php">Update your profile</a></li>
+                <li><a href="deleteMenu.php">Delete menu item</a></li>
+                <br><!--Maintenace Actions-->
+                <li><a href="maintenance.php">Submit maintenance request</a></li>
+                <li><a href="maintenanceSummary.php">View maintenance requests</a></li>
+                <br>
                 <li><a href="orderHistoryAction.php">View order history</a></li>
+                <br>
                 <li><a href="contactSummary.php">View customer feedback</a></li>
             </ul>
             <br>
@@ -89,8 +97,9 @@ if (!(isset($_SESSION['userID']))) {
                 <br>
                 Security Answer: <?php echo $answer; ?>
                 <br>
-            </p>
+            <li><a href="profileUpdate.php">Update your profile</a></li>
+        </p>
 
-            <br>
-            <br>
-            <?php include 'footer.php' ?>
+        <br>
+        <br>
+        <?php include 'footer.php' ?>

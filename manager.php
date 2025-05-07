@@ -81,7 +81,7 @@ if (!(isset($_SESSION['userID']))) {
 
                 <br>
                 <li><a href="contactSummary.php">View customer feedback</a></li>
-                <li><a href="orderHistoryAction.php">View order history</a></li>
+                <li><a href="orderHistory.php">View order history</a></li>
 
             </ul>
 

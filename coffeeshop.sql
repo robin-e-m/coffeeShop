@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 05, 2025 at 09:41 PM
+-- Generation Time: May 07, 2025 at 08:43 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -41,6 +41,29 @@ CREATE TABLE `feedback` (
 
 INSERT INTO `feedback` (`revID`, `name`, `email`, `subject`, `message`) VALUES
 (1, 'Customer Main', 'customer1@practice.com', 'allergen warnings', 'Please add allergen warnings to the menu');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `maintenance`
+--
+
+CREATE TABLE `maintenance` (
+  `maintenanceID` int(3) NOT NULL,
+  `name` varchar(30) NOT NULL,
+  `problem` varchar(500) NOT NULL,
+  `time` varchar(500) NOT NULL,
+  `other` varchar(500) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `maintenance`
+--
+
+INSERT INTO `maintenance` (`maintenanceID`, `name`, `problem`, `time`, `other`) VALUES
+(1, 'Bob', 'ice cream is broken', 'today at 6', 'NA'),
+(2, 'tom', 'coffee machine', 'today at 5', 'NA'),
+(3, 'tom', 'bathroom ', 'this morning', 'NA');
 
 -- --------------------------------------------------------
 
@@ -158,6 +181,12 @@ ALTER TABLE `feedback`
   ADD PRIMARY KEY (`revID`);
 
 --
+-- Indexes for table `maintenance`
+--
+ALTER TABLE `maintenance`
+  ADD PRIMARY KEY (`maintenanceID`);
+
+--
 -- Indexes for table `menu`
 --
 ALTER TABLE `menu`
@@ -193,7 +222,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `feedback`
 --
 ALTER TABLE `feedback`
-  MODIFY `revID` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `revID` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `maintenance`
+--
+ALTER TABLE `maintenance`
+  MODIFY `maintenanceID` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `menu`

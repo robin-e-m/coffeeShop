@@ -27,7 +27,7 @@
 
         else {
             $homepage = "customer.php"; //customer is logged in
-            $register = "welcome.php";
+            $register = "customerRegisterRedirect.php";
         }
     }
     

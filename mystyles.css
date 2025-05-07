@@ -192,3 +192,18 @@ h1 {
   color: #333;
   margin-top: 10px;
 }
+
+.order-summary {
+            margin: 10px 0;
+            padding: 10px;
+            background: #eee;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+.order-details {
+            display: none;
+            padding: 10px 20px;
+            background: #f9f9f9;
+            border-left: 4px solid #aaa;
+        }

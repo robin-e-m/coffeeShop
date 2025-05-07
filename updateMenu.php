@@ -28,16 +28,27 @@ if (!(isset($_SESSION['usertype']) OR ($usertype !=1))) {
                 }
 
                 if (isset($_GET['status']) && $_GET['status'] == 'update_success') {
+                    //echo "<div class=home-main-content>";
                     echo "<p>Item updated successfully!</p>";
                     echo "<a href='index.php'>Return to homepage</a>";
+                    //echo"</div>";
                     exit;
                 }
                 ?>
 
-                <form name="update_Item" action="updateMenuAction.php" method="get">
+                <form name="update_Item" action="updateMenuAction.php" method="post" enctype="multipart/form-data">
                     <div class="register-option">
                         <label style="font-size: 20px">Item Name:</label>
-                        <input type="text" name="name" size="100" required/>
+                        <select name="name" required>
+                            <?php
+                            $sql_names = "SELECT name FROM menu";
+                            $result_names = queryDB($sql_names);
+                            while ($row = mysqli_fetch_assoc($result_names)) {
+                            $name = htmlspecialchars($row['name']);
+                            echo "<option value=\"$name\">$name</option>";
+        }
+        ?>
+                        </select>
                     </div>
 
                     <div class="register-option">
@@ -56,7 +67,7 @@ if (!(isset($_SESSION['usertype']) OR ($usertype !=1))) {
                             <option disabled selected value>Select a category</option>
                             <option value="hot">Hot Drinks</option>
                             <option value="cold">Cold Drinks</option>
-                            <option value="bakery">Bakery</option>
+                            <option value="bake">Bakery</option>
                             <option value="limited">Seasonal</option>
                         </select>
                     </div>

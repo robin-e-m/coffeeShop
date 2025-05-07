@@ -26,8 +26,7 @@ if (!(isset($_SESSION['usertype']))) {
 
 //confirm there are entries and display
         if (mysqli_num_rows($result_reviews) > 0) {
-
-            $row = mysqli_fetch_assoc($result_reviews);
+            while ($row = mysqli_fetch_assoc($result_reviews)) {
             $revNum = $row['revID'];
             $name = $row['name'];
             $email = $row['email'];
@@ -35,9 +34,14 @@ if (!(isset($_SESSION['usertype']))) {
             $message = $row['message'];
 
             // output data of each row
-            echo "Rewiew ID: " . $revNum . "<br>" .
-            "Name: " . $name . " | Email: " . $email . " | Subject: " . $subject . "<br>" .
-            "Message: " . $message . "<br>";
+        echo "<div class='home-main-content'>
+                <h1 style='font-family: inherit'>Review ID: $revNum</h3>
+                <h2 style='font-family: inherit'><span>Name:</span> $name</h2>
+                <h2 style='font-family: inherit'><span>Email:</span> $email</h2>
+                <h3 style='font-family: inherit'><span>Subject:</span> $subject</h3>
+                <p style='font-size:22px;'><span>Message:</span><br>$message</p>
+              </div>";
+            }
         } else {
             echo "0 results";
         }

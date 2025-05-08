@@ -179,7 +179,7 @@ if (!(isset($_SESSION['userID']))) {
                     <input type="password" name="answer" size="90" value ="<?php echo $answer ?>"  required/>
                 </div>
 
-                <input class = "form-button" type="submit" value ="submit" />
+                <input class = "form-button" type="submit" value ="Submit" />
                 <input class="form-button" type="reset" value="Reset" />
         </form>
     </div>

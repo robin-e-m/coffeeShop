@@ -199,6 +199,8 @@ h1 {
             background: #eee;
             cursor: pointer;
             border-radius: 5px;
+            color: black;
+            font-size: 20px;
         }
 
 .order-details {
@@ -206,13 +208,14 @@ h1 {
             padding: 10px 20px;
             background: #f9f9f9;
             border-left: 4px solid #aaa;
+            color: black;
+            font-size: 15px;
         }
         
-/* Glowing effect for the 'Added to Cart!' message */
 .glowing-message {
     font-size: 25px;
     font-weight: bold;
-    color: #28a745; /* green color */
+    color: #28a745;
     animation: glow 1.5s ease-in-out infinite alternate;
 }
 

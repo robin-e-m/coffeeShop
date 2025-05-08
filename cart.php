@@ -52,11 +52,11 @@ foreach ($_SESSION['cart'] as $index => $item) {
             <input type='number' name='quantity' value='{$item['quantity']}' min='1' style='width: 50px;'>
             <input type='hidden' name='itemIndex' value='$index'>
             <input type='hidden' name='itemID' value='{$item['itemID']}'>
-            <button type='submit' class='form-button'>Adjust qty</button>
+            <button type='submit' class='form-button' style='font-size:20px'>Adjust qty</button>
             </form>
-            <form method='post' action='addToCart.php' style='margin-left: 10px;'>
+            <form method='post' action='addToCart.php'>
                 <input type='hidden' name='itemIndex' value='$index'>
-                <button type='submit' class='remove-button'>Remove</button>
+                <button type='submit' class='remove-button' style='font-size:20px'>Remove</button>
             </form>
             </div>
           </li>";
@@ -64,7 +64,7 @@ foreach ($_SESSION['cart'] as $index => $item) {
         echo "</ul>";
         echo "<p style='font-size: 35px;'>Total: $" . number_format($total, 2) . "</p>";
         echo "<div class='butt-center'>
-        <input class='form-button' type='submit' value='Submit' onclick=\"document.location='cartAction.php'\" />
+        <input class='form-button' type='submit' value='Submit' style='font-size:30px;' onclick=\"document.location='cartAction.php'\" />
       </div>";
         echo "</div>";
 }

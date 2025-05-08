@@ -2,7 +2,7 @@
 session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['quantity'])) {
-    $index = $_POST['itemIndex']; // Assuming you pass the item index to identify it
+    $index = $_POST['itemIndex'];
     $quantity = $_POST['quantity'];
 
     // Ensure quantity is at least 1
@@ -12,7 +12,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['quantity'])) {
         $_SESSION['cart'][$index]['quantity'] = $quantity;
     }
 
-    // Redirect back to the cart page or show an update message
     header("Location: cart.php");
     exit;
 }

@@ -17,13 +17,14 @@ if (!isset($_SESSION['cart']) || count($_SESSION['cart']) === 0) {
 }
 
 $userID = $_SESSION['userID'];
+
+date_default_timezone_set('America/New_York');
 $date = date("Y-m-d");
 $time = date("H:i:s");
 
 global $conn;
-openDB(); // manually open db so we keep the connection alive
+openDB();
 
-// insert the order manually (don’t use modifyDB or it'll close the connection)
 $sql_order = "INSERT INTO `order` (customerID, date, time) VALUES ('$userID', '$date', '$time')";
 if ($conn->query($sql_order) === TRUE) {
     $orderID = $conn->insert_id;

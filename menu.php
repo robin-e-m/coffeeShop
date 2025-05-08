@@ -10,6 +10,10 @@
         <div class='menu-main-content'>
         <h1 style="font-family:inherit; font-size:60px;">Cafe Menu</h1>
         <h4 style="font-family:inherit; text-align: center;">Explore our hand-crafted drinks and pastries. Crafted with care, from scratch daily.</h4> 
+        <?php if (!isset($_SESSION['userID'])) {
+            echo "<h4 style='font-family:inherit; text-align: center;'>To place an order, please log in.</h4>";
+        }
+        ?>
         <hr>
         
     <form method="get" action="menu.php" style="display: flex; gap: 5px; align-items: center;">
@@ -53,6 +57,7 @@ if ($result->num_rows > 0) {
         echo "<h3 class='menu-item-name' style='font-family:inherit'>" . htmlspecialchars($row["name"]) . "</h3>";
         echo "<p class='menu-item-description'>" . htmlspecialchars($row["description"]) . "</p>";
         echo "<p class='menu-item-price'><strong>$" . htmlspecialchars($row["price"]) . "</strong></p>";
+        if (isset($_SESSION['userID'])) {
         echo "<form action='addToCart.php' method='post' style='display: inline;'>
         <input type='hidden' name='itemID' value='" . htmlspecialchars($row['itemID']) . "'>
         <input type='hidden' name='name' value='" . htmlspecialchars($row['name']) . "'>
@@ -62,6 +67,7 @@ if ($result->num_rows > 0) {
                 onmouseover=\"this.style.backgroundColor = 'teal'; this.style.transform = 'scale(1.1)';\" 
                 onmouseout=\"this.style.backgroundColor = '#444'; this.style.transform = 'scale(1)';\"; class='add-to-cart'>Add to Cart</button>
                 </form>";
+        }
         echo "<div style='display:none; align-items: center; gap: 10px; margin-top: 10px;'>";
         echo "</div>";
         echo "</div>";
@@ -92,6 +98,7 @@ if ($result2->num_rows > 0) {
         echo "<h3 class='menu-item-name' style='font-family:inherit'>" . htmlspecialchars($row["name"]) . "</h3>";
         echo "<p class='menu-item-description'>" . htmlspecialchars($row["description"]) . "</p>";
         echo "<p class='menu-item-price'><strong>$" . htmlspecialchars($row["price"]) . "</strong></p>";
+        if (isset($_SESSION['userID'])) {
         echo "<form action='addToCart.php' method='post' style='display: inline;'>
         <input type='hidden' name='itemID' value='" . htmlspecialchars($row['itemID']) . "'>
         <input type='hidden' name='name' value='" . htmlspecialchars($row['name']) . "'>
@@ -101,6 +108,7 @@ if ($result2->num_rows > 0) {
                 onmouseover=\"this.style.backgroundColor = 'teal'; this.style.transform = 'scale(1.1)';\" 
                 onmouseout=\"this.style.backgroundColor = '#444'; this.style.transform = 'scale(1)';\"; class='add-to-cart'>Add to Cart</button>
                 </form>";
+        }
         echo "<div style='display:none; align-items: center; gap: 10px; margin-top: 10px;'>";
         echo "</div>";
         echo "</div>";
@@ -131,6 +139,7 @@ if ($result3->num_rows > 0) {
         echo "<h3 class='menu-item-name' style='font-family:inherit'>" . htmlspecialchars($row["name"]) . "</h3>";
         echo "<p class='menu-item-description'>" . htmlspecialchars($row["description"]) . "</p>";
         echo "<p class='menu-item-price'><strong>$" . htmlspecialchars($row["price"]) . "</strong></p>";
+        if (isset($_SESSION['userID'])) {
         echo "<form action='addToCart.php' method='post' style='display: inline;'>
         <input type='hidden' name='itemID' value='" . htmlspecialchars($row['itemID']) . "'>
         <input type='hidden' name='name' value='" . htmlspecialchars($row['name']) . "'>
@@ -140,6 +149,7 @@ if ($result3->num_rows > 0) {
                 onmouseover=\"this.style.backgroundColor = 'teal'; this.style.transform = 'scale(1.1)';\" 
                 onmouseout=\"this.style.backgroundColor = '#444'; this.style.transform = 'scale(1)';\"; class='add-to-cart'>Add to Cart</button>
                 </form>";
+        }
         echo "<div style='display:none; align-items: center; gap: 10px; margin-top: 10px;'>";
         echo "</div>";
         echo "</div>";
@@ -170,6 +180,7 @@ if ($result4->num_rows > 0) {
         echo "<h3 class='menu-item-name' style='font-family:inherit'>" . htmlspecialchars($row["name"]) . "</h3>";
         echo "<p class='menu-item-description'>" . htmlspecialchars($row["description"]) . "</p>";
         echo "<p class='menu-item-price'><strong>$" . htmlspecialchars($row["price"]) . "</strong></p>";
+        if (isset($_SESSION['userID'])) {
         echo "<form action='addToCart.php' method='post' style='display: inline;'>
         <input type='hidden' name='itemID' value='" . htmlspecialchars($row['itemID']) . "'>
         <input type='hidden' name='name' value='" . htmlspecialchars($row['name']) . "'>
@@ -179,6 +190,7 @@ if ($result4->num_rows > 0) {
                 onmouseover=\"this.style.backgroundColor = 'teal'; this.style.transform = 'scale(1.1)';\" 
                 onmouseout=\"this.style.backgroundColor = '#444'; this.style.transform = 'scale(1)';\"; class='add-to-cart'>Add to Cart</button>
                 </form>";
+        }
         echo "<div style='display:none; align-items: center; gap: 10px; margin-top: 10px;'>";
         echo "</div>";
         echo "</div>";

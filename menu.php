@@ -20,11 +20,20 @@
         
         <?php
 require 'DBConnect.php';
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+// Display the "Added to Cart!" message if it exists
+if (isset($_SESSION['added_to_cart_message'])) {
+    echo "<p class='glowing-message fade-in'>" . $_SESSION['added_to_cart_message'] . "</p>";
+    unset($_SESSION['added_to_cart_message']);  // Clear the message after displaying
+}
 
 $search = isset($_GET['search']) ? $_GET['search'] : '';
 $search = trim($search); // just in case user types extra spaces
 
-$sql = "SELECT name, description, price, image_url FROM menu WHERE category='hot'";
+$sql = "SELECT itemID, name, description, price, image_url FROM menu WHERE category='hot'";
 
 if (!empty($search)) {
     $safeSearch = htmlspecialchars($search); // just extra safety
@@ -44,9 +53,15 @@ if ($result->num_rows > 0) {
         echo "<h3 class='menu-item-name' style='font-family:inherit'>" . htmlspecialchars($row["name"]) . "</h3>";
         echo "<p class='menu-item-description'>" . htmlspecialchars($row["description"]) . "</p>";
         echo "<p class='menu-item-price'><strong>$" . htmlspecialchars($row["price"]) . "</strong></p>";
-        echo "<button style='padding: 5px 10px; background-color: #444; color: white; border: none; border-radius: 5px; cursor: pointer;' 
+        echo "<form action='addToCart.php' method='post' style='display: inline;'>
+        <input type='hidden' name='itemID' value='" . htmlspecialchars($row['itemID']) . "'>
+        <input type='hidden' name='name' value='" . htmlspecialchars($row['name']) . "'>
+        <input type='hidden' name='price' value='" . htmlspecialchars($row['price']) . "'>
+        <input type='number' name='quantity' value='1' min='1' style='width: 50px; margin-right: 10px;' />
+        <button style='padding: 5px 10px; background-color: #444; color: white; border: none; border-radius: 5px; cursor: pointer;' 
                 onmouseover=\"this.style.backgroundColor = 'teal'; this.style.transform = 'scale(1.1)';\" 
-                onmouseout=\"this.style.backgroundColor = '#444'; this.style.transform = 'scale(1)';\"; class='add-to-cart'>Add to Cart</button>";
+                onmouseout=\"this.style.backgroundColor = '#444'; this.style.transform = 'scale(1)';\"; class='add-to-cart'>Add to Cart</button>
+                </form>";
         echo "<div style='display:none; align-items: center; gap: 10px; margin-top: 10px;'>";
         echo "</div>";
         echo "</div>";
@@ -57,7 +72,7 @@ if ($result->num_rows > 0) {
     echo "<br>";
 }
 
-$sql2 = "SELECT name, description, price, image_url FROM menu WHERE category='cold'";
+$sql2 = "SELECT itemID, name, description, price, image_url FROM menu WHERE category='cold'";
 
 if (!empty($search)) {
     $safeSearch = htmlspecialchars($search); // just extra safety
@@ -77,9 +92,15 @@ if ($result2->num_rows > 0) {
         echo "<h3 class='menu-item-name' style='font-family:inherit'>" . htmlspecialchars($row["name"]) . "</h3>";
         echo "<p class='menu-item-description'>" . htmlspecialchars($row["description"]) . "</p>";
         echo "<p class='menu-item-price'><strong>$" . htmlspecialchars($row["price"]) . "</strong></p>";
-        echo "<button style='padding: 5px 10px; background-color: #444; color: white; border: none; border-radius: 5px; cursor: pointer;' 
+        echo "<form action='addToCart.php' method='post' style='display: inline;'>
+        <input type='hidden' name='itemID' value='" . htmlspecialchars($row['itemID']) . "'>
+        <input type='hidden' name='name' value='" . htmlspecialchars($row['name']) . "'>
+        <input type='hidden' name='price' value='" . htmlspecialchars($row['price']) . "'>
+        <input type='number' name='quantity' value='1' min='1' style='width: 50px; margin-right: 10px;' />
+        <button style='padding: 5px 10px; background-color: #444; color: white; border: none; border-radius: 5px; cursor: pointer;' 
                 onmouseover=\"this.style.backgroundColor = 'teal'; this.style.transform = 'scale(1.1)';\" 
-                onmouseout=\"this.style.backgroundColor = '#444'; this.style.transform = 'scale(1)';\"; class='add-to-cart'>Add to Cart</button>";
+                onmouseout=\"this.style.backgroundColor = '#444'; this.style.transform = 'scale(1)';\"; class='add-to-cart'>Add to Cart</button>
+                </form>";
         echo "<div style='display:none; align-items: center; gap: 10px; margin-top: 10px;'>";
         echo "</div>";
         echo "</div>";
@@ -90,10 +111,10 @@ if ($result2->num_rows > 0) {
     echo "<br>";
 }
 
-$sql3 = "SELECT name, description, price, image_url FROM menu WHERE category='bake'";
+$sql3 = "SELECT itemID, name, description, price, image_url FROM menu WHERE category='bake'";
 
 if (!empty($search)) {
-    $safeSearch = htmlspecialchars($search); // just extra safety
+    $safeSearch = htmlspecialchars($search);
     $sql3 .= " AND name LIKE '%$safeSearch%'";
 }
 
@@ -110,9 +131,15 @@ if ($result3->num_rows > 0) {
         echo "<h3 class='menu-item-name' style='font-family:inherit'>" . htmlspecialchars($row["name"]) . "</h3>";
         echo "<p class='menu-item-description'>" . htmlspecialchars($row["description"]) . "</p>";
         echo "<p class='menu-item-price'><strong>$" . htmlspecialchars($row["price"]) . "</strong></p>";
-                echo "<button style='padding: 5px 10px; background-color: #444; color: white; border: none; border-radius: 5px; cursor: pointer;' 
+        echo "<form action='addToCart.php' method='post' style='display: inline;'>
+        <input type='hidden' name='itemID' value='" . htmlspecialchars($row['itemID']) . "'>
+        <input type='hidden' name='name' value='" . htmlspecialchars($row['name']) . "'>
+        <input type='hidden' name='price' value='" . htmlspecialchars($row['price']) . "'>
+        <input type='number' name='quantity' value='1' min='1' style='width: 50px; margin-right: 10px;' />
+        <button style='padding: 5px 10px; background-color: #444; color: white; border: none; border-radius: 5px; cursor: pointer;' 
                 onmouseover=\"this.style.backgroundColor = 'teal'; this.style.transform = 'scale(1.1)';\" 
-                onmouseout=\"this.style.backgroundColor = '#444'; this.style.transform = 'scale(1)';\"; class='add-to-cart'>Add to Cart</button>";
+                onmouseout=\"this.style.backgroundColor = '#444'; this.style.transform = 'scale(1)';\"; class='add-to-cart'>Add to Cart</button>
+                </form>";
         echo "<div style='display:none; align-items: center; gap: 10px; margin-top: 10px;'>";
         echo "</div>";
         echo "</div>";
@@ -123,7 +150,7 @@ if ($result3->num_rows > 0) {
     echo "<br>";
     }
 
-$sql4 = "SELECT name, description, price, image_url FROM menu WHERE category='limited'";
+$sql4 = "SELECT itemID, name, description, price, image_url FROM menu WHERE category='limited'";
 
 if (!empty($search)) {
     $safeSearch = htmlspecialchars($search); // just extra safety
@@ -143,9 +170,15 @@ if ($result4->num_rows > 0) {
         echo "<h3 class='menu-item-name' style='font-family:inherit'>" . htmlspecialchars($row["name"]) . "</h3>";
         echo "<p class='menu-item-description'>" . htmlspecialchars($row["description"]) . "</p>";
         echo "<p class='menu-item-price'><strong>$" . htmlspecialchars($row["price"]) . "</strong></p>";
-                echo "<button style='padding: 5px 10px; background-color: #444; color: white; border: none; border-radius: 5px; cursor: pointer;' 
+        echo "<form action='addToCart.php' method='post' style='display: inline;'>
+        <input type='hidden' name='itemID' value='" . htmlspecialchars($row['itemID']) . "'>
+        <input type='hidden' name='name' value='" . htmlspecialchars($row['name']) . "'>
+        <input type='hidden' name='price' value='" . htmlspecialchars($row['price']) . "'>
+        <input type='number' name='quantity' value='1' min='1' style='width: 50px; margin-right: 10px;' />
+        <button style='padding: 5px 10px; background-color: #444; color: white; border: none; border-radius: 5px; cursor: pointer;' 
                 onmouseover=\"this.style.backgroundColor = 'teal'; this.style.transform = 'scale(1.1)';\" 
-                onmouseout=\"this.style.backgroundColor = '#444'; this.style.transform = 'scale(1)';\"; class='btn btn-primary'>Add to Cart</button>";
+                onmouseout=\"this.style.backgroundColor = '#444'; this.style.transform = 'scale(1)';\"; class='add-to-cart'>Add to Cart</button>
+                </form>";
         echo "<div style='display:none; align-items: center; gap: 10px; margin-top: 10px;'>";
         echo "</div>";
         echo "</div>";

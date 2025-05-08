@@ -1,5 +1,9 @@
 <?php
 
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
 // Capture form data using POST
 $firstName = isset($_POST['FirstName']) ? $_POST['FirstName'] : '';
 $lastName = isset($_POST['LastName']) ? $_POST['LastName'] : '';

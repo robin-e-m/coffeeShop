@@ -207,3 +207,37 @@ h1 {
             background: #f9f9f9;
             border-left: 4px solid #aaa;
         }
+        
+/* Glowing effect for the 'Added to Cart!' message */
+.glowing-message {
+    font-size: 25px;
+    font-weight: bold;
+    color: #28a745; /* green color */
+    animation: glow 1.5s ease-in-out infinite alternate;
+}
+
+.fade-in {
+    animation: fadeIn 1s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.remove-button {
+    padding: 10px 15px;
+    border-radius: 10px;
+    margin: 10px;
+    transition-duration: 0.4s;
+    font-family: Georgia, serif;
+}
+
+.remove-button:hover {
+    background-color: darkred;
+    color: white;
+}

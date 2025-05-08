@@ -1,66 +1,49 @@
-<!DOCTYPE html>
 <?php
 require 'DBConnect.php';
 include 'header.php';
 
-if (!(isset($_SESSION['usertype']))) {
-    if ($usertype != 1 OR $usertype != 2 OR usertype != 3)
-        header("Location:index.php");
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+if (!isset($_SESSION['usertype'])) {
+    header("Location: index.php");
     exit;
 }
-//get username
-$user = $_GET["userID"];
-$item = $_GET["name"];
-$price = $_GET["price"];
-$quantity= $_GET["quantity"];
-$date = $_GET['date'];
-$time = $_GET['time'];
 
-/* This section may not be needed???
-  
-//check for username within the user table
-$sql_user = "SELECT userID FROM user WHERE username = '$user'";
-$result_user = queryDB($sql_user);
-
-//if username is found, get the userID
-if (mysqli_num_rows($result_user) == 1) {
-    $row = mysqli_fetch_assoc($result_user);
-    $userNum = row['userID'];
+if (!isset($_SESSION['cart']) || count($_SESSION['cart']) === 0) {
+    header("Location: cart.php");
+    exit;
 }
 
-//check for item within the menu table
-$sql_item = "SELECT itemID, price FROM menu WHERE name=$item";
-$result_item= queryDB($result_item);
+$userID = $_SESSION['userID'];
+$date = date("Y-m-d");
+$time = date("H:i:s");
 
-//if item name is found, get the itemID
-if (mysqli_num_rows($result_item) == 1) {
-    $row = mysqli_fetch_assoc($result_item);
-    $itemNum = row['menuID'];
+global $conn;
+openDB(); // manually open db so we keep the connection alive
+
+// insert the order manually (don’t use modifyDB or it'll close the connection)
+$sql_order = "INSERT INTO `order` (customerID, date, time) VALUES ('$userID', '$date', '$time')";
+if ($conn->query($sql_order) === TRUE) {
+    $orderID = $conn->insert_id;
+} else {
+    die("Error inserting order: " . $conn->error);
 }
 
-*/
+$_SESSION['last_order_id'] = $orderID;
 
+foreach ($_SESSION['cart'] as $item) {
+    $itemID = $item['itemID'];
+    $quantity = $item['quantity'];
 
-$sql = "INSERT INTO order values (0, '" . $user . "', '" . $item . "', '" .
-            $price . "', '" . $quantity . "', '" . $date . "', '" . $time . "')";
+    $sql_item = "INSERT INTO ordermenu (orderID, itemID, quantity)
+                 VALUES ('$orderID', '$itemID', '$quantity')";
+    modifyDB($sql_item);
+}
 
-echo modifyDB($sql);
-header("Location: cart.php?status='success'");
+unset($_SESSION['cart']);
+
+header("Location: orderHistory.php");
+exit;
 ?>
-
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Order Submitted</title>
-    </head>
-    
-    <body>
-                <div>
-                    <a href="orderHistory.php">See your order confirmation</a>
-                        </div>
-        
-        <br>
-        <br>
-        <?php include 'footer.php' ?>
-    </body>
-</html>

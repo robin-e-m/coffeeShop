@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 07, 2025 at 09:54 PM
+-- Generation Time: May 08, 2025 at 08:21 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -40,8 +40,31 @@ CREATE TABLE `feedback` (
 --
 
 INSERT INTO `feedback` (`revID`, `name`, `email`, `subject`, `message`) VALUES
-(1, 'Customer 1', 'customer1@practice.test', 'Nut allergens', 'Please add any potential nut allergens on the menu'),
-(2, 'Customer 2', 'customer2@practice.test', 'Gluten sensitivity', 'Are there gluten free options?');
+(1, 'Customer Main', 'customer1@practice.com', 'allergen warnings', 'Please add allergen warnings to the menu');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `maintenance`
+--
+
+CREATE TABLE `maintenance` (
+  `maintenanceID` int(3) NOT NULL,
+  `name` varchar(30) NOT NULL,
+  `problem` varchar(500) NOT NULL,
+  `time` varchar(500) NOT NULL,
+  `other` varchar(500) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `maintenance`
+--
+
+INSERT INTO `maintenance` (`maintenanceID`, `name`, `problem`, `time`, `other`) VALUES
+(1, 'Bob', 'ice cream is broken', 'today at 6', 'NA'),
+(2, 'tom', 'coffee machine', 'today at 5', 'NA'),
+(3, 'tom', 'bathroom ', 'this morning', 'NA'),
+(4, 'Elise D.', 'Phones not working', '2 pm yesterday', 'No dial tone, only static when trying to make a call. No incoming calls go through');
 
 -- --------------------------------------------------------
 
@@ -80,23 +103,31 @@ INSERT INTO `menu` (`itemID`, `name`, `description`, `price`, `category`, `image
 (44, 'Chocolate Chip Cookie', 'Soft baked cookie with semi-sweet chocolate chips', 1.99, 'bake', 'uploads/68162fa9e3769_choc_chip.jpg'),
 (45, 'Cherry Blossom Latte', 'Espresso with steamed milk and cherry blossom syrup', 5.00, 'limited', 'uploads/681630c77eae2_cherry_blossom.jpg'),
 (47, 'Honey Carrot Cake Muffin', 'Spiced carrot cake with natural honey and cream cheese glaze', 4.50, 'limited', 'uploads/681631b6a0a1f_carrot-muffins-4.jpg'),
+(48, 'Lavender Latte', 'Espresso with steamed milk and lavender syrup', 4.50, 'limited', 'uploads/68163248c8635_lavender_coffee.jpg'),
 (49, 'Easter Egg Cupcakes', 'White cake with blue buttercream and mini chocolate eggs', 3.75, 'limited', 'uploads/68163325be52a_Robins-Egg-Easter-Cupcakes.jpg');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `orderhistory`
+-- Table structure for table `order`
 --
 
-CREATE TABLE `orderhistory` (
+CREATE TABLE `order` (
   `orderID` int(255) NOT NULL,
-  `userID` int(3) NOT NULL,
-  `itemName` varchar(100) NOT NULL,
-  `price` decimal(4,0) NOT NULL,
-  `quantity` int(3) NOT NULL,
+  `customerID` int(3) NOT NULL,
   `date` date NOT NULL,
-  `time` time(6) NOT NULL
+  `time` time(6) NOT NULL,
+  `staffID` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `order`
+--
+
+INSERT INTO `order` (`orderID`, `customerID`, `date`, `time`, `staffID`) VALUES
+(1, 8, '2025-05-08', '13:31:18.000000', 0),
+(2, 8, '2025-05-08', '13:33:13.000000', 0),
+(3, 8, '2025-05-08', '13:39:43.000000', 0);
 
 -- --------------------------------------------------------
 
@@ -110,6 +141,27 @@ CREATE TABLE `ordermenu` (
   `itemID` int(3) NOT NULL,
   `quantity` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `ordermenu`
+--
+
+INSERT INTO `ordermenu` (`orderItemID`, `orderID`, `itemID`, `quantity`) VALUES
+(1, 1, 31, 1),
+(2, 1, 33, 1),
+(3, 1, 36, 1),
+(4, 1, 42, 1),
+(5, 1, 40, 1),
+(6, 1, 49, 1),
+(7, 2, 45, 1),
+(8, 2, 39, 1),
+(9, 2, 38, 1),
+(10, 2, 41, 1),
+(11, 2, 43, 1),
+(12, 2, 49, 1),
+(13, 3, 36, 2),
+(14, 3, 42, 1),
+(15, 3, 49, 3);
 
 -- --------------------------------------------------------
 
@@ -142,9 +194,7 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`userID`, `name`, `username`, `password`, `email`, `phone`, `address`, `city`, `state`, `zip`, `question`, `answer`, `payRate`, `hireDate`, `usertype`) VALUES
 (6, 'Manager Main', 'manager1', 'Coffee', 'manager1@testing.gov', '8520741963', '7411 Practice Street', 'DarkRoast', 'in', '98745', 'what is your favorite food?', 'Lasagna', 17.00, '2025-03-15', 1),
 (7, 'Staff Member', 'staff1', 'coffeeshop', 'staff1@practice.org', '0123456789', '987 Olive Avenue', 'Harvard', 'ma', '96301', 'what is your favorite color?', 'green', 15.00, '2025-03-19', 2),
-(8, 'Main Customer', 'customer1', 'coffee', 'customer1@coffeeshop.com', '7410852963', '123 Gemstone Drive', 'Nothing', 'co', '75342', 'beep boop?', 'yes', 0.00, '0000-00-00', 3),
-(9, 'customer 2', 'customer2', 'CoffeeShop', 'customer2@coffeeshop.com', '9518479632', '741 Software Circle', 'Milano', 'tn', '32165', 'Favorite place?', 'new york', 0.00, '0000-00-00', 3),
-(10, 'staff 2', 'staff2', 'CoffeeShop', 'staff2@coffeeshop.com', '9630852741', '863 Silver Drive', 'Athens', 'fl', '98745', 'Favorite subject?', 'foreign languages', 15.00, '2025-03-17', 2);
+(8, 'Main Customer', 'customer1', 'coffee', 'customer1@coffeeshop.com', '7410852963', '123 Gemstone Drive', 'Nothing', 'co', '75342', 'beep boop?', 'yes', 0.00, '0000-00-00', 3);
 
 --
 -- Indexes for dumped tables
@@ -157,17 +207,24 @@ ALTER TABLE `feedback`
   ADD PRIMARY KEY (`revID`);
 
 --
+-- Indexes for table `maintenance`
+--
+ALTER TABLE `maintenance`
+  ADD PRIMARY KEY (`maintenanceID`);
+
+--
 -- Indexes for table `menu`
 --
 ALTER TABLE `menu`
   ADD PRIMARY KEY (`itemID`);
 
 --
--- Indexes for table `orderhistory`
+-- Indexes for table `order`
 --
-ALTER TABLE `orderhistory`
+ALTER TABLE `order`
   ADD PRIMARY KEY (`orderID`),
-  ADD KEY `order_ibfk_1` (`userID`);
+  ADD KEY `order_ibfk_1` (`customerID`),
+  ADD KEY `order_ibfk_2` (`staffID`);
 
 --
 -- Indexes for table `ordermenu`
@@ -191,25 +248,31 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `feedback`
 --
 ALTER TABLE `feedback`
-  MODIFY `revID` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `revID` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `maintenance`
+--
+ALTER TABLE `maintenance`
+  MODIFY `maintenanceID` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `menu`
 --
 ALTER TABLE `menu`
-  MODIFY `itemID` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `itemID` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
--- AUTO_INCREMENT for table `orderhistory`
+-- AUTO_INCREMENT for table `order`
 --
-ALTER TABLE `orderhistory`
-  MODIFY `orderID` int(255) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `order`
+  MODIFY `orderID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `ordermenu`
 --
 ALTER TABLE `ordermenu`
-  MODIFY `orderItemID` int(3) NOT NULL AUTO_INCREMENT;
+  MODIFY `orderItemID` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `user`
@@ -225,7 +288,7 @@ ALTER TABLE `user`
 -- Constraints for table `ordermenu`
 --
 ALTER TABLE `ordermenu`
-  ADD CONSTRAINT `ordermenu_ibfk_1` FOREIGN KEY (`orderID`) REFERENCES `orderhistory` (`orderID`),
+  ADD CONSTRAINT `ordermenu_ibfk_1` FOREIGN KEY (`orderID`) REFERENCES `order` (`orderID`),
   ADD CONSTRAINT `ordermenu_ibfk_2` FOREIGN KEY (`itemID`) REFERENCES `menu` (`itemID`);
 COMMIT;
 

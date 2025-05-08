@@ -72,4 +72,3 @@ foreach ($_SESSION['cart'] as $index => $item) {
     
 </body>
 </html>
-

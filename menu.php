@@ -192,13 +192,21 @@ if ($result4->num_rows > 0) {
                 </form>";
         }
         echo "<div style='display:none; align-items: center; gap: 10px; margin-top: 10px;'>";
+                echo "<div class='butt-center'>
+        <input class='form-button' type='submit' value='Go to cart' style='font-size:30px;' onclick=\"document.location='cart.php'\" />
+      </div>";
         echo "</div>";
         echo "</div>";
         echo "</div>";
         echo "</div>";
+        
     }
     echo "</div>";
     echo "<br>";
+    echo "<div class='butt-center'>
+        <input class='form-button' type='submit' value='Go to cart' style='font-size:30px;' onclick=\"document.location='cart.php'\" />
+      </div>";
+        echo "</div>";
     }
     
     if ($result->num_rows === 0 && $result2->num_rows === 0 && $result3->num_rows === 0 && $result4->num_rows === 0) {

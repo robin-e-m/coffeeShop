@@ -81,7 +81,7 @@ if (!(isset($_SESSION['userID']))) {
 
                 <br>
                 <li><a href="contactSummary.php">View customer feedback</a></li>
-                <li><a href="orderHistory.php">View order history</a></li>
+                <li><a href="viewPastOrders.php">View order history</a></li>
 
             </ul>
 
@@ -94,8 +94,7 @@ if (!(isset($_SESSION['userID']))) {
                 Full Name: <?php echo $name; ?>
                 <br>
                 Username: <?php echo $username; ?>
-                <br>
-                Password: <?php echo $password; ?>
+
                 <br>
                 Address: <?php echo $address; ?>
                 <br>
@@ -108,10 +107,7 @@ if (!(isset($_SESSION['userID']))) {
                 Phone Number: <?php echo $phone; ?>
                 <br>
                 Email Address: <?php echo $email; ?>
-                <br>
-                Security Question: <?php echo $question; ?>
-                <br>
-                Security Answer: <?php echo $answer; ?>
+
                 <br>
                 <a href="profileUpdate.php">Update your profile</a>
             </p>

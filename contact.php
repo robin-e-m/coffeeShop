@@ -39,25 +39,30 @@
                         
                         <div class="register-option">
                             <label style="font-size: 20px">Name:</label>
+                            <br>
                             <input type="text" name="name" size="100" required/>
                         </div>
 
                         <div class="register-option">
                             <label style="font-size: 20px">Email:</label>
+                            <br>
                             <input type="email" name="email" size="100" required/>
                         </div>
 
                         <div class="register-option">
                             <label style="font-size: 20px">Subject:</label>
+                            <br>
                             <input type="text" name="subject" size="100" required/>
                         </div>
 
                         <div class="register-option">
                             <label style="font-size: 20px">Message:</label>
+                            <br>
                             <input type="text" name="message" size="100" required/>
                         </div>
 
                         <div class="button-center">
+                            
                             <input class="form-button" type="submit" value="Submit" />
                         </div>
                     </form>

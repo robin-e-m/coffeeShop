@@ -16,11 +16,18 @@
         ?>
         <hr>
         
-    <form method="get" action="menu.php" style="display: flex; gap: 5px; align-items: center;">
+<form method="get" action="menu.php" style="display: flex; gap: 5px; align-items: center; justify-content: space-between; width: 100%;">
+  <div style="display: flex; gap: 5px; align-items: center;">
     <input type="text" name="search" placeholder="Search menu..." style="padding: 5px; font-size: 14px;">
-    <button class="form-button" type="submit" style="padding: 5px 10px; font-size: 14px; cursor: pointer;">Search</button>
-    <button class="form-button" type="submit" name="search" value="" style="padding: 5px 10px; font-size: 14px; cursor: pointer;">Clear Search</button>
-    </form>
+    <button class="form-button" type="submit" style="padding: 5px 10px; font-size: 14px;">Search</button>
+    <button class="form-button" type="submit" name="search" value="" style="padding: 5px 10px; font-size: 14px;">Clear</button>
+  </div>
+
+  <button class="form-button" type="button" onclick="window.location.href='cart.php'" style="padding: 5px 10px; font-size: 20px; cursor: pointer;">
+    View Cart
+  </button>
+</form>
+        
         
         <?php
 require 'DBConnect.php';
@@ -201,17 +208,12 @@ if ($result4->num_rows > 0) {
         echo "</div>";
         
     }
-    echo "</div>";
-    echo "<br>";
-    echo "<div class='butt-center'>
-        <input class='form-button' type='submit' value='Go to cart' style='font-size:30px;' onclick=\"document.location='cart.php'\" />
-      </div>";
-        echo "</div>";
     }
     
     if ($result->num_rows === 0 && $result2->num_rows === 0 && $result3->num_rows === 0 && $result4->num_rows === 0) {
     echo "<h1 class='home-main-content'; style='font-family:inherit'>No items found</h1>";
 }
+    echo "</div>";
 
     ?>
         </div>

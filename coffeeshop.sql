@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 07, 2025 at 09:54 PM
+-- Generation Time: May 10, 2025 at 04:02 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -73,7 +73,7 @@ INSERT INTO `menu` (`itemID`, `name`, `description`, `price`, `category`, `image
 (37, 'Iced Regular Coffee (Small)', '8 oz of cold-brewed coffee', 2.99, 'cold', 'uploads/68154e0e6f7f1_small_iced_reg.jpg'),
 (38, 'Iced Matcha Latte', 'Matcha green tea blended with milk and served over ice.', 4.99, 'cold', 'uploads/68162aee1644e_iced-matcha-latte.jpg'),
 (39, 'Iced Strawberry Green Tea', 'Green tea with sweetened with strawberry, served over ice.', 4.50, 'cold', 'uploads/68162b96a3b30_strawb_tea.jpg'),
-(40, 'Espresso Fudge Brownie', 'Espresso-infused dark chocolate brownie, sprinkled with sea salt.', 2.50, 'bake', 'uploads/68162c2921d92_espresso_brownie.jpg'),
+(40, 'Espresso Fudge Brownie', 'Espresso-infused dark chocolate brownie', 3.00, 'bake', 'uploads/681ba642318a7_espresso-brownies-featured.jpg'),
 (41, 'Lavender Lemon Bar', 'Buttery almond shortbread bar topped with lavender lemon cream.', 2.75, 'bake', 'uploads/68162d0de4822_lemon_bar.jpg'),
 (42, 'Cinnamon Roll', 'Soft roll layered with cinnamon sugar, topped with vanilla frosting.', 3.00, 'bake', 'uploads/68162d9527a6a_cinnamon_roll.jpg'),
 (43, 'Blueberry Muffin', 'Muffin with locally-grown blueberries and a lemon streusel topping.', 3.50, 'bake', 'uploads/68162e892d099_bloob_muffin.jpg'),
@@ -85,18 +85,51 @@ INSERT INTO `menu` (`itemID`, `name`, `description`, `price`, `category`, `image
 -- --------------------------------------------------------
 
 --
--- Table structure for table `orderhistory`
+-- Table structure for table `order`
 --
 
-CREATE TABLE `orderhistory` (
+CREATE TABLE `order` (
   `orderID` int(255) NOT NULL,
-  `userID` int(3) NOT NULL,
-  `itemName` varchar(100) NOT NULL,
-  `price` decimal(4,0) NOT NULL,
-  `quantity` int(3) NOT NULL,
+  `customerID` int(3) NOT NULL,
   `date` date NOT NULL,
-  `time` time(6) NOT NULL
+  `time` time(6) NOT NULL,
+  `staffID` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `order`
+--
+
+INSERT INTO `order` (`orderID`, `customerID`, `date`, `time`, `staffID`) VALUES
+(1, 8, '2025-05-08', '01:06:55.000000', 0),
+(2, 8, '2025-05-08', '01:09:44.000000', 0),
+(3, 8, '2025-05-08', '01:10:52.000000', 0),
+(4, 8, '2025-05-08', '01:49:12.000000', 0),
+(5, 8, '2025-05-08', '01:49:52.000000', 0),
+(6, 8, '2025-05-08', '01:51:38.000000', 0),
+(7, 8, '2025-05-08', '01:56:05.000000', 0),
+(8, 8, '2025-05-08', '01:57:06.000000', 0),
+(9, 8, '2025-05-08', '01:59:34.000000', 0),
+(10, 8, '2025-05-08', '02:00:17.000000', 0),
+(11, 8, '2025-05-08', '02:01:02.000000', 0),
+(12, 8, '2025-05-08', '02:02:04.000000', 0),
+(13, 8, '2025-05-08', '02:16:07.000000', 0),
+(14, 8, '2025-05-08', '02:16:42.000000', 0),
+(15, 8, '2025-05-08', '02:17:31.000000', 0),
+(16, 8, '2025-05-08', '02:18:06.000000', 0),
+(17, 8, '2025-05-08', '02:18:37.000000', 0),
+(18, 8, '2025-05-08', '02:19:25.000000', 0),
+(19, 8, '2025-05-08', '02:20:43.000000', 0),
+(20, 8, '2025-05-08', '02:21:28.000000', 0),
+(21, 8, '2025-05-08', '02:23:49.000000', 0),
+(22, 8, '2025-05-08', '02:24:27.000000', 0),
+(23, 8, '2025-05-08', '02:25:08.000000', 0),
+(24, 8, '2025-05-08', '02:27:29.000000', 0),
+(25, 8, '2025-05-08', '02:28:01.000000', 0),
+(26, 8, '2025-05-07', '20:41:24.000000', 0),
+(27, 9, '2025-05-07', '21:04:26.000000', 0),
+(28, 9, '2025-05-07', '21:07:23.000000', 0),
+(29, 8, '2025-05-07', '21:37:47.000000', 0);
 
 -- --------------------------------------------------------
 
@@ -110,6 +143,36 @@ CREATE TABLE `ordermenu` (
   `itemID` int(3) NOT NULL,
   `quantity` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `ordermenu`
+--
+
+INSERT INTO `ordermenu` (`orderItemID`, `orderID`, `itemID`, `quantity`) VALUES
+(2, 7, 30, 1),
+(3, 8, 30, 1),
+(4, 9, 29, 1),
+(5, 10, 30, 1),
+(6, 11, 29, 1),
+(7, 12, 31, 1),
+(8, 13, 38, 1),
+(9, 14, 28, 1),
+(10, 15, 31, 1),
+(11, 16, 30, 1),
+(12, 17, 30, 1),
+(13, 18, 30, 1),
+(14, 19, 30, 1),
+(15, 20, 29, 1),
+(16, 21, 30, 1),
+(17, 22, 31, 1),
+(18, 23, 30, 1),
+(19, 24, 31, 1),
+(20, 25, 31, 1),
+(21, 26, 29, 1),
+(22, 27, 47, 1),
+(23, 27, 29, 1),
+(24, 28, 29, 1),
+(25, 29, 29, 3);
 
 -- --------------------------------------------------------
 
@@ -163,11 +226,12 @@ ALTER TABLE `menu`
   ADD PRIMARY KEY (`itemID`);
 
 --
--- Indexes for table `orderhistory`
+-- Indexes for table `order`
 --
-ALTER TABLE `orderhistory`
+ALTER TABLE `order`
   ADD PRIMARY KEY (`orderID`),
-  ADD KEY `order_ibfk_1` (`userID`);
+  ADD KEY `order_ibfk_1` (`customerID`),
+  ADD KEY `order_ibfk_2` (`staffID`);
 
 --
 -- Indexes for table `ordermenu`
@@ -200,16 +264,16 @@ ALTER TABLE `menu`
   MODIFY `itemID` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
--- AUTO_INCREMENT for table `orderhistory`
+-- AUTO_INCREMENT for table `order`
 --
-ALTER TABLE `orderhistory`
-  MODIFY `orderID` int(255) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `order`
+  MODIFY `orderID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `ordermenu`
 --
 ALTER TABLE `ordermenu`
-  MODIFY `orderItemID` int(3) NOT NULL AUTO_INCREMENT;
+  MODIFY `orderItemID` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `user`
@@ -225,7 +289,7 @@ ALTER TABLE `user`
 -- Constraints for table `ordermenu`
 --
 ALTER TABLE `ordermenu`
-  ADD CONSTRAINT `ordermenu_ibfk_1` FOREIGN KEY (`orderID`) REFERENCES `orderhistory` (`orderID`),
+  ADD CONSTRAINT `ordermenu_ibfk_1` FOREIGN KEY (`orderID`) REFERENCES `order` (`orderID`),
   ADD CONSTRAINT `ordermenu_ibfk_2` FOREIGN KEY (`itemID`) REFERENCES `menu` (`itemID`);
 COMMIT;
 

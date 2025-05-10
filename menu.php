@@ -23,9 +23,13 @@
     <button class="form-button" type="submit" name="search" value="" style="padding: 5px 10px; font-size: 14px;">Clear</button>
   </div>
 
-  <button class="form-button" type="button" onclick="window.location.href='cart.php'" style="padding: 5px 10px; font-size: 20px; cursor: pointer;">
+<?php 
+if (isset($_SESSION['userID'])) {
+  echo "<button class='form-button' type='button' onclick=\"window.location.href='cart.php'\" style='padding: 5px 10px; font-size: 20px; cursor: pointer;'>
     View Cart
-  </button>
+  </button>";
+}
+?>
 </form>
         
         

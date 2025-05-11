@@ -3,8 +3,8 @@
 require 'DBConnect.php';
 include 'header.php';
 
-if (!(isset($_SESSION['usertype']))) {
-    if ($usertype != 1 OR $usertype != 2)
+if (!(isset($_SESSION['usertype']) OR ($usertype !=1))) {
+
         header("Location:index.php");
     exit;
 }
@@ -28,41 +28,56 @@ if (!(isset($_SESSION['usertype']))) {
                 }
 
                 if (isset($_GET['status']) && $_GET['status'] == 'update_success') {
+                    //echo "<div class=home-main-content>";
                     echo "<p>Item updated successfully!</p>";
                     echo "<a href='index.php'>Return to homepage</a>";
+                    //echo"</div>";
                     exit;
                 }
                 ?>
 
-                <form name="update_Item" action="updateMenuAction.php" method="get">
+                <form name="update_Item" action="updateMenuAction.php" method="post" enctype="multipart/form-data">
                     <div class="register-option">
                         <label style="font-size: 20px">Item Name:</label>
-                        <input type="text" name="name" size="100" required/>
+                        <select name="name" required>
+                            <?php
+                            $sql_names = "SELECT name FROM menu";
+                            $result_names = queryDB($sql_names);
+                            while ($row = mysqli_fetch_assoc($result_names)) {
+                            $name = htmlspecialchars($row['name']);
+                            echo "<option value=\"$name\">$name</option>";
+        }
+        ?>
+                        </select>
                     </div>
 
                     <div class="register-option">
                         <label style="font-size: 20px">Description:</label>
+                        <br>
                         <input type="text" name="description" size="100" required/>
                     </div>
 
                     <div class="register-option">
                         <label style="font-size: 20px">Item Price:</label>
+                        <br>
                         <input type="text" name="price" size="100" required/>
                     </div>
 
                     <div class="register-option">
                         <label style="font-size: 20px">Item Category</label>
+                        <br>
                         <select name="category" required >
                             <option disabled selected value>Select a category</option>
                             <option value="hot">Hot Drinks</option>
                             <option value="cold">Cold Drinks</option>
-                            <option value="bakery">Bakery</option>
+                            <option value="bake">Bakery</option>
                             <option value="limited">Seasonal</option>
                         </select>
                     </div>
 
                     <div class="form-group">
                         <label>Item photo:</label>
+                        <br>
                         <input type="file" class="form-control" placeholder="Add Picture" name="photo">
                     </div>
 

@@ -1,98 +1,74 @@
+<!DOCTYPE html>
 <?php
 require 'DBConnect.php';
 include 'header.php';
 
-// Ensure session is only started once
-if (session_status() == PHP_SESSION_NONE) {
+if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-// Initialize cart if not set
-if (!isset($_SESSION['cart'])) {
-    $_SESSION['cart'] = [];
+if (!(isset($_SESSION['usertype']))) {
+    if ($usertype != 1 OR $usertype != 2 OR usertype != 3)
+        header("Location:index.php");
+    exit;
 }
 
-// Handle adding items to cart
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['name'], $_POST['price'], $_POST['quantity'])) {
-    $item = [
-        'name' => $_POST['name'],
-        'price' => floatval($_POST['price']),
-        'quantity' => intval($_POST['quantity'])
-    ];
-
-    // Check if the item already exists in the cart and update quantity
-    $exists = false;
-    foreach ($_SESSION['cart'] as &$cartItem) {
-        if ($cartItem['name'] == $item['name']) {
-            $cartItem['quantity'] += $item['quantity'];
-            $exists = true;
-            break;
-        }
-    }
-
-    if (!$exists) {
-        $_SESSION['cart'][] = $item;
-    }
-}
-
-// Handle item removal
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['remove'])) {
-    $_SESSION['cart'] = array_filter($_SESSION['cart'], fn($item) => $item['name'] !== $_POST['remove']);
-}
-
-// Calculate total price
-$total = array_reduce($_SESSION['cart'], fn($sum, $item) => $sum + ($item['price'] * $item['quantity']), 0);
-
-// Handle order submission & reset cart
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit_order'])) {
-    // Logic to process the order (e.g., save to database)
-    $_SESSION['cart'] = []; // Reset cart after submission
-}
 ?>
-
-<!DOCTYPE html>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <title>Ordering Cart</title>
-    <style>
-        .cart-container { text-align: center; max-width: 600px; margin: auto; background-color: #222; padding: 20px; border-radius: 10px; }
-    .cart-item { margin-bottom: 10px; color: white; }
-    .cart-total { font-size: 20px; font-weight: bold; color: white; }
-    .form-button { padding: 10px 15px; background-color: teal; color: white; border: none; cursor: pointer; }
-    .form-button:hover { background-color: darkslategray; }
-        
-    </style>
+    <head>
+        <meta charset="UTF-8">
+        <title>Ordering Cart</title>
+    <br>
+
 </head>      
+
 <body>
-    <div class="cart-container">
-        <h1 style="font-size:50px; color: white; ">Ordering Cart</h1>
-
-        <?php if (!empty($_SESSION['cart'])): ?>
-            <h2>Your Cart Items</h2>
-            <ul>
-                <?php foreach ($_SESSION['cart'] as $item): ?>
-                    <li class="cart-item">
-                        <?= htmlspecialchars($item['quantity']) ?> x <?= htmlspecialchars($item['name']) ?> - 
-                        <strong>$<?= number_format($item['price'] * $item['quantity'], 2) ?></strong>
-                        <form action="cart.php" method="POST" style="display:inline;">
-                            <input type="hidden" name="remove" value="<?= htmlspecialchars($item['name']) ?>">
-                            <button type="submit" class="form-button">Remove</button>
-                        </form>
-                    </li>
-                <?php endforeach; ?>
-            </ul>
-
-            <h3 class="cart-total">Total Price: $<?= number_format($total, 2) ?></h3>
-            
-            <form action="cart.php" method="POST">
-                <button type="submit" name="submit_order" class="form-button">Submit Order</button>
-            </form>
-        <?php else: ?>
-            <p>Your cart is empty.</p>
-        <?php endif; ?>
+    <div class="home-top-section"></div>
+    <div class="home-top-text">
+        <h1 style="font-size:100px; font-family:inherit;">Ready to Checkout?</h1>
     </div>
+    
+    <?php
+    if (isset($_GET['status']) && $_GET['status'] == 'success') {
+                echo "<p>Order submitted successfully!</p>";
+                exit;
+            }
+    
+    if (!isset($_SESSION['cart']) || count($_SESSION['cart']) == 0) {
+        echo "<p class='home-main-content' style='font-size:30px'>Your cart is empty!</p>";
+    }
+    
+    else {
+        $total = 0;
+        echo "<div class='home-main-content'>";
+        echo "<ul style='font-size: 30px; list-style-position: inside; text-align: center; padding-left: 0;'>";
+foreach ($_SESSION['cart'] as $index => $item) {
+    $itemTotal = $item['price'] * $item['quantity'];
+    $total += $itemTotal;
+    echo "<li style='display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;'>
+            <span>{$item['quantity']} x {$item['name']} = $" . number_format($itemTotal, 2) . "</span>
+                <div style='display: flex; align-items: center;'>
+            <form method='post' action='updateCart.php'>
+            <input type='number' name='quantity' value='{$item['quantity']}' min='1' style='width: 50px;'>
+            <input type='hidden' name='itemIndex' value='$index'>
+            <input type='hidden' name='itemID' value='{$item['itemID']}'>
+            <button type='submit' class='form-button' style='font-size:20px'>Adjust qty</button>
+            </form>
+            <form method='post' action='addToCart.php'>
+                <input type='hidden' name='itemIndex' value='$index'>
+                <button type='submit' class='remove-button' style='font-size:20px'>Remove</button>
+            </form>
+            </div>
+          </li>";
+}
+        echo "</ul>";
+        echo "<p style='font-size: 35px;'>Total: $" . number_format($total, 2) . "</p>";
+        echo "<div class='butt-center'>
+        <input class='form-button' type='submit' value='Submit' style='font-size:30px;' onclick=\"document.location='cartAction.php'\" />
+      </div>";
+        echo "</div>";
+}
+    ?>
+    
 </body>
 </html>
-
-

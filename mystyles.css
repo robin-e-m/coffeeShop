@@ -192,3 +192,55 @@ h1 {
   color: #333;
   margin-top: 10px;
 }
+
+.order-summary {
+            margin: 10px 0;
+            padding: 10px;
+            background: #eee;
+            cursor: pointer;
+            border-radius: 5px;
+            color: black;
+            font-size: 20px;
+        }
+
+.order-details {
+            display: none;
+            padding: 10px 20px;
+            background: #f9f9f9;
+            border-left: 4px solid #aaa;
+            color: black;
+            font-size: 15px;
+        }
+        
+.glowing-message {
+    font-size: 25px;
+    font-weight: bold;
+    color: #28a745;
+    animation: glow 1.5s ease-in-out infinite alternate;
+}
+
+.fade-in {
+    animation: fadeIn 1s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.remove-button {
+    padding: 10px 15px;
+    border-radius: 10px;
+    margin: 10px;
+    transition-duration: 0.4s;
+    font-family: Georgia, serif;
+}
+
+.remove-button:hover {
+    background-color: darkred;
+    color: white;
+}

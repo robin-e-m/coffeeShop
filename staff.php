@@ -59,7 +59,7 @@ if (!(isset($_SESSION['userID']))) {
                 <li><a href="registerMenu.php">Add new menu item</a></li>
                 <li><a href="updateMenu.php">Modify menu item</a></li>
                 <li><a href="profileUpdate.php">Update your profile</a></li>
-                <li><a href="orderHistoryAction.php">View order history</a></li>
+                <li><a href="viewPastOrders.php">View order history</a></li>
                 <li><a href="maintenance.php">report a problem</a></li>
                 <li><a href="maintenanceSummary.php">review problem</a></li>
             </ul>
@@ -72,8 +72,6 @@ if (!(isset($_SESSION['userID']))) {
                 <br>
                 Username: <?php echo $username; ?>
                 <br>
-                Password: <?php echo $password; ?>
-                <br>
                 Address: <?php echo $address; ?>
                 <br>
                 City: <?php echo $city; ?>
@@ -85,11 +83,7 @@ if (!(isset($_SESSION['userID']))) {
                 Phone Number: <?php echo $phone; ?>
                 <br>
                 Email Address: <?php echo $email; ?>
-                <br>
-                Security Question: <?php echo $question; ?>
-                <br>
-                Security Answer: <?php echo $answer; ?>
-                <br>
+
             </p>
 
             <br>

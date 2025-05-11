@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 07, 2025 at 08:43 PM
+-- Generation Time: May 10, 2025 at 04:02 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -40,30 +40,8 @@ CREATE TABLE `feedback` (
 --
 
 INSERT INTO `feedback` (`revID`, `name`, `email`, `subject`, `message`) VALUES
-(1, 'Customer Main', 'customer1@practice.com', 'allergen warnings', 'Please add allergen warnings to the menu');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `maintenance`
---
-
-CREATE TABLE `maintenance` (
-  `maintenanceID` int(3) NOT NULL,
-  `name` varchar(30) NOT NULL,
-  `problem` varchar(500) NOT NULL,
-  `time` varchar(500) NOT NULL,
-  `other` varchar(500) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `maintenance`
---
-
-INSERT INTO `maintenance` (`maintenanceID`, `name`, `problem`, `time`, `other`) VALUES
-(1, 'Bob', 'ice cream is broken', 'today at 6', 'NA'),
-(2, 'tom', 'coffee machine', 'today at 5', 'NA'),
-(3, 'tom', 'bathroom ', 'this morning', 'NA');
+(1, 'Customer 1', 'customer1@practice.test', 'Nut allergens', 'Please add any potential nut allergens on the menu'),
+(2, 'Customer 2', 'customer2@practice.test', 'Gluten sensitivity', 'Are there gluten free options?');
 
 -- --------------------------------------------------------
 
@@ -95,16 +73,14 @@ INSERT INTO `menu` (`itemID`, `name`, `description`, `price`, `category`, `image
 (37, 'Iced Regular Coffee (Small)', '8 oz of cold-brewed coffee', 2.99, 'cold', 'uploads/68154e0e6f7f1_small_iced_reg.jpg'),
 (38, 'Iced Matcha Latte', 'Matcha green tea blended with milk and served over ice.', 4.99, 'cold', 'uploads/68162aee1644e_iced-matcha-latte.jpg'),
 (39, 'Iced Strawberry Green Tea', 'Green tea with sweetened with strawberry, served over ice.', 4.50, 'cold', 'uploads/68162b96a3b30_strawb_tea.jpg'),
-(40, 'Espresso Fudge Brownie', 'Espresso-infused dark chocolate brownie, sprinkled with sea salt.', 2.50, 'bake', 'uploads/68162c2921d92_espresso_brownie.jpg'),
+(40, 'Espresso Fudge Brownie', 'Espresso-infused dark chocolate brownie', 3.00, 'bake', 'uploads/681ba642318a7_espresso-brownies-featured.jpg'),
 (41, 'Lavender Lemon Bar', 'Buttery almond shortbread bar topped with lavender lemon cream.', 2.75, 'bake', 'uploads/68162d0de4822_lemon_bar.jpg'),
 (42, 'Cinnamon Roll', 'Soft roll layered with cinnamon sugar, topped with vanilla frosting.', 3.00, 'bake', 'uploads/68162d9527a6a_cinnamon_roll.jpg'),
 (43, 'Blueberry Muffin', 'Muffin with locally-grown blueberries and a lemon streusel topping.', 3.50, 'bake', 'uploads/68162e892d099_bloob_muffin.jpg'),
 (44, 'Chocolate Chip Cookie', 'Soft baked cookie with semi-sweet chocolate chips', 1.99, 'bake', 'uploads/68162fa9e3769_choc_chip.jpg'),
 (45, 'Cherry Blossom Latte', 'Espresso with steamed milk and cherry blossom syrup', 5.00, 'limited', 'uploads/681630c77eae2_cherry_blossom.jpg'),
 (47, 'Honey Carrot Cake Muffin', 'Spiced carrot cake with natural honey and cream cheese glaze', 4.50, 'limited', 'uploads/681631b6a0a1f_carrot-muffins-4.jpg'),
-(48, 'Lavender Latte', 'Espresso with steamed milk and lavender syrup', 4.50, 'limited', 'uploads/68163248c8635_lavender_coffee.jpg'),
-(49, 'Easter Egg Cupcakes', 'White cake with blue buttercream and mini chocolate eggs', 3.75, 'limited', 'uploads/68163325be52a_Robins-Egg-Easter-Cupcakes.jpg'),
-(50, 'Strawberry Lemon Cupcake', 'Vanilla cupcake with lemon flavor, topped with strawberry frosting and a strawberry slice', 3.99, 'limited', 'uploads/68190a77133ef_strawberry-lemon-cupcakes.jpg');
+(49, 'Easter Egg Cupcakes', 'White cake with blue buttercream and mini chocolate eggs', 3.75, 'limited', 'uploads/68163325be52a_Robins-Egg-Easter-Cupcakes.jpg');
 
 -- --------------------------------------------------------
 
@@ -120,6 +96,41 @@ CREATE TABLE `order` (
   `staffID` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `order`
+--
+
+INSERT INTO `order` (`orderID`, `customerID`, `date`, `time`, `staffID`) VALUES
+(1, 8, '2025-05-08', '01:06:55.000000', 0),
+(2, 8, '2025-05-08', '01:09:44.000000', 0),
+(3, 8, '2025-05-08', '01:10:52.000000', 0),
+(4, 8, '2025-05-08', '01:49:12.000000', 0),
+(5, 8, '2025-05-08', '01:49:52.000000', 0),
+(6, 8, '2025-05-08', '01:51:38.000000', 0),
+(7, 8, '2025-05-08', '01:56:05.000000', 0),
+(8, 8, '2025-05-08', '01:57:06.000000', 0),
+(9, 8, '2025-05-08', '01:59:34.000000', 0),
+(10, 8, '2025-05-08', '02:00:17.000000', 0),
+(11, 8, '2025-05-08', '02:01:02.000000', 0),
+(12, 8, '2025-05-08', '02:02:04.000000', 0),
+(13, 8, '2025-05-08', '02:16:07.000000', 0),
+(14, 8, '2025-05-08', '02:16:42.000000', 0),
+(15, 8, '2025-05-08', '02:17:31.000000', 0),
+(16, 8, '2025-05-08', '02:18:06.000000', 0),
+(17, 8, '2025-05-08', '02:18:37.000000', 0),
+(18, 8, '2025-05-08', '02:19:25.000000', 0),
+(19, 8, '2025-05-08', '02:20:43.000000', 0),
+(20, 8, '2025-05-08', '02:21:28.000000', 0),
+(21, 8, '2025-05-08', '02:23:49.000000', 0),
+(22, 8, '2025-05-08', '02:24:27.000000', 0),
+(23, 8, '2025-05-08', '02:25:08.000000', 0),
+(24, 8, '2025-05-08', '02:27:29.000000', 0),
+(25, 8, '2025-05-08', '02:28:01.000000', 0),
+(26, 8, '2025-05-07', '20:41:24.000000', 0),
+(27, 9, '2025-05-07', '21:04:26.000000', 0),
+(28, 9, '2025-05-07', '21:07:23.000000', 0),
+(29, 8, '2025-05-07', '21:37:47.000000', 0);
+
 -- --------------------------------------------------------
 
 --
@@ -132,6 +143,36 @@ CREATE TABLE `ordermenu` (
   `itemID` int(3) NOT NULL,
   `quantity` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `ordermenu`
+--
+
+INSERT INTO `ordermenu` (`orderItemID`, `orderID`, `itemID`, `quantity`) VALUES
+(2, 7, 30, 1),
+(3, 8, 30, 1),
+(4, 9, 29, 1),
+(5, 10, 30, 1),
+(6, 11, 29, 1),
+(7, 12, 31, 1),
+(8, 13, 38, 1),
+(9, 14, 28, 1),
+(10, 15, 31, 1),
+(11, 16, 30, 1),
+(12, 17, 30, 1),
+(13, 18, 30, 1),
+(14, 19, 30, 1),
+(15, 20, 29, 1),
+(16, 21, 30, 1),
+(17, 22, 31, 1),
+(18, 23, 30, 1),
+(19, 24, 31, 1),
+(20, 25, 31, 1),
+(21, 26, 29, 1),
+(22, 27, 47, 1),
+(23, 27, 29, 1),
+(24, 28, 29, 1),
+(25, 29, 29, 3);
 
 -- --------------------------------------------------------
 
@@ -165,10 +206,8 @@ INSERT INTO `user` (`userID`, `name`, `username`, `password`, `email`, `phone`, 
 (6, 'Manager Main', 'manager1', 'Coffee', 'manager1@testing.gov', '8520741963', '7411 Practice Street', 'DarkRoast', 'in', '98745', 'what is your favorite food?', 'Lasagna', 17.00, '2025-03-15', 1),
 (7, 'Staff Member', 'staff1', 'coffeeshop', 'staff1@practice.org', '0123456789', '987 Olive Avenue', 'Harvard', 'ma', '96301', 'what is your favorite color?', 'green', 15.00, '2025-03-19', 2),
 (8, 'Main Customer', 'customer1', 'coffee', 'customer1@coffeeshop.com', '7410852963', '123 Gemstone Drive', 'Nothing', 'co', '75342', 'beep boop?', 'yes', 0.00, '0000-00-00', 3),
-(9, 'customer 2', 'customer2', '$2y$10$O.n7wD9./tAet', 'customer2@coffeeshop.com', '9518479632', '741 Software Circle', 'Milano', 'tn', '32165', 'Favorite place?', 'new york', 0.00, '0000-00-00', 3),
-(10, 'staff 2', 'staff2', '$2y$10$oaB5E3QOaPIPJ', 'staff2@coffeeshop.com', '9630852741', '863 Silver Drive', 'Athens', 'fl', '98745', 'Favorite subject?', 'foreign languages', 15.00, '2025-03-17', 2),
-(11, 'manager 2', 'manager2', '$2y$10$x.iZTlf1eLwqS', 'manager2@testing.gov', '9630852741', '123 School Avenue', 'Lancaster', 'id', '74539', 'Favorite movie?', 'Aliens', 17.00, '2025-02-15', 1),
-(13, 'Decaf Coffee (Large)', 'mahadev', '', '', '', '', '', '', '', '', '', 18.00, '2025-03-20', 1);
+(9, 'customer 2', 'customer2', 'CoffeeShop', 'customer2@coffeeshop.com', '9518479632', '741 Software Circle', 'Milano', 'tn', '32165', 'Favorite place?', 'new york', 0.00, '0000-00-00', 3),
+(10, 'staff 2', 'staff2', 'CoffeeShop', 'staff2@coffeeshop.com', '9630852741', '863 Silver Drive', 'Athens', 'fl', '98745', 'Favorite subject?', 'foreign languages', 15.00, '2025-03-17', 2);
 
 --
 -- Indexes for dumped tables
@@ -179,12 +218,6 @@ INSERT INTO `user` (`userID`, `name`, `username`, `password`, `email`, `phone`, 
 --
 ALTER TABLE `feedback`
   ADD PRIMARY KEY (`revID`);
-
---
--- Indexes for table `maintenance`
---
-ALTER TABLE `maintenance`
-  ADD PRIMARY KEY (`maintenanceID`);
 
 --
 -- Indexes for table `menu`
@@ -222,31 +255,25 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `feedback`
 --
 ALTER TABLE `feedback`
-  MODIFY `revID` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT for table `maintenance`
---
-ALTER TABLE `maintenance`
-  MODIFY `maintenanceID` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `revID` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `menu`
 --
 ALTER TABLE `menu`
-  MODIFY `itemID` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `itemID` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT for table `order`
 --
 ALTER TABLE `order`
-  MODIFY `orderID` int(255) NOT NULL AUTO_INCREMENT;
+  MODIFY `orderID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `ordermenu`
 --
 ALTER TABLE `ordermenu`
-  MODIFY `orderItemID` int(3) NOT NULL AUTO_INCREMENT;
+  MODIFY `orderItemID` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `user`

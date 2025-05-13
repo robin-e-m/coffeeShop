@@ -21,11 +21,10 @@ if (mysqli_num_rows($result_user) == 1) {
     $phone = $_GET["phone"];
 
     //Updating data in user table
-    $sql = "UPDATE user SET email = '" . $email . "', phone = '" .
-            $phone . "' WHERE name = " . $name;
+$sql = "UPDATE user SET email = '$email', phone = '$phone' WHERE name = '$name'";
 
     echo modifyDB($sql);
-    header("Location: userUpdate.php?status=update_success");
+    header("Location: updateUser.php?status=update_success");
 
     
 } else {      //user's name not found, redirect back to error message

@@ -19,7 +19,7 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 $userID = $_SESSION['userID'];
 
-$sql = "SELECT `order`.orderID, `order`.date, `order`.time, COUNT(ordermenu.itemID) AS item_count
+$sql = "SELECT `order`.orderID, `order`.date, `order`.time, SUM(ordermenu.quantity) AS item_count
         FROM `order`
         JOIN ordermenu ON `order`.orderID = ordermenu.orderID
         WHERE `order`.customerID = $userID

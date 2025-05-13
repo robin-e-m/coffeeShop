@@ -35,6 +35,7 @@ if (!(isset($_SESSION['usertype'])) || ($_SESSION['usertype'] != 1 && $_SESSION[
     </head>
 
     <body>
+        <div class="home-main-content">
         <?php
         // Fetch maintenance reports
         $sql_reviews = "SELECT maintenanceID, name, problem, time, other FROM maintenance";
@@ -56,6 +57,8 @@ if (!(isset($_SESSION['usertype'])) || ($_SESSION['usertype'] != 1 && $_SESSION[
             echo "<div class='data'>No results found</div>";
         }
         ?>
+            <?php include 'footer.php' ?>
+        </div>
     </body>
 </html>
 

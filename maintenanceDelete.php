@@ -1,6 +1,6 @@
 <?php
-
 require 'DBConnect.php';
+include 'header.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['maintenanceID'])) {
     $maintenanceID = intval($_POST['maintenanceID']);
@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['maintenanceID'])) {
     }
 }
 
-header("Location:maintenanceSummary.php");
+header("Location:contactSummary.php");
 exit;
 ?>
 

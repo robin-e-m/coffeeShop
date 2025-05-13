@@ -51,71 +51,49 @@ if (!(isset($_SESSION['userID']))) {
     </head>
 
     <body>
-        <div class="home-top-section"></div>
-        <div class="home-top-text">
-            <h1 style="font-size:100px; font-family:inherit;">Perk & Pour</h1>
-            <p style="font-size:35px">Manger Page</p>
-        </div>
+
         <div class="home-main-content">
-            <h3 style="font-size:40px;color:#60b9bf;font-family:inherit; text-align:left;">Manager Actions:</h3>
-
-            <p >
-            <ul style="font-size:20px; text-align:left";>
-
-                <!-- Account Actions -->
-
-                <li><a href="registerStaff.php">Add new staff member</a></li>
-                <li><a href="registerCustomer.php">Add new customer</a></li>
-                <li><a href="updateUser.php">Update contact information</a></li>
-                <li><a href="deleteUser.php">Delete users</a></li>
-
-                <br> <!--Menu Actions-->
-
-                <li><a href="registerMenu.php">Add new menu item</a></li>
-                <li><a href="updateMenu.php">Modify menu item</a></li>
-                <li><a href="deleteMenu.php">Delete menu item</a></li>
-
-                <br><!--Maintenance Actions-->
-
-                <li><a href="maintenance.php">Submit maintenance request</a></li>
-                <li><a href="maintenanceSummary.php">View maintenance requests</a></li>
-
-                <br>
-                <li><a href="contactSummary.php">View customer feedback</a></li>
-                <li><a href="viewPastOrders.php">View order history</a></li>
-
-            </ul>
-
-            <br>
 
             <h3 style="font-size:40px;color:#60b9bf;font-family:inherit; text-align:left;">Manager Profile:</h3>
+            <a href="profileUpdate.php" style="font-size:20px;color:#60b9bf;font-family:inherit;">Update your profile</a>
+            <p style="font-size:20px; text-align:center;">
 
-            <p style="font-size:20px; text-align:left;">
-                <br>
                 Full Name: <?php echo $name; ?>
                 <br>
-                Username: <?php echo $username; ?>
-
                 <br>
+
+                Username: <?php echo $username; ?>
+                <br>
+                <br>
+
                 Address: <?php echo $address; ?>
                 <br>
+                <br>
+
                 City: <?php echo $city; ?>
                 <br>
+                <br>
+
                 State: <?php echo $state; ?>
                 <br>
+                <br>
+
                 Zip Code: <?php echo $zip; ?>
                 <br>
+                <br>
+
                 Phone Number: <?php echo $phone; ?>
                 <br>
+                <br>
+
                 Email Address: <?php echo $email; ?>
 
                 <br>
-                <a href="profileUpdate.php">Update your profile</a>
             </p>
 
             <br>
             <br>
-<?php include 'footer.php' ?>
+            <?php include 'footer.php' ?>
             </body>
             </html>
 

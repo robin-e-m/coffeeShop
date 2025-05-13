@@ -37,24 +37,24 @@ if (!(isset($_SESSION['userID']))) {
 }
 ?>
 <div class="input-form">
-        <h1 style="font-family:inherit">Edit Your Profile</h1>
-        <div>
-              <!-- error/success messages -->
-            <?php
-            if (isset($_GET['status']) && $_GET['status'] == 'update_success') {
-                echo "<p>Account updated successfully!</p>";
-                echo "<a href='index.php'>Return to homepage</a>";
-                exit;
-            }
-            
-            if(isset($_GET['error']) && $_GET['error'] == 'retry_password') {
-                echo "<p>The passwords you entered don't match. Please try again.</p>";
-            }
-            ?>
-              <div class="form-card">
+    <h1 style="font-family:inherit">Edit Your Profile</h1>
+    <div>
+        <!-- error/success messages -->
+        <?php
+        if (isset($_GET['status']) && $_GET['status'] == 'update_success') {
+            echo "<p>Account updated successfully!</p>";
+            echo "<a href='index.php'>Return to homepage</a>";
+            exit;
+        }
+
+        if (isset($_GET['error']) && $_GET['error'] == 'retry_password') {
+            echo "<p>The passwords you entered don't match. Please try again.</p>";
+        }
+        ?>
+        <div class="form-card">
             <form name="updateProfile" action="profileAction.php" method="get">
-                
-           <div class="register-option">
+
+                <div class="register-option">
                     <label>Full Name</label>
                     <br>
                     <input type="text" name="name" size="90"  value ="<?php echo $name ?>" required/>
@@ -101,7 +101,7 @@ if (!(isset($_SESSION['userID']))) {
                     <br>
                     <input type="text" name="city" size="90" value ="<?php echo $city ?>"  required />
                 </div>
-                
+
                 <div class="register-option">
                     <label>State</label>
                     <br>
@@ -181,8 +181,10 @@ if (!(isset($_SESSION['userID']))) {
 
                 <input class = "form-button" type="submit" value ="Submit" />
                 <input class="form-button" type="reset" value="Reset" />
-        </form>
-    </div>
-
-</body>
-</html>
+            </form>
+        </div>
+        <br>
+        <br>
+        <?php include 'footer.php' ?>
+        </body>
+        </html>

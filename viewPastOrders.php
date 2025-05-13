@@ -38,8 +38,10 @@ $orders = queryDB($sql, 'i', $userID);
             }
         }
     </script>
+ 
 </head>
 <body>
+    
     <?php if ($orders->num_rows === 0): ?>
     <h1 class='home-main-content' style='font-family:inherit; text-align:center;'>You haven’t placed any orders yet!</h1>
     <?php else: ?>
@@ -77,6 +79,7 @@ $orders = queryDB($sql, 'i', $userID);
     <br>
     <?php endwhile; ?>
     <?php endif; ?>
+
 </body>
 </html>
         

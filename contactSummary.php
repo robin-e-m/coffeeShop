@@ -14,38 +14,65 @@ if (!(isset($_SESSION['usertype']))) {
     <head>
         <meta charset="UTF-8">
         <title>Contact Form Feedback</title>
-
+        <style>
+            .data {
+                color: white;
+                font-family: Arial, sans-serif;
+                font-size: 16px;
+                padding: 10px;
+                border-bottom: 1px solid #ccc;
+            }
+            .remove-button {
+                background-color: red;
+                color: white;
+                border: none;
+                padding: 5px 10px;
+                cursor: pointer;
+            }
+            .remove-button:hover {
+                background-color: darkred;
+            }
+        </style>
     </head>
 
     <body>
 
-        <?php
+        <br>
+        <div class="home-main-content">
+            <?php
 //pull customer reviews from feedback table
-        $sql_reviews = "SELECT revID, name, email, subject, message FROM feedback";
-        $result_reviews = queryDB($sql_reviews);
+            $sql_reviews = "SELECT revID, name, email, subject, message FROM feedback";
+            $result_reviews = queryDB($sql_reviews);
 
 //confirm there are entries and display
-        if (mysqli_num_rows($result_reviews) > 0) {
-            while ($row = mysqli_fetch_assoc($result_reviews)) {
-            $revNum = $row['revID'];
-            $name = $row['name'];
-            $email = $row['email'];
-            $subject = $row['subject'];
-            $message = $row['message'];
+            if (mysqli_num_rows($result_reviews) > 0) {
+                while ($row = mysqli_fetch_assoc($result_reviews)) {
+                    $revNum = $row['revID'];
+                    $name = $row['name'];
+                    $email = $row['email'];
+                    $subject = $row['subject'];
+                    $message = $row['message'];
 
-            // output data of each row
-        echo "<div class='home-main-content'>
-                <h1 style='font-family: inherit'>Review ID: $revNum</h3>
-                <h2 style='font-family: inherit'><span>Name:</span> $name</h2>
-                <h2 style='font-family: inherit'><span>Email:</span> $email</h2>
-                <h3 style='font-family: inherit'><span>Subject:</span> $subject</h3>
-                <p style='font-size:22px;'><span>Message:</span><br>$message</p>
+                    // output data of each row
+                    echo "<div class='data'>
+                <p><strong>Review ID:</strong>Review ID: $revNum</p>
+                <p><strong>Name:</strong> Name: $name</p>
+                <p><strong>Email: $email</p>
+                <p><strong>Subject: $subject</p>
+                <p><strong>Message:<br>$message</p>
+                    <form method='post' action='contactDelete.php' onsubmit=\"return confirm('Are you sure you want to delete this entry?');\">
+                            <input type='hidden' name='revID' value='" . $row['revID'] . "'>
+                            <button type='submit' class='remove-button'>Delete</button>
+                        </form>
               </div>";
+                }
+            } else {
+                echo "No results found";
             }
-        } else {
-            echo "0 results";
-        }
-        ?>
+            ?>
+            <br>
+            <?php include 'footer.php' ?>
+        </div>
 
     </body>
 </html>

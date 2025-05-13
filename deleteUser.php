@@ -14,7 +14,6 @@ if (!(isset($_SESSION['usertype'])) or $usertype != 1) {
     <body>
         <div class="input-form">
             <h1 style="font-family:inherit">Delete User</h1>
-            <h2 style="font-family:inherit">Please enter the username to delete</h2>
             <div class="form-card">
 
                 <!-- displays error message if redirected after failed attempt -->

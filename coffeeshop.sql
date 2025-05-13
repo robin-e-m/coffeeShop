@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 13, 2025 at 05:06 PM
+-- Generation Time: May 13, 2025 at 07:57 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -40,7 +40,7 @@ CREATE TABLE `feedback` (
 --
 
 INSERT INTO `feedback` (`revID`, `name`, `email`, `subject`, `message`) VALUES
-(1, 'Customer Main', 'customer1@practice.com', 'allergen warnings', 'Please add allergen warnings to the menu');
+(6, 'Main Customer', 'mainC1@practice.org', 'Nut allergens', 'Please include possible nut allergens on the menu');
 
 -- --------------------------------------------------------
 
@@ -63,7 +63,6 @@ CREATE TABLE `maintenance` (
 INSERT INTO `maintenance` (`maintenanceID`, `name`, `problem`, `time`, `other`) VALUES
 (1, 'Bob', 'ice cream is broken', 'today at 6', 'NA'),
 (2, 'tom', 'coffee machine', 'today at 5', 'NA'),
-(3, 'tom', 'bathroom ', 'this morning', 'NA'),
 (4, 'Elise D.', 'Phones not working', '2 pm yesterday', 'No dial tone, only static when trying to make a call. No incoming calls go through');
 
 -- --------------------------------------------------------
@@ -103,7 +102,6 @@ INSERT INTO `menu` (`itemID`, `name`, `description`, `price`, `category`, `image
 (44, 'Chocolate Chip Cookie', 'Soft baked cookie with semi-sweet chocolate chips', 1.99, 'bake', 'uploads/68162fa9e3769_choc_chip.jpg'),
 (45, 'Cherry Blossom Latte', 'Espresso with steamed milk and cherry blossom syrup', 5.00, 'limited', 'uploads/681630c77eae2_cherry_blossom.jpg'),
 (47, 'Honey Carrot Cake Muffin', 'Spiced carrot cake with natural honey and cream cheese glaze', 4.50, 'limited', 'uploads/681631b6a0a1f_carrot-muffins-4.jpg'),
-(48, 'Lavender Latte', 'Espresso with steamed milk and lavender syrup', 4.50, 'limited', 'uploads/68163248c8635_lavender_coffee.jpg'),
 (49, 'Easter Egg Cupcakes', 'White cake with blue buttercream and mini chocolate eggs', 3.75, 'limited', 'uploads/68163325be52a_Robins-Egg-Easter-Cupcakes.jpg');
 
 -- --------------------------------------------------------
@@ -194,7 +192,7 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`userID`, `name`, `username`, `password`, `email`, `phone`, `address`, `city`, `state`, `zip`, `question`, `answer`, `payRate`, `hireDate`, `usertype`) VALUES
 (6, 'Manager Main', 'manager1', 'Coffee', 'manager1@testing.gov', '8520741963', '7411 Practice Street', 'DarkRoast', 'in', '98745', 'what is your favorite food?', 'Lasagna', 17.00, '2025-03-15', 1),
 (7, 'Staff Member', 'staff1', 'coffeeshop', 'staff1@practice.org', '0123456789', '987 Olive Avenue', 'Harvard', 'ma', '96301', 'what is your favorite color?', 'green', 15.00, '2025-03-19', 2),
-(8, 'Main Customer', 'customer1', 'coffee', 'customer1@coffeeshop.com', '7410852963', '123 Gemstone Drive', 'Nothing', 'co', '75342', 'beep boop?', 'yes', 0.00, '0000-00-00', 3);
+(8, 'Main Customer', 'customer1', 'coffee', 'mainC1@practice.org', '9630852741', '123 Gemstone Drive', 'Nothing', 'co', '75342', 'beep boop?', 'yes', 0.00, '0000-00-00', 3);
 
 --
 -- Indexes for dumped tables
@@ -248,7 +246,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `feedback`
 --
 ALTER TABLE `feedback`
-  MODIFY `revID` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `revID` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `maintenance`
@@ -278,7 +276,7 @@ ALTER TABLE `ordermenu`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `userID` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `userID` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- Constraints for dumped tables

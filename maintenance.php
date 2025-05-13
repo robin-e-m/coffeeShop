@@ -7,12 +7,9 @@
     </head>
 
     <body>
-        <div class="home-top-section"></div>
-        <div class="home-top-text">
-            <h1 style="font-size:100px; font-family:inherit;">Perk & Pour</h1>
-            <p style="font-size:35px;">Maintenance Report Page</p>
-        </div>
 
+        <div class="home-main-content">
+            <p style="font-size:35px;">Maintenance Report Page</p>
             <div class="input-form">
                 <?php
                 if (isset($_GET['status']) && $_GET['status'] == 'success') {
@@ -23,7 +20,7 @@
                 ?>
                 <div class="form-card">
                     <form name="maintenance" action="maintenanceAction.php" method="get">
-                        
+
                         <div class="register-option">
                             <label style="font-size: 20px">Name:</label>
                             <br>
@@ -53,6 +50,9 @@
                         </div>
                     </form>
                 </div>
+                <br>
+                <br>
+                <?php include 'footer.php' ?>
             </div>
     </body>
 </html>

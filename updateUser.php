@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <?php
 include 'header.php';
+
 if (!(isset($_SESSION['usertype'])) or $usertype != 1) {
     header("Location:index.php");
     exit;
@@ -13,9 +14,11 @@ if (!(isset($_SESSION['usertype'])) or $usertype != 1) {
 
     </head>
     <body>
+
+        <div class="home-main-content">
         <div class="input-form">
             <h1 style="font-family:inherit">Update Contact Information </h1>
-            <h2 style="font-family:inherit">Please enter user's full name</h2>
+            
             <div class="form-card">
 
                 <!-- displays error or success message-->
@@ -58,8 +61,8 @@ if (!(isset($_SESSION['usertype'])) or $usertype != 1) {
 
     <br>
     <br>
-
-    <?php include 'footer.php' ?>
-</div>
+    
+        <?php include 'footer.php' ?>
+    </div>
 </body>
 </html>

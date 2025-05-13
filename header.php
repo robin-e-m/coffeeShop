@@ -16,7 +16,7 @@
         $usertype = $_SESSION['usertype'];
         
         if ($usertype == 1) { //manager is logged in
-            $homepage = "manager.php";
+            $homepage = "managerFunctions.php";
             $register = "registerStaff.php";
         } 
         

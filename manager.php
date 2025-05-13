@@ -66,6 +66,7 @@ if (!(isset($_SESSION['userID']))) {
 
                 <li><a href="registerStaff.php">Add new staff member</a></li>
                 <li><a href="registerCustomer.php">Add new customer</a></li>
+                <li><a href="updateUser.php">Update contact information</a></li>
                 <li><a href="deleteUser.php">Delete users</a></li>
 
                 <br> <!--Menu Actions-->
@@ -87,7 +88,7 @@ if (!(isset($_SESSION['userID']))) {
 
             <br>
 
-            <h3 style="font-size:40px;color:#60b9bf;font-family:inherit; text-align:left;">Profile Details:</h3>
+            <h3 style="font-size:40px;color:#60b9bf;font-family:inherit; text-align:left;">Manager Profile:</h3>
 
             <p style="font-size:20px; text-align:left;">
                 <br>

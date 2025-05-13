@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<?php
+        <?php
 require "DBConnect.php";
 include 'header.php';
 
@@ -20,7 +20,7 @@ $result_user = queryDB($sql_user);
 //if username found, get question and answer from user table
 if (mysqli_num_rows($result_user) == 1) {
     $row = mysqli_fetch_assoc($result_user);
-
+    
     $sql_user = "DELETE FROM user WHERE username = '$user'";
     echo modifyDB($sql_user);
     header("Location: deleteUser.php?status=update_success");
@@ -40,6 +40,8 @@ if (mysqli_num_rows($result_user) == 0) {
     </head>
 
     <body>
+         
+
         <div>
             <a href="index.php">Return to Home Page</a>
         </div>

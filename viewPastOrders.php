@@ -79,7 +79,7 @@ $orders = queryDB($sql, 'i', $userID);
     <br>
     <?php endwhile; ?>
     <?php endif; ?>
-
+<?php include 'footer.php' ?>
 </body>
 </html>
         

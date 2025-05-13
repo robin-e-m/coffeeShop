@@ -221,4 +221,6 @@ if ($result4->num_rows > 0) {
 
     ?>
         </div>
+        <br><br>
+        <?php include 'footer.php' ?>
     </body>

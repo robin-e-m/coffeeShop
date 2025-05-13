@@ -49,4 +49,6 @@ unset($_SESSION['cart']);
 
 header("Location: orderHistory.php");
 exit;
+
+include 'footer.php'; 
 ?>

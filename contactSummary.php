@@ -73,6 +73,8 @@ if (!(isset($_SESSION['usertype']))) {
             <br>
             <?php include 'footer.php' ?>
         </div>
-
+        <br>
+        <br>
+        <?php include 'footer.php' ?>
     </body>
 </html>

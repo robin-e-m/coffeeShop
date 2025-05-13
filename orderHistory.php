@@ -70,6 +70,7 @@ echo "<p style='color:#28a745'>Your order has been placed successfully!</p>";
 echo "<a href='index.php'>Go back to Home</a>";
 echo "</div>";
 
+include 'footer.php';
 ?>
 
 

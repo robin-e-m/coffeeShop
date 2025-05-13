@@ -19,12 +19,12 @@ if (!(isset($_SESSION['usertype'])) or $usertype != 1) {
         <div class="home-main-content">
             <h3 style="font-size:40px;color:#60b9bf;font-family:inherit; text-align:left;">Manager Actions:</h3>
 
-            <p >
+            <p>
             <ul style="font-size:20px; text-align:left";>
                 <li><a href="contactSummary.php">View customer feedback</a></li>
                 <li><a href="viewPastOrders.php">View order history</a></li>
                 <br>
-                
+
                 <!-- Account Actions -->
                 Account Actions
                 <li><a href="registerStaff.php">Add new staff member</a></li>

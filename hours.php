@@ -17,5 +17,8 @@
             <p>Mon–Fri: 6:00 AM – 3:00 PM</p>
             <p>Sat–Sun: 6:00 AM – 2:00 PM</p>
         </div>
+        <br>
+        <br>
+        <?php include 'footer.php' ?>
     </body>
 </html>

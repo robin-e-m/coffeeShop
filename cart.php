@@ -69,6 +69,7 @@ foreach ($_SESSION['cart'] as $index => $item) {
         echo "</div>";
 }
     ?>
+    <?php include 'footer.php' ?>
     
 </body>
 </html>

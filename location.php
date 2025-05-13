@@ -20,5 +20,8 @@
             <p>123 Brew Street</p>
             <p>Beanville, CA 90210</p>
         </div>
+        <br>
+        <br>
+        <?php include 'footer.php' ?>
     </body>
 </html>

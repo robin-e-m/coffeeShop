@@ -1,4 +1,5 @@
 <?php
+include 'header.php';
 
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
@@ -54,4 +55,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !isset($_POST['itemIndex'])) {
     header("Location: menu.php");
     exit;
 }
+
+include 'footer.php';
 ?>

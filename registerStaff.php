@@ -20,7 +20,7 @@ if (!(isset($_SESSION['usertype'])) or $usertype != 1) {
         <h1 style="font-family:inherit">Staff Registration</h1>
           <!-- error/success messages -->
             <?php
-            if (isset($_GET['status']) && $_GET['status'] == 'success') {
+            if (isset($_GET['status']) && $_GET['status'] == 'register_success') {
                 echo "<p>Message submitted successfully!</p>";
                 echo "<a href='index.php'>Return to homepage</a>";
                 exit;

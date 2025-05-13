@@ -34,7 +34,9 @@ if (!(isset($_SESSION['usertype'])) or $usertype != 1) {
                 }
                 ?>
 
-                <form name="delete_menu" action="deleteMenuAction.php" method="get" enctype="multipart/form-data">
+                <form name="delete_menu" action="deleteMenuAction.php"
+                      method="get" enctype="multipart/form-data"
+                      onsubmit="return confirmation('Are you sure you want to delete this item?')">
 
                     <!--
                     <div class="register-option">

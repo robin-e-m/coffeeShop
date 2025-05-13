@@ -57,7 +57,7 @@ echo "</div>";
             $itemTotal = $quantity * $price;
             $total += $itemTotal;
 
-            echo "<li><strong>$name:</strong> $quantity x $$price = $$itemTotal</li>";
+            echo "<li style='list-style-type: none;'><strong>$name:</strong> $quantity x $$price = $$itemTotal</li>";
         }
         echo "</ul>";
         echo "<p><strong>Total:</strong> $$total</p>";

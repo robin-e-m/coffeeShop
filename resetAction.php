@@ -5,7 +5,6 @@
     include 'header.php';
     openDB();
     
-    
 //username needs to be initialized to something, otherwise throws an error
 //-> checks if POST or GET. if neither, set to null
 $user = isset($_GET["username"]) ? $_GET["username"] : (isset($_POST["username"]) ? $_POST["username"] : null);
@@ -41,7 +40,7 @@ if (mysqli_num_rows($result_user) == 0){
 //form for security answer
     echo "
     <br>
-    <form action='resetAction.php' method='POST' class='password-card'>
+    <form action='resetAction.php' method='POST' class='input-form'>
         <label for='security_answer' class='security-question'>$security_question</label>
         <br>
         <br>
@@ -62,10 +61,13 @@ if (mysqli_num_rows($result_user) == 0){
         echo "
         <br>
         <br>
-        <form action='resetAction.php' method='POST' class='password-card'>
+        <form action='resetAction.php' method='POST' class='input-form'>
             <label for='new_password' class='security-question'>Enter new password:</label>
             <br>
             <input class='reset-input' type='password' id='new_password' name='new_password' required>
+            <label for='new_password2' class='security-question'>Re-type password:</label>
+            <br>
+            <input class='reset-input' type='password' id='new_password2' name='new_password2' required>
             <input type='hidden' id='username' name='username' value='$user'>
             <br>
             <br>
@@ -84,9 +86,13 @@ if (mysqli_num_rows($result_user) == 0){
     //if a new password entered --> update password in database
     if (isset($_POST['new_password'])) {
         $new_password = $_POST['new_password'];
+        $new_password2 = $_POST['new_password2'];
+        if ($new_password !== $new_password2) {
+        echo "<br><p class='security-question'>Passwords do not match. Please try again.</p>";
+    } else {
         $new_hashed = password_hash($new_password, PASSWORD_DEFAULT);
 
-        $sql_update = "UPDATE user SET password = '$new_hashed' WHERE username = '$user'";
+        $sql_update = "UPDATE user SET password = '$new_password' WHERE username = '$user'";
         $result_update = queryDB($sql_update);
         
         if ($result_update) {
@@ -95,6 +101,7 @@ if (mysqli_num_rows($result_user) == 0){
         else {
             echo "<br><p class='security-question'>Error, your password was not changed. Please try again.</p>";
         }
+    }
     }
 
     ?>

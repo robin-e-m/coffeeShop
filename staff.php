@@ -56,8 +56,13 @@ if (!(isset($_SESSION['userID']))) {
             <ul style="font-size:20px; text-align:left";>
 
                 <li><a href="registerCustomer.php">Add new customer</a></li>
-                <li><a href="NewItem.php">Add new menu item</a></li>
-                <li><a href="#">Modify menu item</a></li>
+                <li><a href="registerMenu.php">Add new menu item</a></li>
+                <li><a href="updateMenu.php">Modify menu item</a></li>
+                <li><a href="profileUpdate.php">Update your profile</a></li>
+                <li><a href="viewPastOrders.php">View order history</a></li>
+                <li><a href="maintenance.php">report a problem</a></li>
+                <li><a href="maintenanceSummary.php">review problem</a></li>
+                <li><a href="contactSummary.php">View customer feedback</a></li>
             </ul>
             <br>
             <h3 style="font-size:40px;color:#60b9bf;font-family:inherit; text-align:left;">Profile Details:</h3>
@@ -67,8 +72,6 @@ if (!(isset($_SESSION['userID']))) {
                 Full Name: <?php echo $name; ?>
                 <br>
                 Username: <?php echo $username; ?>
-                <br>
-                Password: <?php echo $password; ?>
                 <br>
                 Address: <?php echo $address; ?>
                 <br>
@@ -81,12 +84,7 @@ if (!(isset($_SESSION['userID']))) {
                 Phone Number: <?php echo $phone; ?>
                 <br>
                 Email Address: <?php echo $email; ?>
-                <br>
-                Security Question: <?php echo $question; ?>
-                <br>
-                Security Answer: <?php echo $answer; ?>
-                <br>
-                <a href="profileUpdate.php">Update your profile</a>
+
             </p>
 
             <br>

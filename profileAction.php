@@ -33,10 +33,10 @@ if ($pswd != $pswd2) {
 else {
 
 //Updating data in user table
-$sql = "update user set Password = '" . $hashed_pswd . "', Name ='" .
-  $name . "', Address = '" . $address .  "', City = '" . $city .  "', State = '"
-  . $state .  "', Zip = '" . $zip . "', Email = '" . $email . "', Phone = '" .
-  $phone . "', Question = '" . $question . "', Answer = '" . 
+$sql = "UPDATE user SET password = '" . $hashed_pswd . "', name ='" . $name .
+  "', address = '" . $address .  "', city = '" . $city .  "', state = '" .
+   $state .  "', zip = '" . $zip . "', email = '" . $email . "', phone = '" .
+  $phone . "', question = '" . $question . "', answer = '" . 
   $answer . "' where userID = ".$userID;
 
 echo modifyDB($sql) . "<br>Use back button to return";

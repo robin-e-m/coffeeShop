@@ -50,11 +50,15 @@ if (!(isset($_SESSION['userID']))) {
             <p style="font-size:35px">Customer Page</p>
         </div>
         <div class="home-main-content">
-            <h3 style="font-size:40px;color:#60b9bf;font-family:inherit; text-align:left;">Customer Actions:</h3>
-
+            <h3 style="font-size:40px;color:white;font-family:inherit; text-align:center;">Welcome back, <?php echo $name; ?>!</h3>
+            <br>
+            <h3 style="font-size:40px;color:#60b9bf;font-family:inherit; text-align:left;">What would you like to do?</h3>
+           
             <p >
             <ul style="font-size:20px; text-align:left";>
                 <li><a href="profileUpdate.php">Update your profile</a></li>
+                <li><a href="menu.php">Start a new order</a></li>
+                <li><a href="viewPastOrders.php">View order history</a></li>
             </ul>
             <br>
             <h3 style="font-size:40px;color:#60b9bf;font-family:inherit; text-align:left;">Profile Details:</h3>
@@ -64,8 +68,6 @@ if (!(isset($_SESSION['userID']))) {
                 Full Name: <?php echo $name; ?>
                 <br>
                 Username: <?php echo $username; ?>
-                <br>
-                Password: <?php echo $password; ?>
                 <br>
                 Address: <?php echo $address; ?>
                 <br>
@@ -79,9 +81,6 @@ if (!(isset($_SESSION['userID']))) {
                 <br>
                 Email Address: <?php echo $email; ?>
                 <br>
-                Security Question: <?php echo $question; ?>
-                <br>
-                Security Answer: <?php echo $answer; ?>
             </p>
 
             <br>

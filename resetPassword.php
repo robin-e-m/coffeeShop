@@ -15,7 +15,7 @@
             <!-- displays error message if redirected after failed attempt -->
             <?php
             if (isset($_GET['error']) && $_GET['error'] == 'username_not_found') {
-                echo "<p>Username not found.</p>";
+                echo "<p style='font-size:20px'>Username not found.</p>";
             }
             ?>
 

@@ -16,7 +16,7 @@
         $usertype = $_SESSION['usertype'];
         
         if ($usertype == 1) { //manager is logged in
-            $homepage = "manager.php";
+            $homepage = "managerFunctions.php";
             $register = "registerStaff.php";
         } 
         
@@ -27,7 +27,7 @@
 
         else {
             $homepage = "customer.php"; //customer is logged in
-            $register = "index.php";
+            $register = "customerRegisterRedirect.php";
         }
     }
     
@@ -43,17 +43,17 @@
         <div class="w3-panel">
             <a href="index.php" class="w3-bar-item w3-button w3-mobile" style="font-size:20px">Home</a>
             <a href="<?php echo $homepage; ?>" class="w3-bar-item w3-button w3-mobile" style="font-size:20px">Welcome</a>
-            <a href="#" class="w3-bar-item w3-button w3-mobile" style="font-size:20px">Online Store</a>
+            <a href="menu.php" class="w3-bar-item w3-button w3-mobile" style="font-size:20px">Menu</a> 
             <a href="<?php echo $register; ?>" class="w3-bar-item w3-button w3-mobile" style="font-size:20px">Register</a>
             <div class="w3-dropdown-hover w3-mobile">
                 <button class="w3-button" style="font-size:20px">About <i class="fa fa-caret-down"></i></button>
                 <div class="w3-dropdown-content w3-bar-block w3-teal">
-                    <a href="#" class="w3-bar-item w3-button w3-mobile">Location</a>
-                    <a href="#" class="w3-bar-item w3-button w3-mobile">Hours</a>
-                    <a href="#" class="w3-bar-item w3-button w3-mobile">Contact Us</a>
+                    <a href="location.php" class="w3-bar-item w3-button w3-mobile">Location</a>
+                    <a href="hours.php" class="w3-bar-item w3-button w3-mobile">Hours</a>
+                    <a href="contact.php" class="w3-bar-item w3-button w3-mobile">Contact Us</a>
                 </div>
             </div>
-            <!-- <div class=" w3-bar-item "> -->
+          
             <?php
             if (isset($_SESSION['name'])):
                 echo "<h2>Welcome</h2>" . $_SESSION['name'];

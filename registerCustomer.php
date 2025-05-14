@@ -56,7 +56,7 @@
                 <div class="register-option">
                     <label>Phone Number</label>
                     <br>
-                    <input type="text" name="phone" size="90" />
+                    <input type="text" name="phone" size="90" required/>
                 </div>
 
                 <div class="register-option">

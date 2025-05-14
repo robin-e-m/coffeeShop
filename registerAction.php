@@ -37,7 +37,7 @@ if ($usertype == "1" || $usertype == "2") { //if owner or staff
 }
 
 //check for duplicates in user table
-if ($usertype == "1" || $usertype == "2" || $usertype == '3') {
+if ($usertype == "1" || $usertype == "2") {
     $unique_user_check = "SELECT EXISTS(SELECT 1 FROM user WHERE username = '$user') AS duplicate";
     $unique_user_result = queryDB($unique_user_check);
     $row = mysqli_fetch_assoc($unique_user_result);
@@ -48,11 +48,32 @@ if ($usertype == "1" || $usertype == "2" || $usertype == '3') {
     }
 }
 
+if ($usertype == '3') {
+    $unique_user_check = "SELECT EXISTS(SELECT 1 FROM user WHERE username = '$user') AS duplicate";
+    $unique_user_result = queryDB($unique_user_check);
+    $row = mysqli_fetch_assoc($unique_user_result);
+
+    if ($row['duplicate']) {
+        header("Location: registerCustomer.php?error=duplicate_username");
+        exit;
+    }
+}
+
 //check for matching password re-type
+if ($usertype == "1" || $usertype == "2"){
 if ($pswd != $pswd2) {
     header("Location: registerStaff.php?error=retry_password");
     exit;
 }
+}
+
+if ($usertype == "3"){
+    if ($pswd != $pswd2) {
+    header("Location: registerCustomer.php?error=retry_password");
+    exit;
+    }
+}
+
 //Entering data into users table
 if ($usertype == "3") { //if customer
     $pay = 0.00; //set pay to 0.00
@@ -72,24 +93,32 @@ if ($usertype == "3") { //if customer
             $answer . "', '" . $pay . "', '" . $hire . "', '" . $usertype . "')";
 }
 
-echo modifyDB($sql);
-header("Location: registerStaff.php?status=register_success");
+$result = modifyDB($sql);
+if($usertype == "1" || $usertype == "2") {
+    if($result) {
+    header("Location: registerStaff.php?status=register_success");
+}
+}
 ?>
 
 
 <html>
     <head>
         <meta charset="UTF-8">
+        <link rel="stylesheet" href="styles.css">
         <title>Registration Complete</title>
     </head>
+    <link rel="stylesheet" href="mystyles.css">
     
     <body>
-                <div>
-                    <a href="index.php">Return to Home Page</a>
+                <div class="home-main-content">
+                    <h1 style="font-family:inherit">Registration Successful!</h1>
+                    <h2 style="font-family:inherit">Return to home and log in to your account using your credentials.</h2>
+                    <br>
+                    <a href="index.php" style="font-size:30px;">Return to Home Page</a>
                         </div>
         
         <br>
         <br>
-        <?php include 'footer.php' ?>
     </body>
 </html>

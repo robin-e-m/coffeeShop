@@ -27,7 +27,7 @@ if (!(isset($_SESSION['usertype']))) {
     <div class="home-top-text">
         <h1 style="font-size:100px; font-family:inherit;">Ready to Checkout?</h1>
     </div>
-    
+    <div class='home-main-content'>
     <?php
     if (isset($_GET['status']) && $_GET['status'] == 'success') {
                 echo "<p>Order submitted successfully!</p>";
@@ -70,6 +70,6 @@ foreach ($_SESSION['cart'] as $index => $item) {
 }
     ?>
     <?php include 'footer.php' ?>
-    
+    </div>
 </body>
 </html>

@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['maintenanceID'])) {
     }
 }
 
-header("Location:contactSummary.php");
+header("Location:maintenanceSummary.php");
 exit;
 
 include 'footer.php';

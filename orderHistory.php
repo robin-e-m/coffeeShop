@@ -1,3 +1,4 @@
+<!DOCTYPE HTML>
 <?php
 require 'DBConnect.php';
 include 'header.php';
@@ -69,8 +70,9 @@ echo "</div>";
 echo "<p style='color:#28a745'>Your order has been placed successfully!</p>";
 echo "<a href='index.php'>Go back to Home</a>";
 echo "</div>";
-
-include 'footer.php';
 ?>
+<div class='home-main-content'>
+<?php include 'footer.php'; ?>
+</div>
 
 

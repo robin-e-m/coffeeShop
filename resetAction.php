@@ -40,7 +40,7 @@ if (mysqli_num_rows($result_user) == 0){
 //form for security answer
     echo "
     <br>
-    <form action='resetAction.php' method='POST' class='password-card'>
+    <form action='resetAction.php' method='POST' class='input-form'>
         <label for='security_answer' class='security-question'>$security_question</label>
         <br>
         <br>
@@ -61,7 +61,7 @@ if (mysqli_num_rows($result_user) == 0){
         echo "
         <br>
         <br>
-        <form action='resetAction.php' method='POST' class='password-card'>
+        <form action='resetAction.php' method='POST' class='input-form'>
             <label for='new_password' class='security-question'>Enter new password:</label>
             <br>
             <input class='reset-input' type='password' id='new_password' name='new_password' required>

@@ -42,6 +42,7 @@ $orders = queryDB($sql, 'i', $userID);
 </head>
 <body>
     
+    <div class='home-main-content'>
     <?php if ($orders->num_rows === 0): ?>
     <h1 class='home-main-content' style='font-family:inherit; text-align:center;'>You haven’t placed any orders yet!</h1>
     <?php else: ?>
@@ -76,10 +77,12 @@ $orders = queryDB($sql, 'i', $userID);
                 <hr>
                 <strong style='font-size:20px'>Total Cost: $<?php echo number_format($totalCost, 2); ?></strong>
         </div>
+    
     <br>
     <?php endwhile; ?>
     <?php endif; ?>
-<?php include 'footer.php' ?>
+    <?php include 'footer.php' ?>
+    </div>
 </body>
 </html>
         

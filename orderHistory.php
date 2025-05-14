@@ -3,6 +3,14 @@
 require 'DBConnect.php';
 include 'header.php';
 
+
+
+if (!(isset($_SESSION['usertype'])) || ($_SESSION['usertype'] != 1 && $_SESSION['usertype'] != 2 && $_SESSION['usertype'] !=3)) {
+    header("Location:index.php");
+    exit;
+}
+
+
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
